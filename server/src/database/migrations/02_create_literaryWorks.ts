@@ -7,12 +7,15 @@ export async function up(knex: Knex) {
         table.string('title').notNullable();
         table.string('edition').notNullable();
         table.integer('editionYear').notNullable();
+        table.integer('numberPage').notNullable();
         table.string('publishingComp').notNullable();
         table.string('publication').notNullable();
         table.string('ISBN').notNullable();
         table.string('CDD').notNullable();
         table.string('CDU').notNullable();
         table.string('translator');
+        table.boolean('borrowed');
+
 
         table.integer('author_id')
             .notNullable()

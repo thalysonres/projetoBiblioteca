@@ -11,10 +11,10 @@ export async function up(knex: Knex) {
             .notNullable()
             .references('id')
             .inTable('students');
-        table.integer('librarian_id')
+        table.integer('employees_id')
             .notNullable()
             .references('id')
-            .inTable('librarians');
+            .inTable('employees');
         table.integer('literaryWorks_id')
             .notNullable()
             .references('id')
