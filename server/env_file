@@ -1,0 +1,4 @@
+//renomear para .env e add um authSecrets/token
+module.exports = {
+    authSecrets: ""
+}

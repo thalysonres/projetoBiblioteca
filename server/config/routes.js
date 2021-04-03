@@ -3,12 +3,18 @@ module.exports = app => {
         res.send('API OK!')
     })
 
-    // add for tests
-    app.post('/students', app.api.students.save)
-    app.get('/students', app.api.students.list)
-    app.get('/students/:id', app.api.students.listOne)
-    app.put('/students/:id', app.api.students.update)
-    app.delete('/students/:id', app.api.students.del)
+    //signin
+    app.post('/signin', app.api.authStudent.signinStudent)
+    app.post('/signin2', app.api.authEmployees.signinEmployees)
+
+    // Acessos do estudante
+    app.route('/students')
+        .all(app.config.passport.authenticate())
+        .get(app.api.students.list)
+    // app.post('/students', app.api.students.save)
+    // app.get('/students/:id', app.api.students.listOne)
+    // app.put('/students/:id', app.api.students.update)
+    // app.delete('/students/:id', app.api.students.del)
 
     app.post('/localities', app.api.localities.save)
     app.get('/localities', app.api.localities.list)
