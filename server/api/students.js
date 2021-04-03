@@ -28,16 +28,49 @@ module.exports = app => {
                     employees_id: req.body.employees_id,
                 })
                 .then(_ => res.status(204).send())
-                .catch(err => res.status(400).json({message: err, status: "um erro"}))
+                .catch(err => res.status(400).json({ message: err, status: "um erro" }))
         })
     }
 
-    const list = (req, res) => {
-        app.db('students')
+    const list = async (req, res) => {
+        await app.db('students')
             .select('*')
             .then(esta => res.json(esta))
             .catch(err => res.json(err))
     }
 
-    return { save, list }
+    const listOne = async (req, res) => {
+        await app.db('students')
+                .where({ id: req.params.id })
+                .first()
+                .then(user => res.status(200).json(user))
+                .catch( err => res.status(400).json(err) )
+    }
+
+    const update = async (req, res) => {
+        await app.db('students')
+            .where({ id: req.params.id })
+            .update({
+                name: req.body.name,
+                phone: req.body.phone,
+                street: req.body.street,
+                district: req.body.district,
+                city: req.body.city,
+                state: req.body.state,
+                cpf: req.body.cpf,
+                // pass: password, lembra de caso tiver o password criptografar
+            })
+            .then(_ => res.status(204).send())
+            .catch(err => res.status(400).json(err))
+    }
+
+    const del = async (req, res) => {
+        await app.db('students')
+            .where({ id: req.params.id })
+            .delete()
+            .then(user => res.json({user, message: "deletado"}) )
+            .catch(err => res.status(400).json(err) )
+    }
+
+    return { save, list, listOne, update, del }
 }

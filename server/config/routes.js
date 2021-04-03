@@ -6,6 +6,9 @@ module.exports = app => {
     // add for tests
     app.post('/students', app.api.students.save)
     app.get('/students', app.api.students.list)
+    app.get('/students/:id', app.api.students.listOne)
+    app.put('/students/:id', app.api.students.update)
+    app.delete('/students/:id', app.api.students.del)
 
     app.post('/localities', app.api.localities.save)
     app.get('/localities', app.api.localities.list)
