@@ -11,14 +11,25 @@ module.exports = app => {
     }
     
     const strategy = new Strategy(params, (payload, done) => {
+        
         app.db('students')
             .where({ id: payload.id })
             .first()
             .then( user => {
                 if(user){
-                    done(null, { id: user.id, cpf: user.cpf })
+                    done(null, { id: user.id, cpf: user.cpf, admin: payload.admin })
                 }else {
-                    done(null, false)
+                    app.db('employees')
+                        .where({ id: payload.id })
+                        .first()
+                        .then( user => {
+                            if(user){
+                                done(null, { id: user.id, cpf: user.cpf, admin: payload.admin })
+                            }else {
+                                done(null, false)
+                            }
+                        } )
+                        .catch(err => done(null, false))
                 }
             } )
             .catch(err => done(null, false))

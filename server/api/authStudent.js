@@ -15,10 +15,10 @@ module.exports = app => {
         if(user){
             bcrypt.compare(req.body.pass, user.pass, (erro, isMath) => {
                 if(erro || !isMath){
-                    return res.status(401).send()
+                    return res.status(401).send("Senha incorreta ou erro")
                 }
 
-                const payload = { id: user.id }
+                const payload = { id: user.id, admin: false }
                 res.json({
                     name: user.name,
                     cpf: user.cpf,
