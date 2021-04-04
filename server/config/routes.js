@@ -63,7 +63,7 @@ module.exports = app => {
     app.route('/loans')
         .all(app.config.passport.authenticate())
         .post( admin(app.api.loans.save) )
-        .get( app.api.loans.list ) // student varificar para consultar só os emprestimos dele
+        .get( admin(app.api.loans.list) )
 
     app.route('/loans/:id')
         .all(app.config.passport.authenticate())
@@ -71,6 +71,7 @@ module.exports = app => {
         .put( admin(app.api.loans.update) )
         .delete( admin(app.api.loans.del) )
 
-    app.route('/loans/:id/myloans')
-        .get(app.api.loans.listMyloans)
+    app.route('/myloans')
+        .all(app.config.passport.authenticate())
+        .get(app.api.loans.listMyloans) // student
 }

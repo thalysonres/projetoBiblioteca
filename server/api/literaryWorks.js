@@ -25,7 +25,7 @@ module.exports = app => {
                     CDD: req.body.CDD,
                     CDU: req.body.CDU,
                     translator: req.body.translator,
-                    borrowed: req.body.borrowed,
+                    borrowed: false,
                 })
                 .then(_ => res.status(204).send())
                 .catch(err => res.status(400).json({ message: err, status: "um erro" }))

@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const { getDateNow, devolver } = require('./../utils/getData')
 
 module.exports = app => {
 
@@ -15,10 +16,10 @@ module.exports = app => {
 
             app.db('loans')
                 .insert({
-                    loanDate: req.body.loanDate,
-                    returnDate: req.body.returnDate,
+                    loanDate: getDateNow('i'),
+                    returnDate: devolver(),
                     student_id: req.body.student_id,
-                    employees_id: req.body.employees_id,
+                    employees_id: req.user.id, // id auto
                     literaryWorks_id: req.body.literaryWorks_id,
                 })
                 .then(_ => res.status(204).send())
@@ -36,7 +37,7 @@ module.exports = app => {
     const listMyloans = (req, res) => {
         app.db('loans')
             .select('*')
-            .where({student_id: req.params.id})
+            .where({student_id: req.user.id}) 
             .then( loans => res.json(loans) )
             .catch( err => res.status(401).json(err) )
     }
@@ -56,7 +57,7 @@ module.exports = app => {
                 loanDate: req.body.loanDate,
                 returnDate: req.body.returnDate,
                 student_id: req.body.student_id,
-                employees_id: req.body.employees_id,
+                // employees_id: req.user.id,
                 literaryWorks_id: req.body.literaryWorks_id,
             })
             .then(_ => res.status(204).send())

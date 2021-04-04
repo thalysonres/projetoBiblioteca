@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const { getDateNow } = require('./../utils/getData')
 
 module.exports = app => {
 
@@ -24,8 +25,8 @@ module.exports = app => {
                     cpf: req.body.cpf,
                     pass: password,
                     birthDate: req.body.birthDate,
-                    regDate: req.body.regDate,
-                    employees_id: req.body.employees_id,
+                    regDate: getDateNow(),
+                    employees_id: req.user.id, //id automatico
                 })
                 .then(_ => res.status(204).send())
                 .catch(err => res.status(400).json({ message: err, status: "um erro" }))
