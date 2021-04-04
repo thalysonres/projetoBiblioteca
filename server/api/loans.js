@@ -33,6 +33,14 @@ module.exports = app => {
             .catch(err => res.json(err))
     }
 
+    const listMyloans = (req, res) => {
+        app.db('loans')
+            .select('*')
+            .where({student_id: req.params.id})
+            .then( loans => res.json(loans) )
+            .catch( err => res.status(401).json(err) )
+    }
+
     const listOne = async (req, res) => {
         await app.db('loans')
                 .where({ id: req.params.id })
@@ -63,6 +71,6 @@ module.exports = app => {
             .catch(err => res.status(400).json(err) )
     }
 
-    return { save, list, listOne, update, del }
+    return { save, list, listMyloans, listOne, update, del }
 }      
 
