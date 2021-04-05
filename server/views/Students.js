@@ -18,7 +18,7 @@ render = async (app, students) => {
         pass: students.pass,
         birthDate: students.birthDate,
         regDate: students.regDate,
-        employees_id: employee
+        employees_id: employee.name
     }
 },
 
