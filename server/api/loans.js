@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const { getDateNow, devolver } = require('./../utils/getData')
+const { renderLoan, renderAll } = require('./../views/Loans')
 
 module.exports = app => {
 
@@ -30,7 +31,7 @@ module.exports = app => {
     const list = (req, res) => {
         app.db('loans')
             .select('*')
-            .then(esta => res.json(esta))
+            .then(esta => renderAll(app, esta, res) )
             .catch(err => res.json(err))
     }
 
@@ -46,7 +47,7 @@ module.exports = app => {
         await app.db('loans')
                 .where({ id: req.params.id })
                 .first()
-                .then(user => res.status(200).json(user))
+                .then(user => renderLoan(app, user).then( loan => res.json(loan) ) )
                 .catch( err => res.status(400).json(err) )
     }
 

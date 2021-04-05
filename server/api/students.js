@@ -37,7 +37,7 @@ module.exports = app => {
     const list = async (req, res) => {
         await app.db('students')
             .select('*')
-            .then(user => res.json(user))
+            .then(  users => renderAll(app, users, res) )
             .catch(err => res.json(err) )
     }
 
