@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const { getDateNow } = require('./../utils/getData')
+const { render, renderAll } = require('./../views/Students')
 
 module.exports = app => {
 
@@ -36,41 +37,46 @@ module.exports = app => {
     const list = async (req, res) => {
         await app.db('students')
             .select('*')
-            .then(esta => res.json(esta))
-            .catch(err => res.json(err))
+            .then(user => res.json(user))
+            .catch(err => res.json(err) )
     }
 
-    const listOne = async (req, res) => {
-        await app.db('students')
-                .where({ id: req.params.id })
-                .first()
-                .then(user => res.status(200).json(user))
-                .catch( err => res.status(400).json(err) )
+    const listOne = (req, res) => {
+
+        app.db('students')
+            .where({ id: req.params.id })
+            .first()
+            .then(user => render(app, user).then(user => res.status(200).json(user)))
+            .catch(err => res.status(400).json(err))
     }
 
     const update = async (req, res) => {
-        await app.db('students')
-            .where({ id: req.params.id })
-            .update({
-                name: req.body.name,
-                phone: req.body.phone,
-                street: req.body.street,
-                district: req.body.district,
-                city: req.body.city,
-                state: req.body.state,
-                cpf: req.body.cpf,
-                // pass: password, lembra de caso tiver o password criptografar
-            })
-            .then(_ => res.status(204).send())
-            .catch(err => res.status(400).json(err))
+
+        getHash(req.body.pass, hash => {
+            const password = hash
+            app.db('students')
+                .where({ id: req.params.id })
+                .update({
+                    name: req.body.name,
+                    phone: req.body.phone,
+                    street: req.body.street,
+                    district: req.body.district,
+                    city: req.body.city,
+                    state: req.body.state,
+                    cpf: req.body.cpf,
+                    pass: password,
+                })
+                .then(_ => res.status(204).send())
+                .catch(err => res.status(400).json(err))
+        })
     }
 
     const del = async (req, res) => {
         await app.db('students')
             .where({ id: req.params.id })
             .delete()
-            .then(user => res.json({user, message: "deletado"}) )
-            .catch(err => res.status(400).json(err) )
+            .then(user => res.json({ user, message: "deletado" }))
+            .catch(err => res.status(400).json(err))
     }
 
     return { save, list, listOne, update, del }
