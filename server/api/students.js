@@ -34,10 +34,11 @@ module.exports = app => {
     }
 
     const list = async (req, res) => {
+        console.log('çlasdkjf')
         await app.db('students')
             .select('*')
             .then(  users => renderAllStudent(app, users, res) )
-            .catch(err => res.json(err) )
+            // .catch(err => res.json(err) )
     }
 
     const listOne = (req, res) => {
@@ -45,7 +46,10 @@ module.exports = app => {
         app.db('students')
             .where({ id: req.params.id })
             .first()
-            .then(user => renderStudent(app, user).then(user => res.status(200).json(user)))
+            .then(user => {
+                console.log('oi')
+                renderStudent(app, user).then(user => res.status(200).json(user))
+            } )
             .catch(err => res.status(400).json(err))
     }
 

@@ -4,12 +4,8 @@ const { renderLoan, renderAllLoan } = require('./../views/Loans')
 
 module.exports = app => {
 
-    const save = (req, res) => {
-        // const allLoans = app.db('loans')
-        //                     .select('*')
-        //                     .where({ id: req.body.student_id })
-        // if(allLoans.length >= 5) res.status(401).json('Limite de empréstimos atingido! :( ')
-
+    const save = async (req, res) => {
+        
         app.db('loans')
             .insert({
                 loanDate: getDateNow('i'),
@@ -34,7 +30,7 @@ module.exports = app => {
         app.db('loans')
             .select('*')
             .where({ student_id: req.user.id })
-            .then(loans => res.json(loans))
+            .then(loans =>  renderAllLoan(app, loans, res)) 
             .catch(err => res.status(401).json(err))
     }
 
