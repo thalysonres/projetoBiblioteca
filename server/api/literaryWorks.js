@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const { renderLiterary, renderAll } = require('./../views/LiteraryWorks')
 
 module.exports = app => {
 
@@ -11,8 +12,9 @@ module.exports = app => {
     const save = (req, res) => {
 
         getHash(req.body.pass, hash => {
-            const password = hash
-
+            const password = hash   
+            const { filename } = req.file
+            console.log('filed ', filename)
             app.db('literaryWorks')
                 .insert({
                     title: req.body.title,
@@ -25,7 +27,10 @@ module.exports = app => {
                     CDD: req.body.CDD,
                     CDU: req.body.CDU,
                     translator: req.body.translator,
+                    author_id: req.body.author_id,
+                    locality_id: req.body.locality_id,
                     borrowed: false,
+                    file: filename
                 })
                 .then(_ => res.status(204).send())
                 .catch(err => res.status(400).json({ message: err, status: "um erro" }))
@@ -35,7 +40,7 @@ module.exports = app => {
     const list = (req, res) => {
         app.db('literaryWorks')
             .select('*')
-            .then(esta => res.json(esta))
+            .then(esta => renderAll(app, esta, res))
             .catch(err => res.json(err))
     }
 
@@ -43,11 +48,12 @@ module.exports = app => {
         await app.db('literaryWorks')
             .where({ id: req.params.id })
             .first()
-            .then(user => res.status(200).json(user))
+            .then(user => renderLiterary(app, user).then( literary => res.json(literary)) )
             .catch(err => res.status(400).json(err))
     }
 
     const update = async (req, res) => {
+        const { filename } = req.file
         await app.db('literaryWorks')
             .where({ id: req.params.id })
             .update({
@@ -62,6 +68,7 @@ module.exports = app => {
                 CDU: req.body.CDU,
                 translator: req.body.translator,
                 borrowed: req.body.borrowed,
+                file: filename
             })
             .then(_ => res.status(204).send())
             .catch(err => res.status(400).json(err))

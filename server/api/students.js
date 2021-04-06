@@ -14,7 +14,6 @@ module.exports = app => {
 
         getHash(req.body.pass, hash => {
             const password = hash
-
             app.db('students')
                 .insert({
                     name: req.body.name,

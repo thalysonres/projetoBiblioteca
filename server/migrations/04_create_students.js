@@ -8,7 +8,7 @@ exports.up = function(knex) {
         table.string('district').notNullable();
         table.string('city').notNullable();
         table.string('state').notNullable();
-        table.integer('cpf').notNullable().unique();
+        table.string('cpf', 11).notNullable().unique(); //integer
         table.string('pass').notNullable();
         table.date('birthDate').notNullable();
         table.date('regDate').notNullable().defaultTo('now()');

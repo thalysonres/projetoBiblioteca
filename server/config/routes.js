@@ -1,6 +1,11 @@
+const multer = require('multer')
+
 const admin = require('./admin')
+const multerConfig = require('./../config/multer')
+
 module.exports = app => {
     app.get('/', (req, res) => { res.send('API OK!') })
+    app.post('/user', app.api.employees.save )
 
     app.post('/signin', app.api.authStudent.signinStudent)
     app.post('/signin2', app.api.authEmployees.signinEmployees)
@@ -40,7 +45,7 @@ module.exports = app => {
 
     app.route('/literaryWorks')
         .all(app.config.passport.authenticate())
-        .post( admin(app.api.literaryWorks.save) )
+        .post( multer(multerConfig).single('file'), admin(app.api.literaryWorks.save) )
         .get( app.api.literaryWorks.list ) // student
 
     app.route('/literaryWorks/:id')

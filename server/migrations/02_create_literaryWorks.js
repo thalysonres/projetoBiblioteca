@@ -13,6 +13,7 @@ exports.up = function(knex) {
         table.string('CDU').notNullable();
         table.string('translator');
         table.boolean('borrowed');
+        table.string('file')
 
 
         table.integer('author_id')
