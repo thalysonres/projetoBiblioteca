@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const { getDateNow, devolver } = require('./../utils/getData')
-const { renderLoan, renderAll } = require('./../views/Loans')
+const { renderLoan, renderAllLoan } = require('./../views/Loans')
 
 module.exports = app => {
 
@@ -26,7 +26,7 @@ module.exports = app => {
         console.log('chegou')
         app.db('loans')
             .select('*')
-            .then(esta => renderAll(app, esta, res))
+            .then(esta => renderAllLoan(app, esta, res))
             .catch(err => res.json(err))
     }
 

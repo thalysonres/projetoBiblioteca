@@ -32,7 +32,7 @@ renderLiterary = async (app, literary) => {
     }
 },
 
-renderAll = (app, literaries, res) => {
+renderAllLiterary = (app, literaries, res) => {
     const array = []
     let total = literaries.length
     literaries.map(literary => {
@@ -44,4 +44,4 @@ renderAll = (app, literaries, res) => {
     })
 }
 
-module.exports = { renderLiterary, renderAll }
+module.exports = { renderLiterary, renderAllLiterary }

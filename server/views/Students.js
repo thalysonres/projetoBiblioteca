@@ -1,4 +1,4 @@
-render = async (app, students) => {
+renderStudent = async (app, students) => {
 
     let employee = await app.db('employees')
         .select('name')
@@ -22,11 +22,11 @@ render = async (app, students) => {
     }
 },
 
-renderAll = (app, students, res) => { 
+renderAllStudent = (app, students, res) => { 
     const array = []
     let total = students.length
     students.map(stud => {
-        render(app, stud)
+        renderStudent(app, stud)
             .then(j => {
                 array.push(j)
                 if(array.length >= total) res.json(array)
@@ -34,4 +34,4 @@ renderAll = (app, students, res) => {
     })
 }
 
-module.exports = { render, renderAll }
+module.exports = { renderStudent, renderAllStudent }

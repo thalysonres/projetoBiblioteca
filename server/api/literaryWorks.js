@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const { renderLiterary, renderAll } = require('./../views/LiteraryWorks')
+const { renderLiterary, renderAllLiterary } = require('./../views/LiteraryWorks')
 
 module.exports = app => {
 
@@ -40,7 +40,7 @@ module.exports = app => {
     const list = (req, res) => {
         app.db('literaryWorks')
             .select('*')
-            .then(esta => renderAll(app, esta, res))
+            .then(esta => renderAllLiterary(app, esta, res))
             .catch(err => res.json(err))
     }
 

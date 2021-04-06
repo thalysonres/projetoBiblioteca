@@ -30,7 +30,7 @@ renderLoan = async (app, loans) => {
     }
 },
 
-renderAll = (app, loans, res) => {
+renderAllLoan = (app, loans, res) => {
     const array = []
     let total = loans.length
     loans.map(loan => {
@@ -42,4 +42,4 @@ renderAll = (app, loans, res) => {
     })
 }
 
-module.exports = { renderLoan, renderAll }
+module.exports = { renderLoan, renderAllLoan }
