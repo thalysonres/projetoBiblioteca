@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-
+const { removeDots } = require('./../utils/cpfDot')
 module.exports = app => {
 
     const getHash = (password, callback) => {
@@ -21,7 +21,7 @@ module.exports = app => {
                     district: req.body.district,
                     city: req.body.city,
                     state: req.body.state,
-                    cpf: req.body.cpf,
+                    cpf: removeDots(req.body.cpf),
                     pass: password,
                     birthDate: req.body.birthDate
                 })
