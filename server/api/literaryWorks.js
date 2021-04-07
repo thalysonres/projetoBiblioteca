@@ -6,7 +6,6 @@ module.exports = app => {
     const save = (req, res) => {
 
         const { filename } = req.file
-        console.log('filed ', filename)
         app.db('literaryWorks')
             .insert({
                 title: req.body.title,

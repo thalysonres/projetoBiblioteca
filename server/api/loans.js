@@ -62,7 +62,6 @@ module.exports = app => {
     }
 
     const del = async (req, res) => {
-        console.log('req delete ', req)
         await app.db('loans')
             .where({ id: req.params.id })
             .delete()
