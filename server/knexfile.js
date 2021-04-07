@@ -1,5 +1,5 @@
 const path = require('path')
-
+require('dotenv').config()
 module.exports = {
   sqlite: {
     client: 'sqlite3',
@@ -10,10 +10,10 @@ module.exports = {
   postgres: {
     client: 'pg',
     connection: {
-      host: '127.0.0.1',
-      user: 'postgres',
-      password: '123456',
-      database: 'sqlite3'
+      host: process.env.HOST_DB,
+      user: process.env.USER_DB,
+      password: process.env.PASS_DB,
+      database: process.env.DATA_DB
     }
   }
 };

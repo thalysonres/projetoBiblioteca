@@ -1,36 +1,38 @@
 const bcrypt = require('bcrypt')
-const { getDateNow, devolver } = require('./../utils/getData')
+const { setLoans } = require('./../utils/loans')
 const { renderLoan, renderAllLoan } = require('./../views/Loans')
 
 module.exports = app => {
 
     const save = async (req, res) => {
-        
         app.db('loans')
-            .insert({
-                loanDate: getDateNow('i'),
-                returnDate: devolver(),
-                student_id: req.body.student_id,
-                employees_id: req.user.id, // id auto
-                literaryWorks_id: req.body.literaryWorks_id,
+            .select('*')
+            .where({ id: req.body.student_id })
+            .then(loans => {
+                if(loans.length <= 5) setLoans(app, req, res)
             })
-            .then(_ => res.status(204).send())
-            .catch(err => res.status(400).json({ message: err, status: "um erro" }))
+            .catch(err => res.json(401).json(err) )
     }
 
     const list = (req, res) => {
-        console.log('chegou')
         app.db('loans')
             .select('*')
-            .then(esta => renderAllLoan(app, esta, res))
+            .then(loans => {
+                if(!loans.length) res.send('Vazio :( ')
+                renderAllLoan(app, esta, res)
+            })
             .catch(err => res.json(err))
     }
 
     const listMyloans = (req, res) => {
+        
         app.db('loans')
             .select('*')
             .where({ student_id: req.user.id })
-            .then(loans =>  renderAllLoan(app, loans, res)) 
+            .then(loans => {
+                if(!loans.length) res.send('Vazio :( ')
+                renderAllLoan(app, loans, res)
+            })
             .catch(err => res.status(401).json(err))
     }
 
@@ -38,7 +40,10 @@ module.exports = app => {
         await app.db('loans')
             .where({ id: req.params.id })
             .first()
-            .then(user => renderLoan(app, user).then(loan => res.json(loan)))
+            .then(loans => {
+                if(!loans.length) res.send('Vazio :( ')
+                renderLoan(app, loans).then(loan => res.json(loan))
+            })
             .catch(err => res.status(400).json(err))
     }
 
@@ -57,10 +62,17 @@ module.exports = app => {
     }
 
     const del = async (req, res) => {
+        console.log('req delete ', req)
         await app.db('loans')
             .where({ id: req.params.id })
             .delete()
-            .then(user => res.json({ user, message: "deletado" }))
+            .then(user => {
+
+                app.db('literaryWorks')
+                    .where({ id: req.body.literaryWorks_id })
+                    .update({ borrowed: false })
+                    .then(inserido => res.json({OK: inserido, message: "deletado"}))
+            })
             .catch(err => res.status(400).json(err))
     }
 

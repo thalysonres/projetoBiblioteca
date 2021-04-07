@@ -30,16 +30,16 @@ renderLoan = async (app, loans) => {
     }
 },
 
-renderAllLoan = (app, loans, res) => {
-    const array = []
-    let total = loans.length
-    loans.map(loan => {
-        renderLoan(app, loan)
-            .then(j => {
-                array.push(j)
-                if (array.length >= total) res.json(array)
-            })
-    })
-}
+    renderAllLoan = (app, loans, res) => {
+        const array = []
+        let total = loans.length
+        loans.map(loan => {
+            renderLoan(app, loan)
+                .then(j => {
+                    array.push(j)
+                    if (array.length >= total) res.json(array)
+                })
+        })
+    }
 
 module.exports = { renderLoan, renderAllLoan }

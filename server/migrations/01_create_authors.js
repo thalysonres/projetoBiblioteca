@@ -5,7 +5,7 @@ exports.up = function(knex) {
         table.string('name').notNullable();
         table.string('countryOrigin').notNullable();
         table.string('authorsNotation').notNullable();
-        table.integer('genre').notNullable();
+        table.string('genre').notNullable();
     });
 };
 

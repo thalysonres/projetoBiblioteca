@@ -2,6 +2,8 @@ const app = require('express')()
 const consign = require('consign')
 const db = require('./config/db')
 
+require('dotenv').config()
+
 consign()
     .then('./config/middlewares.js')
     .then('./api')
@@ -11,4 +13,4 @@ consign()
 
 app.db = db
 
-app.listen( 3000, () => console.log('Server OK!') )
+app.listen( process.env.PORT, () => console.log('Server OK!') )
