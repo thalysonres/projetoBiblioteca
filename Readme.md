@@ -94,7 +94,6 @@ $ npm start
 		<li>Nodemon</li>
 	</ul>
 </ul>
-<br />
 
 ##### O front-end e o mobile não está disponível
 
