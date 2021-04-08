@@ -69,6 +69,8 @@ $ npm start
 
 ##### O front-end e o mobile não está disponível
 
+<hr />
+
 # ⚒️ Tecnologias
 ### As tecnologias usadas foram:
 
@@ -98,6 +100,8 @@ $ npm start
 </ul>
 
 ##### O front-end e o mobile não está disponível
+
+<hr />
 
 # 🤪 Contribuidores
 <ul>
