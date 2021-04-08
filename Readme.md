@@ -8,8 +8,6 @@ O projeto está sendo desenvolvido para nosso TG (TCC) da fatec franca, e tem co
 
 ## ⚙️Funcionalidades
 
-<br />
-
 #### Os funcionários poderão.
 <ul>
     <li>Cadastrar novos usuários</li>
@@ -45,8 +43,6 @@ O projeto está sendo desenvolvido para nosso TG (TCC) da fatec franca, e tem co
     <li>Ver livros disponíveis</li>
 </ul>
 
-<br /><br /><br />
-
 # 🖱️ Como executar o projeto
 
 O projeto está em desenvolvimento: e pode está separado em 2 ou 3 pastas
@@ -70,8 +66,6 @@ $ npm start
 ```
 
 ##### O front-end e o mobile não está disponível
-
-<br /><br /><br />
 
 # ⚒️ Tecnologias
 ### As tecnologias usadas foram:
@@ -103,8 +97,6 @@ $ npm start
 <br />
 
 ##### O front-end e o mobile não está disponível
-
-<br /><br /><br />
 
 # 🤪 Contribuidores
 <ul>
