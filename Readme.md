@@ -6,8 +6,6 @@ O projeto está sendo desenvolvido para nosso TG (TCC) da fatec franca, e tem co
 
 <hr />
 
-<br />
-
 ## ⚙️Funcionalidades
 
 <br />
