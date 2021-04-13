@@ -5,7 +5,7 @@ renderLoan = async (app, loans) => {
         .where({ id: loans.employees_id })
         .first()
         .then(employee => employee)
-        .catch(ee => ee)
+        .catch(err => err)
 
     let literaryWork = await app.db('literaryWorks')
         .select('title')
@@ -22,6 +22,7 @@ renderLoan = async (app, loans) => {
         .catch(err => err)
 
     return {
+        id: loans.id,
         loanDate: loans.loanDate,
         returnDate: loans.returnDate,
         student_id: student.name,

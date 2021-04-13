@@ -30,7 +30,7 @@ module.exports = app => {
             .select('*')
             .where({ student_id: req.user.id })
             .then(loans => {
-                if(!loans.length) res.send('Vazio :( ')
+                if(loans.length) res.send('Vazio :( ')
                 renderAllLoan(app, loans, res)
             })
             .catch(err => res.status(401).json(err))
@@ -41,7 +41,7 @@ module.exports = app => {
             .where({ id: req.params.id })
             .first()
             .then(loans => {
-                if(!loans.length) res.send('Vazio :( ')
+                if(loans.length) res.send('Vazio :( ')
                 renderLoan(app, loans).then(loan => res.json(loan))
             })
             .catch(err => res.status(400).json(err))

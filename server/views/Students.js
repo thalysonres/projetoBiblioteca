@@ -7,7 +7,8 @@ renderStudent = async (app, students) => {
         .then(employee => employee)
         .catch(ee => ee)
 
-    return {
+    return {        
+        id: students.id,
         name: students.name,
         phone: students.phone,
         street: students.street,

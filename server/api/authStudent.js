@@ -20,7 +20,6 @@ module.exports = app => {
 
                 const payload = { id: user.id, admin: false }
                 res.json({
-                    name: user.name,
                     cpf: user.cpf,
                     token: jwt.encode(payload, authSecrets)
                 })

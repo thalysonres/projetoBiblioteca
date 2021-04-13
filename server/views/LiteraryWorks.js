@@ -14,7 +14,8 @@ renderLiterary = async (app, literary) => {
         .then(locality => locality)
         .catch(err => err)
 
-    return {
+    return {        
+        id: literary.id,
         title: literary.title,
         edition: literary.edition,
         editionYear: literary.editionYear,
