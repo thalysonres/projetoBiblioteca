@@ -51,7 +51,7 @@ module.exports = app => {
     app.route('/literaryWorks/:id')
         .all(app.config.passport.authenticate())
         .get( admin(app.api.literaryWorks.listOne) )
-        .put( admin(app.api.literaryWorks.update) )
+        .put( multer(multerConfig).single('file'), admin(app.api.literaryWorks.update) )
         .delete( admin(app.api.literaryWorks.del) )
 
     app.route('/employees')

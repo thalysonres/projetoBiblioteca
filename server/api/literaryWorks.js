@@ -43,7 +43,7 @@ module.exports = app => {
             .where({ id: req.params.id })
             .first()
             .then(literary => {
-                if(!literary.length) res.send('Vazio :( ')
+                if(literary.length) res.send('Vazio :( ')
                 renderLiterary(app, literary).then(literary => res.json(literary))
             })
             .catch(err => res.status(400).json(err))
