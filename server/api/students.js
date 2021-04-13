@@ -5,25 +5,34 @@ const { removeDots } = require('./../utils/cpfDot')
 
 module.exports = app => {
 
+    const getHash = (password, callback) => {
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(password, salt, (err, hash) => callback(hash))
+        })
+    }
+    
     const save = (req, res) => {
 
-        app.db('students')
-            .insert({
-                name: req.body.name,
-                phone: req.body.phone,
-                street: req.body.street,
-                district: req.body.district,
-                city: req.body.city,
-                state: req.body.state,
-                cpf: removeDots(req.body.cpf),
-                pass: password,
-                birthDate: req.body.birthDate,
-                regDate: getDateNow(),
-                employees_id: req.user.id, //id automatico
-            })
+        getHash(req.body.pass, hash => {
+            const password = hash
+
+            app.db('students')
+                .insert({
+                    name: req.body.name,
+                    phone: req.body.phone,
+                    street: req.body.street,
+                    district: req.body.district,
+                    city: req.body.city,
+                    state: req.body.state,
+                    cpf: removeDots(req.body.cpf),
+                    pass: password,
+                    birthDate: req.body.birthDate,
+                    regDate: getDateNow(),
+                    employees_id: req.user.id, //id automatico
+                })
             .then(_ => res.status(204).send())
             .catch(err => res.status(400).json({ message: err, status: "um erro" }))
-
+        })
     }
 
     const list = async (req, res) => {
@@ -42,7 +51,7 @@ module.exports = app => {
             .where({ id: req.params.id })
             .first()
             .then(student => {
-                if(!student.length) res.send('Vazio :( ')
+                if(student.length) res.send(':( ')
                 renderStudent(app, student).then(user => res.status(200).json(user))
             })
             .catch(err => res.status(400).json(err))
@@ -52,6 +61,7 @@ module.exports = app => {
 
         getHash(req.body.pass, hash => {
             const password = hash
+            
             app.db('students')
                 .where({ id: req.params.id })
                 .update({
