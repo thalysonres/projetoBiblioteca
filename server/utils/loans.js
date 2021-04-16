@@ -6,7 +6,6 @@ module.exports = {
             .select('borrowed')
             .where({ id: req.body.literaryWorks_id })
             .then(literary => {
-                console.log('livro emprestado => ', !literary[0].borrowed)
                 if (!literary[0].borrowed) {
 
                     app.db('loans')
