@@ -1,0 +1,70 @@
+body{
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+  background: #1DF1CB url(../../assets/images/background.png) top center;
+}
+
+#container{
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+#image img{
+  position: absolute;
+  width: 346.32px;
+  height: 195.1px;
+  top: 29px;
+  margin-bottom: 10px;
+  text-align: center; 
+  align-items: center; 
+}
+
+#image main h1{
+  position: absolute;
+  width: 350.77px;
+  height: 50.9px;
+  top: 224.1px;
+  font-size: 70px;
+  line-height: 82px;
+  text-align: center; 
+  align-items: center; 
+}
+
+input{
+  position: absolute;
+  width: 1024px;
+  height: 288px;
+  top: 360px;
+  font-size: 18px;
+  font-size: 57px;
+  text-align: center;
+  border-radius: 58px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 40px;
+  background-size: 67px;
+}
+
+input#text{
+  background-image: url(../../assets/images/icons/user.svg);
+  height: 84px;
+  top: 360px;
+}
+
+input#password{
+  background-image: url(../../assets/images/icons/pass.svg);
+  height: 84px;
+  top: 462px;
+}
+
+input.submit{
+  color: #000;
+  height: 84px;
+  top: 564px;
+  background: #FFE07D;
+  box-shadow: -6px 15px 31px rgba(0, 0, 0, 0.5);
+  border-radius: 13px;
+  cursor: pointer;
+}
