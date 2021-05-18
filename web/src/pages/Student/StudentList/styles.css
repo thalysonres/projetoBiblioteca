@@ -9,7 +9,7 @@ body{
 }
 
 #menu{
-  background-color: rgba(0, 212, 212, 0.70);
+  background-color: rgba(0, 212, 212, 0.95);
   box-sizing: border-box;
   box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
   float: left;
@@ -44,7 +44,7 @@ body{
 }
 
 #items-menu{
-  position: absolute;
+  display: flex;
   top: 170px;
 }
 
@@ -74,24 +74,22 @@ body{
   width: 947px;
   height: 114px;
   margin: 31px auto 51px auto;
-  background-color: #00D4D4;
+  background-color: rgba(0, 212, 212, 0.95);
 }
 
 #create #new{
   border: 1px solid red;
   width: 430px;
   height:70px;
-}
-
-#create #new img{
-  border: 1px solid red;
   display: flex;
+
 }
 
 #create #new span{
   border: 1px solid red;
   line-height: 30px;
   font-size: 26px;  
+  width: 288.66px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -101,4 +99,52 @@ body{
   border: 1px solid red;
   width: 947px;
   margin: 31px auto 51px auto;
+  background-color: rgba(0, 212, 212, 0.5);
+}
+
+table{
+  width: 878px;
+  height: 47px;
+  left: 35px;
+  top: 24px;  
+  align-items: center;
+  text-align: center;
+}
+
+thead{
+  width: 878px;
+  height: 47px;
+  left: 35px;
+  top: 24px;
+}
+
+tbody{
+  width: 878px;
+  height: 61px;
+  left: 360px;
+  top: 96px;
+}
+
+.title{
+  width: 48px;
+  height: 30px;
+  left: 104px;
+  top: 33px;
+  font-size: 26px;
+  line-height: 30px;
+  align-items: center;
+  text-align: center;
+  background: #D2D2D2;
+}
+
+.list{
+  width: 194px;
+  height: 26px;
+  left: 55px;
+  top: 114px;
+  font-size: 26px;
+  line-height: 30px;
+  align-items: center;
+  text-align: center;
+  background: #EAEAEA;
 }

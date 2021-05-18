@@ -52,19 +52,19 @@ function StudentList() {
           
         </div>
         <div id="list">
-          <section class="allStudents">
+          <section className="allStudents">
             <table cellSpacing={0}>
               <thead>
-                <tr>
+                <tr className="title">
                   <th>CPF</th>
                   <th>Nome</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-              <tr>
+              <tr className="list">
                   <th>999.999.999-99</th>
-                  <th>Uai Uai Uai</th>
+                  <th>Wilian Rodrigues Santos</th>
                   <th>
                   <img src={editar} alt="editar"/>
                   <img src={excluir} alt="excluir"/>

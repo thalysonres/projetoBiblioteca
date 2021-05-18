@@ -9,8 +9,8 @@ function Routes(){
   return(
     <BrowserRouter>
     <Route path="/auth" exact component={Auth} />
-    <Route path="/student" exact component={StudentList} />
-    <Route path="/student/edit" exact component={StudentForm} />
+    <Route path="/students" exact component={StudentList} />
+    <Route path="/students/edit" exact component={StudentForm} />
     </BrowserRouter>    
   );
 }

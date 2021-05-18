@@ -20,7 +20,7 @@ function Auth() {
             <input type="password" name="password" id="password" placeholder="Senha" />
           </div>
           <div>
-            <input class="submit" type="submit" value="Entrar" />
+            <input className="submit" type="submit" value="Entrar" />
           </div>
         </form>
       </div>
