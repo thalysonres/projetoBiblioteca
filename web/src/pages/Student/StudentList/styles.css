@@ -31,11 +31,11 @@ body{
 
 #icon-menu{
   border: 1px solid red;
-
   width: 214px;
   height: 101.03px;
-  left: 22px;
-  top: 14px;
+  align-items: center;
+  display: flex;
+  margin: 14px 22px;
 }
 
 #icon-menu span{
@@ -45,5 +45,60 @@ body{
 
 #items-menu{
   position: absolute;
+  top: 170px;
 }
 
+#items-menu li{
+  border: 1px solid red;
+  list-style: none;
+  width: 216px;
+  margin: 16px -22px;
+}
+
+#items-menu li a{
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  width:133px;
+  line-height: 30px;
+  font-size: 26px;
+}
+
+#items-menu li img{
+  height:70px;
+}
+
+#create{
+  width: 947px;
+  height: 114px;
+  margin: 31px auto 51px auto;
+  background-color: #00D4D4;
+}
+
+#create #new{
+  border: 1px solid red;
+  width: 430px;
+  height:70px;
+}
+
+#create #new img{
+  border: 1px solid red;
+  display: flex;
+}
+
+#create #new span{
+  border: 1px solid red;
+  line-height: 30px;
+  font-size: 26px;  
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+#list{
+  border: 1px solid red;
+  width: 947px;
+  margin: 31px auto 51px auto;
+}
