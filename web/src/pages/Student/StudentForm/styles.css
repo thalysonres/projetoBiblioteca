@@ -3,8 +3,8 @@ body{
   background: #1DF1CB url(../../../assets/images/books.png) top center;
 }
 
-#container{
+/* #container{
   margin: 0 auto;
-  margin-top: 120px;
-}
+  margin-top: 120px; Estava interferindo em outro css 
+} */
 

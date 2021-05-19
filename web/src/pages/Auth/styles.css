@@ -4,36 +4,56 @@ body{
 }
 
 #container{
-  margin: 0 auto;
-  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
+  flex-direction: column;
+  /* margin-top: 120px; */
+
+  /* margin-top: 120px;  */
+  /* margin: 0 auto; */
 }
 
 #image img{
-  position: absolute;
+  /* position: absolute;
   width: 346.32px;
   height: 195.1px;
-  top: 29px;
-  margin-bottom: 10px;
+  top: 29px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* padding: 0px; */
   text-align: center; 
   align-items: center; 
 }
 
-#image main h1{
+/* #image main h1{
   position: absolute;
   width: 350.77px;
   height: 50.9px;
-  top: 224.1px;
+  top: 0px;
+  display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+
+  /* font-size: 70px; */
+  /* line-height: 82px; */
+  /* text-align: center;  */
+  /* align-items: center;  */
+/* } */
+
+.mainText {
   font-size: 70px;
-  line-height: 82px;
-  text-align: center; 
-  align-items: center; 
+  margin: 0;
 }
 
 input{
-  position: absolute;
+  /* position: absolute; */
   width: 1024px;
   height: 288px;
-  top: 360px;
+  /* top: 360px; */
   font-size: 57px;
   text-align: center;
   border-radius: 58px;

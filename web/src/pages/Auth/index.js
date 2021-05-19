@@ -6,9 +6,9 @@ function Auth() {
   return (
     <div id="container">
       <div id="image">
-        <img src={bookGG} alt="livro"/>
+        <img src={bookGG} alt="livro" />
         <main>
-          <h1>Biblioteca</h1>
+          <h1 className="mainText">Biblioteca</h1>
         </main>
       </div>
       <div>
