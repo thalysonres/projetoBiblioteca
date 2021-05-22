@@ -13,13 +13,13 @@ function Auth() {
       </div>
       <div>
         <form>
-          <div>
+          <div className="auth_input">
             <input type="text" name="text" id="text" placeholder="CPF" />
           </div>
-          <div>
+          <div className="auth_input">
             <input type="password" name="password" id="password" placeholder="Senha" />
           </div>
-          <div>
+          <div className="auth_input">
             <input className="submit" type="submit" value="Entrar" />
           </div>
         </form>

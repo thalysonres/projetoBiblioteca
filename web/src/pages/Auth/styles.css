@@ -1,6 +1,8 @@
 body{
   font-family: 'Trebuchet MS', Helvetica, sans-serif;
   background: #1DF1CB url(../../assets/images/background.png) top center;
+  margin: 0;
+  padding: 0;
 }
 
 #container{
@@ -22,7 +24,7 @@ body{
   margin: 0;
 }
 
-input{
+.auth_input input{
   width: 1024px;
   height: 288px;
   font-size: 57px;
@@ -37,19 +39,19 @@ input{
   background-size: 67px;
 }
 
-input#text{
+.auth_input input#text{
   background-image: url(../../assets/images/icons/user.svg);
   height: 84px;
   top: 360px;
 }
 
-input#password{
+.auth_input input#password{
   background-image: url(../../assets/images/icons/pass.svg);
   height: 84px;
   top: 462px;
 }
 
-input.submit{
+.auth_input input.submit{
   color: #000;
   height: 84px;
   top: 564px;

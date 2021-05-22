@@ -10,7 +10,7 @@ function Routes(){
     <BrowserRouter>
     <Route path="/auth" exact component={Auth} />
     <Route path="/students" exact component={StudentList} />
-    <Route path="/students/edit" exact component={StudentForm} />
+    <Route path="/students/edit/:id" exact component={StudentForm} />
     </BrowserRouter>    
   );
 }
