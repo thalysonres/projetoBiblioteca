@@ -3,11 +3,6 @@ body{
   background: #1DF1CB url(../../../assets/images/books.png) top center;
 }
 
-/* #container{
-  margin: 0 auto;
-  margin-top: 120px;
-} */
-
 #menu{
   background-color: rgba(0, 212, 212, 0.95);
   box-sizing: border-box;
@@ -30,7 +25,6 @@ body{
 }
 
 #icon-menu{
-  border: 1px solid red;
   width: 214px;
   height: 101.03px;
   align-items: center;
@@ -49,18 +43,19 @@ body{
 }
 
 #items-menu li{
-  border: 1px solid red;
-  list-style: none;
   width: 216px;
   margin: 16px -22px;
+  list-style: none;
+  display: flex;
+  background-color: rgba(98, 66, 66, 0.05);
 }
 
 #items-menu li a{
   color: black;
   text-decoration: none;
-  text-align: center;
-  align-items: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width:133px;
   line-height: 30px;
   font-size: 26px;
@@ -75,76 +70,74 @@ body{
   height: 114px;
   margin: 31px auto 51px auto;
   background-color: rgba(0, 212, 212, 0.95);
+  display: flex;
+  align-items: center;  
 }
 
 #create #new{
-  border: 1px solid red;
   width: 430px;
   height:70px;
+  margin-left: 55px;
   display: flex;
-
+  background: rgba(98, 66, 66, 0.05);
 }
 
 #create #new span{
-  border: 1px solid red;
   line-height: 30px;
   font-size: 26px;  
   width: 288.66px;
-  text-align: center;
-  align-items: center;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#create #new_button{
+  width: 100vw;
+  margin-right: 27px;
+  display: flex;  
+  justify-content: flex-end;
+}
+
+#create #new_button button{
+  font-size: 67px;
+  line-height: 81px;  
+  width: 70px;
+  height: 70px;
+  border-radius:35px;
+  border: none;
+  box-shadow: 2px 3px 10px #000000;
+  background: #00D4AE;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 #list{
-  border: 1px solid red;
   width: 947px;
   margin: 31px auto 51px auto;
   background-color: rgba(0, 212, 212, 0.5);
+  display: flex;  
+  align-items: center;
+  justify-content: center;
 }
 
 table{
   width: 878px;
   height: 47px;
-  left: 35px;
-  top: 24px;  
-  align-items: center;
-  text-align: center;
-}
-
-thead{
-  width: 878px;
-  height: 47px;
-  left: 35px;
-  top: 24px;
-}
-
-tbody{
-  width: 878px;
-  height: 61px;
-  left: 360px;
-  top: 96px;
+  font-size: 26px;
+  line-height: 30px;
+  margin: 24px;
 }
 
 .title{
-  width: 48px;
-  height: 30px;
-  left: 104px;
-  top: 33px;
-  font-size: 26px;
-  line-height: 30px;
-  align-items: center;
-  text-align: center;
   background: #D2D2D2;
 }
 
 .list{
-  width: 194px;
-  height: 26px;
-  left: 55px;
-  top: 114px;
-  font-size: 26px;
-  line-height: 30px;
-  align-items: center;
-  text-align: center;
   background: #EAEAEA;
+}
+
+.list tr img{
+  margin-left: 11px;
 }

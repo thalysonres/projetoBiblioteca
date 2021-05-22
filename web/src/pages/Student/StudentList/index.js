@@ -22,23 +22,29 @@ function StudentList() {
         </div>
         <div id="items-menu">
           <ul id="navigation">
-            <li class="students"><a href="#">
-              <img src={estudantePP} alt="estudantePP"/>Estudantes</a>
+            <li class="students">
+              <img src={estudantePP} alt="estudantePP"/>
+              <a href="#">Estudantes</a>
             </li>
-            <li class="authors"><a href="#">
-              <img src={autor} alt="autor"/>Autores</a>
+            <li class="authors">
+              <img src={autor} alt="autor"/>
+              <a href="#">Autores</a>
             </li>
-            <li class="books"><a href="#">
-              <img src={livro} alt="livro"/>Livros</a>
+            <li class="books">
+              <img src={livro} alt="livro"/>
+              <a href="#">Livros</a>
             </li>
-            <li class="localities"><a href="#">
-              <img src={localidade} alt="localidade"/>Localidades</a>
+            <li class="localities">
+              <img src={localidade} alt="localidade"/>
+              <a href="#">Localidades</a>
             </li>
-            <li class="loans"><a href="#">
-              <img src={emprestimo} alt="empréstimo"/>Empréstimos</a>
+            <li class="loans">
+              <img src={emprestimo} alt="empréstimo"/>
+              <a href="#">Empréstimos</a>
             </li>
-            <li class="employees"><a href="#">
-              <img src={funcionario} alt="funcionário"/>Funcionários</a>
+            <li class="employees">
+              <img src={funcionario} alt="funcionário"/>
+              <a href="#">Funcionários</a>
             </li>
           </ul>
         </div>
@@ -49,20 +55,23 @@ function StudentList() {
             <img src={estudanteP} alt="estudantes"/>
             <span>Estudantes</span>
           </div>
-          
+          <div id="new_button">
+            <button>+</button>
+          </div>
         </div>
+
         <div id="list">
           <section className="allStudents">
             <table cellSpacing={0}>
-              <thead>
-                <tr className="title">
+              <thead className="title">
+                <tr>
                   <th>CPF</th>
                   <th>Nome</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr className="list">
+              <tbody className="list">
+                <tr>
                   <th>999.999.999-99</th>
                   <th>Wilian Rodrigues Santos</th>
                   <th>
