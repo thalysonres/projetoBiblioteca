@@ -62,7 +62,7 @@ function StudentList() {
         </div>
 
         <div id="list">
-          <section className="allStudents">
+          <section>
             <h2>Novo Usuário</h2>
             <form>
               <fieldset>
@@ -91,7 +91,7 @@ function StudentList() {
                 <div>
                   <label for="cpf">CPF:</label>
                   <input type="text" name="cpf" id="cpf" placeholder="Digite o CPF" />
-                  <label for="birthDate">Data de nascimento:</label>
+                  <label className="birthDate" for="birthDate">Data de nascimento:</label>
                   <input type="date" name="birthDate" id="birthDate" />
                 </div>
                 <div>
@@ -99,12 +99,14 @@ function StudentList() {
                   <input type="password" name="pass" id="pass" placeholder="Digite a senha" />
                 </div>
                 <div>
-                  <label for="confirmPass">Confirmar senha:</label>
+                  <label className="confirmPass" for="confirmPass">Confirmar senha:</label>
                   <input type="password" name="confirmPass" id="confirmPass" placeholder="Confirme a senha" />
                 </div>
               </fieldset>
-              
-
+              <div id="student_input">
+                <input className="confirm" type="submit" value="Cadastrar" />
+                <input className="cancel" type="submit" value="Cancelar" />
+              </div>
             </form>
           </section>
         </div>    
