@@ -7,11 +7,9 @@ import livro from '../../../assets/images/icons/livros2.svg';
 import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
-import editar from '../../../assets/images/icons/editar.svg';
-import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function StudentList() {
+function StudentsForm() {
     
   return (
     <div id="container">
@@ -116,4 +114,4 @@ function StudentList() {
   );
 }
 
-export default StudentList;
+export default StudentsForm;

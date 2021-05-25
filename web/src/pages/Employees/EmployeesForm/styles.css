@@ -144,7 +144,6 @@ body{
   display: flex;
   align-items: center;
   align-content: center;
-  border: 1px solid red;
 }
 
 #list label{
@@ -171,7 +170,7 @@ body{
 }
 
 .birthDate{
-  width: stretch ;
+  width: stretch !important;
 }
 
 .confirmPass{
@@ -179,29 +178,32 @@ body{
 }
 
 #student_input{
-  font-size: 35px;
+  border: 1px solid red; 
   line-height: 41px;
   margin-top: 22px;
-  border-radius: 153px;
   border: none;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
-  gap: 22px;
+  gap: 32px;
 }
 
 input.confirm{
-  width: 350px;
-  height: 50px;
-  background-color: #D4EDDA;
+  width: 350px !important;
+  height: 50px !important;
+  font-size: 35px !important;
+  border-radius: 153px ;
+  background-color: #D4EDDA !important;
   color: #155724;
 
 }
 
 input.cancel{
-  width: 350px;
-  height: 50px;
-  background-color: #F8D7DA;
+  width: 350px !important;
+  height: 50px !important;
+  font-size: 35px !important;
+  border-radius: 153px;
+  background-color: #F8D7DA !important;
   color: #721C24;
 }

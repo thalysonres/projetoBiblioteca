@@ -11,7 +11,7 @@ import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function StudentList() {
+function StudentsList() {
     
   return (
     <div id="container">
@@ -88,4 +88,4 @@ function StudentList() {
   );
 }
 
-export default StudentList;
+export default StudentsList;
