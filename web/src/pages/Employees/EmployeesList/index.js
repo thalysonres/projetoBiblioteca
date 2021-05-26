@@ -1,6 +1,5 @@
 import React from 'react';
 import bookPP from '../../../assets/images/book-pp.svg';
-import estudanteP from '../../../assets/images/icons/estudantes2.svg';
 import estudantePP from '../../../assets/images/icons/estudantes.svg';
 import autor from '../../../assets/images/icons/autores.svg';
 import livro from '../../../assets/images/icons/livros2.svg';
@@ -52,25 +51,25 @@ function EmployeesList() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={estudanteP} alt="estudantes"/>
-            <span>Estudantes</span>
+            <img src={funcionario} alt="estudantes"/>
+            <span>Funcionários</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="list">
-          <section className="allStudents">
+        <div id="employee_list">
+          <section className="employee_allEmployees">
             <table cellSpacing={0}>
-              <thead className="title">
+              <thead className="employee_title">
                 <tr>
                   <th>CPF</th>
                   <th>Nome</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody className="list">
+              <tbody className="employee_list">
                 <tr>
                   <th>999.999.999-99</th>
                   <th>Wilian Rodrigues Santos</th>

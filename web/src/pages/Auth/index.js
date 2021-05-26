@@ -4,23 +4,23 @@ import bookGG from '../../assets/images/book-gg.svg';
 
 function Auth() {
   return (
-    <div id="container">
-      <div id="image">
+    <div id="auth_container">
+      <div id="auth_image">
         <img src={bookGG} alt="livro" />
         <main>
-          <h1 className="mainText">Biblioteca</h1>
+          <h1 className="auth_Text">Biblioteca</h1>
         </main>
       </div>
       <div>
         <form>
           <div className="auth_input">
-            <input type="text" name="text" id="text" placeholder="CPF" />
+            <input type="text" name="text" id="auth_text" placeholder="CPF" />
           </div>
           <div className="auth_input">
-            <input type="password" name="password" id="password" placeholder="Senha" />
+            <input type="password" name="password" id="auth_password" placeholder="Senha" />
           </div>
           <div className="auth_input">
-            <input className="submit" type="submit" value="Entrar" />
+            <input className="auth_submit" type="submit" value="Entrar" />
           </div>
         </form>
       </div>

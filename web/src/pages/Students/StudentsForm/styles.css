@@ -84,6 +84,11 @@ body{
   background: rgba(98, 66, 66, 0.05);
 }
 
+#create #new img{
+  width: 141.34px;
+  height:70px;
+}
+
 #create #new span{
   line-height: 30px;
   font-size: 26px;  
@@ -115,47 +120,51 @@ body{
   cursor: pointer;
 }
 
-#list{
+#studentF_list{
   width: 947px;
-  margin-top: 50px;
-  padding-bottom: 15px ;
+  margin: 31px auto 51px auto;
+  padding-bottom: 15px;
   background-color: rgba(0, 212, 212, 0.75);
-}
-
-#list h2{
   display: flex;  
   align-items: center;
   justify-content: center;
-  font-size: 39px;
-  line-height: 46px;
 }
 
-#list form{
+#studentF_list h2{
+  font-size: 39px;
+  line-height: 46px;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+}
+
+#studentF_list form{
   margin-left: 13px;
 }
 
-#list fieldset{
+#studentF_list fieldset{
   border: none;  
   padding: 0;
 }
 
-#list fieldset div{
+#studentF_list fieldset div{
   width: 780px;  
   display: flex;
   align-items: center;
   align-content: center;
 }
 
-#list label{
+#studentF_list label{
   cursor: pointer;
+  height: 30px;
+  min-width: 112px;
+  max-width: 245px;
   font-size: 26px;
   line-height: 30px;
   margin-left: 10px;
-  min-width: 112px;
-  max-width: 238px;
 }
 
-#list input{
+#studentF_list input{
   width: stretch;
   height: 30px;
   line-height: 23px;
@@ -165,20 +174,23 @@ body{
   border: none;
 }
 
-#cpf{
+#studentF_cpf{
   width: 170px !important;
 }
 
-.birthDate{
-  width: stretch !important;
+#studentF_birthDate{
+  width: min-content !important; 
 }
 
-.confirmPass{
-  width: stretch ;
+.studentF_birthDate{
+  width: stretch;
 }
 
-#student_input{
-  border: 1px solid red; 
+.studentF_confirmPass{
+  width: stretch;
+}
+
+#studentF_input{
   line-height: 41px;
   margin-top: 22px;
   border: none;
@@ -189,21 +201,21 @@ body{
   gap: 32px;
 }
 
-input.confirm{
-  width: 350px !important;
-  height: 50px !important;
-  font-size: 35px !important;
-  border-radius: 153px ;
-  background-color: #D4EDDA !important;
+#studentF_input .studentF_confirm{
+  width: 350px;
+  height: 50px;
+  font-size: 35px;
+  border-radius: 153px;
+  background-color: #D4EDDA;
   color: #155724;
 
 }
 
-input.cancel{
-  width: 350px !important;
-  height: 50px !important;
-  font-size: 35px !important;
+#studentF_input .studentF_cancel{
+  width: 350px;
+  height: 50px;
+  font-size: 35px;
   border-radius: 153px;
-  background-color: #F8D7DA !important;
+  background-color: #F8D7DA;
   color: #721C24;
 }

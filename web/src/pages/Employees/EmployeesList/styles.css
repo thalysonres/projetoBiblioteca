@@ -82,6 +82,11 @@ body{
   background: rgba(98, 66, 66, 0.05);
 }
 
+#create #new img{
+  width: 141.34px;
+  height:70px;
+}
+
 #create #new span{
   line-height: 30px;
   font-size: 26px;  
@@ -113,7 +118,7 @@ body{
   cursor: pointer;
 }
 
-#list{
+#employee_list{
   width: 947px;
   margin: 31px auto 51px auto;
   background-color: rgba(0, 212, 212, 0.5);
@@ -122,7 +127,7 @@ body{
   justify-content: center;
 }
 
-table{
+#employee_list table{
   width: 878px;
   height: 47px;
   font-size: 26px;
@@ -130,14 +135,14 @@ table{
   margin: 24px;
 }
 
-.title{
+#employee_list .employee_title{
   background: #D2D2D2;
 }
 
-.list{
+#employee_list .employee_list{
   background: #EAEAEA;
 }
 
-.list tr img{
+#employee_list .employee_list tr img{
   margin-left: 11px;
 }

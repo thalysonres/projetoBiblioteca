@@ -82,6 +82,11 @@ body{
   background: rgba(98, 66, 66, 0.05);
 }
 
+#create #new img{
+  width: 141.34px;
+  height:70px;
+}
+
 #create #new span{
   line-height: 30px;
   font-size: 26px;  
@@ -113,16 +118,16 @@ body{
   cursor: pointer;
 }
 
-#list{
+#student_list{
   width: 947px;
   margin: 31px auto 51px auto;
-  background-color: rgba(0, 212, 212, 0.5);
+  background-color: rgba(0, 212, 212, 0.75);
   display: flex;  
   align-items: center;
   justify-content: center;
 }
 
-table{
+#student_list table{
   width: 878px;
   height: 47px;
   font-size: 26px;
@@ -130,14 +135,14 @@ table{
   margin: 24px;
 }
 
-.title{
+#student_list .student_title{
   background: #D2D2D2;
 }
 
-.list{
+#student_list .student_list{
   background: #EAEAEA;
 }
 
-.list tr img{
+#student_list .student_list tr img{
   margin-left: 11px;
 }

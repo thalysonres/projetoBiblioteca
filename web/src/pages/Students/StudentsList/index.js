@@ -1,7 +1,6 @@
 import React from 'react';
 import bookPP from '../../../assets/images/book-pp.svg';
-import estudanteP from '../../../assets/images/icons/estudantes2.svg';
-import estudantePP from '../../../assets/images/icons/estudantes.svg';
+import estudante from '../../../assets/images/icons/estudantes.svg';
 import autor from '../../../assets/images/icons/autores.svg';
 import livro from '../../../assets/images/icons/livros2.svg';
 import localidade from '../../../assets/images/icons/localidade.svg';
@@ -23,7 +22,7 @@ function StudentsList() {
         <div id="items-menu">
           <ul id="navigation">
             <li class="students">
-              <img src={estudantePP} alt="estudantePP"/>
+              <img src={estudante} alt="estudantePP"/>
               <a href="#">Estudantes</a>
             </li>
             <li class="authors">
@@ -52,7 +51,7 @@ function StudentsList() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={estudanteP} alt="estudantes"/>
+            <img src={estudante} alt="estudantes"/>
             <span>Estudantes</span>
           </div>
           <div id="new_button">
@@ -60,17 +59,17 @@ function StudentsList() {
           </div>
         </div>
 
-        <div id="list">
-          <section className="allStudents">
+        <div id="student_list">
+          <section className="student_allStudents">
             <table cellSpacing={0}>
-              <thead className="title">
+              <thead className="student_title">
                 <tr>
                   <th>CPF</th>
                   <th>Nome</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody className="list">
+              <tbody className="student_list">
                 <tr>
                   <th>999.999.999-99</th>
                   <th>Wilian Rodrigues Santos</th>
