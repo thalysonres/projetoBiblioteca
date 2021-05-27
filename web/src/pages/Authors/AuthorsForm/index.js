@@ -6,11 +6,9 @@ import livro from '../../../assets/images/icons/livros2.svg';
 import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
-import editar from '../../../assets/images/icons/editar.svg';
-import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function StudentsList() {
+function AuthorsForm() {
     
   return (
     <div id="container">
@@ -41,50 +39,58 @@ function StudentsList() {
               <img src={emprestimo} alt="empréstimo"/>
               <a href="#">Empréstimos</a>
             </li>
-            <li class="employees">
+            <li class="authors">
               <img src={funcionario} alt="funcionário"/>
               <a href="#">Funcionários</a>
             </li>
           </ul>
         </div>
       </div>
+      
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={estudante} alt="estudantes"/>
-            <span>Estudantes</span>
+            <img src={autor} alt="autor"/>
+            <span>Autores</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="student_list">
-          <section className="student_allStudents">
-            <table cellSpacing={0}>
-              <thead className="student_title">
-                <tr>
-                  <th>CPF</th>
-                  <th>Nome</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody className="student_list">
-                <tr>
-                  <th>999.999.999-99</th>
-                  <th>Wilian Rodrigues Santos</th>
-                  <th>
-                  <img src={editar} alt="editar"/>
-                  <img src={excluir} alt="excluir"/>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+        <div id="authorF_list">
+          <section>
+            <h2>Novo Usuário</h2>
+            <form>
+              <fieldset>
+                <div>
+                  <label for="name">Nome:</label>
+                  <input type="text" name="name" id="authorF_name" placeholder="Digite o nome"/>
+                </div>
+                <div>
+                  <label for="countryOrigin">País de origem:</label>
+                  <input type="tel" name="countryOrigin" id="authorF_countryOrigin" placeholder="Digite o país de origem" />
+                </div>
+                <div>
+                  <label for="authorsNotation">Notação do autor:</label>
+                  <input type="text" name="authorsNotation" id="authorF_authorsNotation" placeholder="Digite a notação" />
+                </div>
+                <div>
+                  <label for="genre">Gênero literário:</label>
+                  <input type="text" name="genre" id="authorF_genre" placeholder="Digite o gênero literário" />
+                </div>
+              </fieldset>
+              <div id="authorF_input">
+                <input className="authorF_confirm" type="submit" value="Cadastrar" />
+                <input className="authorF_cancel" type="submit" value="Cancelar" />
+              </div>
+            </form>
           </section>
         </div>    
+
       </div>    
     </div>
   );
 }
 
-export default StudentsList;
+export default AuthorsForm;

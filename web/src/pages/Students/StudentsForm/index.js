@@ -20,7 +20,7 @@ function StudentsForm() {
         <div id="items-menu">
           <ul id="navigation">
             <li class="students">
-              <img src={estudante} alt="estudantePP"/>
+              <img src={estudante} alt="estudante"/>
               <a href="#">Estudantes</a>
             </li>
             <li class="authors">

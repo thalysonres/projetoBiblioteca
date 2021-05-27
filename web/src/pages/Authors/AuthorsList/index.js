@@ -10,7 +10,7 @@ import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function StudentsList() {
+function AuthorsList() {
     
   return (
     <div id="container">
@@ -41,7 +41,7 @@ function StudentsList() {
               <img src={emprestimo} alt="empréstimo"/>
               <a href="#">Empréstimos</a>
             </li>
-            <li class="employees">
+            <li class="authors">
               <img src={funcionario} alt="funcionário"/>
               <a href="#">Funcionários</a>
             </li>
@@ -51,25 +51,25 @@ function StudentsList() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={estudante} alt="estudantes"/>
-            <span>Estudantes</span>
+            <img src={autor} alt="autor"/>
+            <span>Autores</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="student_list">
-          <section className="student_allStudents">
+        <div id="author_list">
+          <section className="author_allAuthors">
             <table cellSpacing={0}>
-              <thead className="student_title">
+              <thead className="author_title">
                 <tr>
                   <th>CPF</th>
                   <th>Nome</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody className="student_list">
+              <tbody className="author_list">
                 <tr>
                   <th>999.999.999-99</th>
                   <th>Wilian Rodrigues Santos</th>
@@ -87,4 +87,4 @@ function StudentsList() {
   );
 }
 
-export default StudentsList;
+export default AuthorsList;

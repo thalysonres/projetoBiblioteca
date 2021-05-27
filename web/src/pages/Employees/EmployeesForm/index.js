@@ -1,6 +1,6 @@
 import React from 'react';
 import bookPP from '../../../assets/images/book-pp.svg';
-import estudantePP from '../../../assets/images/icons/estudantes.svg';
+import estudante from '../../../assets/images/icons/estudantes.svg';
 import autor from '../../../assets/images/icons/autores.svg';
 import livro from '../../../assets/images/icons/livros2.svg';
 import localidade from '../../../assets/images/icons/localidade.svg';
@@ -20,7 +20,7 @@ function EmployeesForm() {
         <div id="items-menu">
           <ul id="navigation">
             <li class="students">
-              <img src={estudantePP} alt="estudantePP"/>
+              <img src={estudante} alt="estudante"/>
               <a href="#">Estudantes</a>
             </li>
             <li class="authors">
@@ -50,7 +50,7 @@ function EmployeesForm() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={funcionario} alt="estudantes"/>
+            <img src={funcionario} alt="funcionários"/>
             <span>Funcionários</span>
           </div>
           <div id="new_button">

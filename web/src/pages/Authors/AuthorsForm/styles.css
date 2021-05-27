@@ -120,7 +120,7 @@ body{
   cursor: pointer;
 }
 
-#employeeF_list{
+#authorF_list{
   width: 947px;
   margin: 31px auto 51px auto;
   padding-bottom: 15px;
@@ -130,7 +130,7 @@ body{
   justify-content: center;
 }
 
-#employeeF_list h2{
+#authorF_list h2{
   font-size: 39px;
   line-height: 46px;
   display: flex;
@@ -138,23 +138,23 @@ body{
   justify-content: center;
 }
 
-#employeeF_list form{
+#authorF_list form{
   margin-left: 13px;
 }
 
-#employeeF_list fieldset{
+#authorF_list fieldset{
   border: none;  
   padding: 0;
 }
 
-#employeeF_list fieldset div{
+#authorF_list fieldset div{
   width: 780px; 
   display: flex;
   align-items: center;
   align-content: center;  
 }
 
-#employeeF_list label{
+#authorF_list label{
   cursor: pointer;
   height: 30px;
   min-width: 112px;
@@ -164,7 +164,7 @@ body{
   margin-left: 10px;
 }
 
-#employeeF_list input{
+#authorF_list input{
   width: stretch; 
   height: 30px;
   line-height: 23px;
@@ -174,23 +174,7 @@ body{
   border: none;  
 }
 
-#employeeF_cpf{
-  width: 170px !important;
-}
-
-#employeeF_birthDate{
-  width: min-content !important;  
-}
-
-.employeeF_birthDate{
-  width: stretch;
-}
-
-.employeeF_confirmPass{
-  width: stretch;
-}
-
-#employeeF_input{
+#authorF_input{
   line-height: 41px;
   margin-top: 22px;
   border: none;
@@ -201,7 +185,7 @@ body{
   gap: 32px;
 }
 
-#employeeF_input .employeeF_confirm{
+#authorF_input .authorF_confirm{
   width: 350px;
   height: 50px;
   font-size: 35px;
@@ -211,7 +195,7 @@ body{
 
 }
 
-#employeeF_input .employeeF_cancel{
+#authorF_input .authorF_cancel{
   width: 350px;
   height: 50px;
   font-size: 35px;
