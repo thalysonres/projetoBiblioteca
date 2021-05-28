@@ -121,7 +121,7 @@ body{
 #student_list{
   width: 947px;
   margin: 31px auto 51px auto;
-  background-color: rgba(0, 212, 212, 0.75);
+  background-color: rgba(0, 212, 212, 0.5);
   display: flex;  
   align-items: center;
   justify-content: center;

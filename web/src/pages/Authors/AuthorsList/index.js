@@ -20,14 +20,14 @@ function AuthorsList() {
           <span>Biblioteca</span>
         </div>
         <div id="items-menu">
-          <ul id="navigation">
+        <ul id="navigation">
             <li class="students">
               <img src={estudante} alt="estudante"/>
-              <a href="#">Estudantes</a>
+              <a href="/students">Estudantes</a>
             </li>
             <li class="authors">
               <img src={autor} alt="autor"/>
-              <a href="#">Autores</a>
+              <a href="/authors">Autores</a>
             </li>
             <li class="books">
               <img src={livro} alt="livro"/>
@@ -35,15 +35,15 @@ function AuthorsList() {
             </li>
             <li class="localities">
               <img src={localidade} alt="localidade"/>
-              <a href="#">Localidades</a>
+              <a href="/localities">Localidades</a>
             </li>
             <li class="loans">
               <img src={emprestimo} alt="empréstimo"/>
               <a href="#">Empréstimos</a>
             </li>
-            <li class="authors">
+            <li class="employees">
               <img src={funcionario} alt="funcionário"/>
-              <a href="#">Funcionários</a>
+              <a href="/employees">Funcionários</a>
             </li>
           </ul>
         </div>
