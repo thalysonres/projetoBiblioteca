@@ -6,11 +6,9 @@ import livro from '../../../assets/images/icons/livros2.svg';
 import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
-import editar from '../../../assets/images/icons/editar.svg';
-import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function EmployeesList() {
+function LocalitiesForm() {
     
   return (
     <div id="container">
@@ -48,43 +46,47 @@ function EmployeesList() {
           </ul>
         </div>
       </div>
+      
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={funcionario} alt="funcionários"/>
-            <span>Funcionários</span>
+            <img src={localidade} alt="localidades"/>
+            <span>Localidades</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="employee_list">
-          <section className="employee_allEmployees">
-            <table cellSpacing={0}>
-              <thead className="employee_title">
-                <tr>
-                  <th>CPF</th>
-                  <th>Nome</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody className="employee_list">
-                <tr>
-                  <th>999.999.999-99</th>
-                  <th>Wilian Rodrigues Santos</th>
-                  <th>
-                  <img src={editar} alt="editar"/>
-                  <img src={excluir} alt="excluir"/>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+        <div id="localityF_list">
+          <section>
+            <h2>Novo Usuário</h2>
+            <form>
+              <fieldset>
+                <div>
+                  <label for="hall">Corredor:</label>
+                  <input type="text" name="hall" id="localityF_hall" placeholder="Digite o corredor"/>
+                </div>
+                <div>
+                  <label for="bookcase">Estante:</label>
+                  <input type="text" name="bookcase" id="localityF_bookcase" placeholder="Digite a estante" />
+                </div>
+                <div>  
+                  <label for="shelf">Prateleira:</label>
+                  <input type="text" name="shelf" id="localityF_shelf" placeholder="Digite a prateleira" />
+                </div>
+              </fieldset>
+              <div id="localityF_input">
+                <input className="localityF_confirm" type="submit" value="Cadastrar" />
+                <input className="localityF_cancel" type="submit" value="Cancelar" />
+              </div>
+            </form>
           </section>
         </div>    
+
       </div>    
     </div>
   );
 }
 
-export default EmployeesList;
+export default LocalitiesForm;

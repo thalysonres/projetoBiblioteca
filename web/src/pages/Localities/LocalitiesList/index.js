@@ -10,7 +10,7 @@ import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function EmployeesList() {
+function LocalitiesList() {
     
   return (
     <div id="container">
@@ -51,28 +51,30 @@ function EmployeesList() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={funcionario} alt="funcionários"/>
-            <span>Funcionários</span>
+            <img src={localidade} alt="localidades"/>
+            <span>Localidades</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="employee_list">
-          <section className="employee_allEmployees">
+        <div id="locality_list">
+          <section className="locality_allLocalities">
             <table cellSpacing={0}>
-              <thead className="employee_title">
+              <thead className="locality_title">
                 <tr>
-                  <th>CPF</th>
-                  <th>Nome</th>
+                  <th>Corredor</th>
+                  <th>Estante</th>
+                  <th>Prateleira</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody className="employee_list">
+              <tbody className="locality_list">
                 <tr>
-                  <th>999.999.999-99</th>
-                  <th>Wilian Rodrigues Santos</th>
+                  <th>01</th>
+                  <th>01</th>
+                  <th>AB</th>
                   <th>
                   <img src={editar} alt="editar"/>
                   <img src={excluir} alt="excluir"/>
@@ -87,4 +89,4 @@ function EmployeesList() {
   );
 }
 
-export default EmployeesList;
+export default LocalitiesList;

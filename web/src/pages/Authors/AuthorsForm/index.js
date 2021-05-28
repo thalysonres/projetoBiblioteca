@@ -50,7 +50,7 @@ function AuthorsForm() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={autor} alt="autor"/>
+            <img src={autor} alt="autores"/>
             <span>Autores</span>
           </div>
           <div id="new_button">

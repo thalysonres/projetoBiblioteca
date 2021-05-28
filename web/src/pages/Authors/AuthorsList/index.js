@@ -51,7 +51,7 @@ function AuthorsList() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={autor} alt="autor"/>
+            <img src={autor} alt="autores"/>
             <span>Autores</span>
           </div>
           <div id="new_button">
@@ -64,15 +64,15 @@ function AuthorsList() {
             <table cellSpacing={0}>
               <thead className="author_title">
                 <tr>
-                  <th>CPF</th>
+                  <th>Notação do autor</th>
                   <th>Nome</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody className="author_list">
                 <tr>
-                  <th>999.999.999-99</th>
-                  <th>Wilian Rodrigues Santos</th>
+                  <th>K61n</th>
+                  <th>Masashi Kishimoto</th>
                   <th>
                   <img src={editar} alt="editar"/>
                   <img src={excluir} alt="excluir"/>
