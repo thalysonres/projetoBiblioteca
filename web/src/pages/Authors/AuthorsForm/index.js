@@ -64,12 +64,12 @@ function AuthorsForm() {
             <form>
               <fieldset>
                 <div>
-                  <label for="name">Nome:</label>
+                  <label className="authorF_name" for="name">Nome:</label>
                   <input type="text" name="name" id="authorF_name" placeholder="Digite o nome"/>
                 </div>
                 <div>
                   <label for="countryOrigin">País de origem:</label>
-                  <input type="tel" name="countryOrigin" id="authorF_countryOrigin" placeholder="Digite o país de origem" />
+                  <input type="text" name="countryOrigin" id="authorF_countryOrigin" placeholder="Digite o país de origem" />
                 </div>
                 <div>
                   <label for="authorsNotation">Notação do autor:</label>
