@@ -6,8 +6,6 @@ import axios from 'axios';
 import { server } from '../../../common';
 import { Redirect } from 'react-router-dom';
 
-let umaVez = 0
-
 function StudentsForm(props) {
   const [name, setName] = useState()
   const [phone, setPhone] = useState()
@@ -20,6 +18,7 @@ function StudentsForm(props) {
   const [passConfirm, setPassConfirm] = useState()
   const [birthDate, setBirthDate] = useState()
   const [redirect, setRedirect] = useState(false)
+  const [editA, setEditA] = useState(false)
 
   const params = props.match.params.id
 
@@ -47,7 +46,7 @@ function StudentsForm(props) {
         pass: pass,
       }).then(_ => {
         alert('User alterado');
-        umaVez = 0;
+        setEditA(false)
         setRedirect(true)
         // window.location = '/students'
       })
@@ -71,7 +70,7 @@ function StudentsForm(props) {
         birthDate: birthDate
       }).then(_ => {
         alert('Novo usuario cadastrado')
-        umaVez = 0;
+        setEditA(false)
         setRedirect(true)
       })
         .catch(e => alert('Ou não algo deu errado!!!'))
@@ -81,12 +80,12 @@ function StudentsForm(props) {
   }
   const cancelar = (e) => {
     e.preventDefault()
-    umaVez = 0;
+    setEditA(false)
     setRedirect(true)
   }
 
   const edit = () => {
-    if (umaVez != 0) return
+    if (editA) return
     if (params != undefined) {
       axios.get(`${server}/students/${params}`).then(studentOne => {
         console.log('CHAMADO....')
@@ -100,7 +99,7 @@ function StudentsForm(props) {
         setCpf(student.cpf)
         setPass(student.pass)
         setBirthDate(student.birthDate)
-      }).then(_ => umaVez = 1)
+      }).then(_ => setEditA(true))
     }
   }
 
