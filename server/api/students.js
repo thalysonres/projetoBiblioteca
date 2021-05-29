@@ -10,7 +10,7 @@ module.exports = app => {
             bcrypt.hash(password, salt, (err, hash) => callback(hash))
         })
     }
-    
+
     const save = (req, res) => {
 
         getHash(req.body.pass, hash => {
@@ -30,8 +30,8 @@ module.exports = app => {
                     regDate: getDateNow(),
                     employees_id: req.user.id, //id automatico
                 })
-            .then(_ => res.status(204).send())
-            .catch(err => res.status(400).json({ message: err, status: "um erro" }))
+                .then(_ => res.status(204).send())
+                .catch(err => res.status(400).json({ message: err, status: "um erro" }))
         })
     }
 
@@ -39,7 +39,7 @@ module.exports = app => {
         await app.db('students')
             .select('*')
             .then(students => {
-                if(!students.length) res.send('Vazio :( ')
+                if (!students.length) res.send('Vazio :( ')
                 renderAllStudent(app, students, res)
             })
             .catch(err => res.json(err))
@@ -51,7 +51,7 @@ module.exports = app => {
             .where({ id: req.params.id })
             .first()
             .then(student => {
-                if(student.length) res.send(':( ')
+                if (student.length) res.send(':( ')
                 renderStudent(app, student).then(user => res.status(200).json(user))
             })
             .catch(err => res.status(400).json(err))
@@ -61,7 +61,7 @@ module.exports = app => {
 
         getHash(req.body.pass, hash => {
             const password = hash
-            
+
             app.db('students')
                 .where({ id: req.params.id })
                 .update({

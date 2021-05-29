@@ -7,50 +7,18 @@ import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
 import './styles.css';
+import { Menu } from '../../../components/Menu';
 
 function LocalitiesForm() {
-    
+
   return (
     <div id="container">
-      <div id="menu">
-        <div id="icon-menu">
-          <img src={bookPP} alt="livro"/>
-          <span>Biblioteca</span>
-        </div>
-        <div id="items-menu">
-        <ul id="navigation">
-            <li class="students">
-              <img src={estudante} alt="estudante"/>
-              <a href="/students">Estudantes</a>
-            </li>
-            <li class="authors">
-              <img src={autor} alt="autor"/>
-              <a href="/authors">Autores</a>
-            </li>
-            <li class="books">
-              <img src={livro} alt="livro"/>
-              <a href="#">Livros</a>
-            </li>
-            <li class="localities">
-              <img src={localidade} alt="localidade"/>
-              <a href="/localities">Localidades</a>
-            </li>
-            <li class="loans">
-              <img src={emprestimo} alt="empréstimo"/>
-              <a href="#">Empréstimos</a>
-            </li>
-            <li class="employees">
-              <img src={funcionario} alt="funcionário"/>
-              <a href="/employees">Funcionários</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
+      <Menu />
+
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={localidade} alt="localidades"/>
+            <img src={localidade} alt="localidades" />
             <span>Localidades</span>
           </div>
           <div id="new_button">
@@ -65,13 +33,13 @@ function LocalitiesForm() {
               <fieldset>
                 <div>
                   <label for="hall">Corredor:</label>
-                  <input type="text" name="hall" id="localityF_hall" placeholder="Digite o corredor"/>
+                  <input type="text" name="hall" id="localityF_hall" placeholder="Digite o corredor" />
                 </div>
                 <div>
                   <label for="bookcase">Estante:</label>
                   <input type="text" name="bookcase" id="localityF_bookcase" placeholder="Digite a estante" />
                 </div>
-                <div>  
+                <div>
                   <label for="shelf">Prateleira:</label>
                   <input type="text" name="shelf" id="localityF_shelf" placeholder="Digite a prateleira" />
                 </div>
@@ -82,9 +50,9 @@ function LocalitiesForm() {
               </div>
             </form>
           </section>
-        </div>    
+        </div>
 
-      </div>    
+      </div>
     </div>
   );
 }

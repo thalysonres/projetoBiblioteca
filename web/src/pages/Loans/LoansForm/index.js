@@ -7,50 +7,18 @@ import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
 import './styles.css';
+import { Menu } from '../../../components/Menu';
 
 function LoansForm() {
-    
+
   return (
     <div id="container">
-      <div id="menu">
-        <div id="icon-menu">
-          <img src={bookPP} alt="livro"/>
-          <span>Biblioteca</span>
-        </div>
-        <div id="items-menu">
-        <ul id="navigation">
-            <li class="students">
-              <img src={estudante} alt="estudante"/>
-              <a href="/students">Estudantes</a>
-            </li>
-            <li class="authors">
-              <img src={autor} alt="autor"/>
-              <a href="/authors">Autores</a>
-            </li>
-            <li class="books">
-              <img src={livro} alt="livro"/>
-              <a href="#">Livros</a>
-            </li>
-            <li class="localities">
-              <img src={localidade} alt="localidade"/>
-              <a href="/localities">Localidades</a>
-            </li>
-            <li class="loans">
-              <img src={emprestimo} alt="empréstimo"/>
-              <a href="#">Empréstimos</a>
-            </li>
-            <li class="employees">
-              <img src={funcionario} alt="funcionário"/>
-              <a href="/employees">Funcionários</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
+      <Menu />
+
       <div id="main">
         <div id="create">
           <div id="new">
-          <img src={emprestimo} alt="empréstimos"/>
+            <img src={emprestimo} alt="empréstimos" />
             <span>Empréstimos</span>
           </div>
           <div id="new_button">
@@ -65,7 +33,7 @@ function LoansForm() {
               <fieldset>
                 <div>
                   <label for="name">Nome:</label>
-                  <input type="text" name="name" id="studentF_name" placeholder="Digite o nome"/>
+                  <input type="text" name="name" id="studentF_name" placeholder="Digite o nome" />
                 </div>
                 <div>
                   <label for="phone">Telefone:</label>
@@ -106,9 +74,9 @@ function LoansForm() {
               </div>
             </form>
           </section>
-        </div>    
+        </div>
 
-      </div>    
+      </div>
     </div>
   );
 }

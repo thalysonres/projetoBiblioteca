@@ -103,7 +103,7 @@ body{
   justify-content: flex-end;
 }
 
-#create #new_button button{
+#create #new_button .button{
   font-size: 67px;
   line-height: 81px;  
   width: 70px;
@@ -116,6 +116,8 @@ body{
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  text-decoration: none;
+  color: #000000;
 }
 
 #student_list{
@@ -145,4 +147,5 @@ body{
 
 #student_list .student_list tr img{
   margin-left: 11px;
+  cursor: pointer;
 }

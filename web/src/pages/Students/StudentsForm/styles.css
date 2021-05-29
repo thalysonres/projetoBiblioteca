@@ -208,7 +208,11 @@ body{
   border-radius: 153px;
   background-color: #D4EDDA;
   color: #155724;
+  cursor: pointer;
+}
 
+#studentF_input .studentF_confirm:hover {
+  background-color: #7df89a;
 }
 
 #studentF_input .studentF_cancel{
@@ -218,4 +222,9 @@ body{
   border-radius: 153px;
   background-color: #F8D7DA;
   color: #721C24;
+  cursor: pointer;
+}
+
+#studentF_input .studentF_cancel:hover {
+  background-color: #fc8690;
 }
