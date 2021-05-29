@@ -10,6 +10,8 @@ import AuthorsList from './pages/Authors/AuthorsList';
 import AuthorsForm from './pages/Authors/AuthorsForm';
 import LocalitiesList from './pages/Localities/LocalitiesList';
 import LocalitiesForm from './pages/Localities/LocalitiesForm';
+import LoansList from './pages/Loans/LoansList';
+import LoansForm from './pages/Loans/LoansForm';
 
 function Routes(){
   return(
@@ -23,6 +25,8 @@ function Routes(){
     <Route path="/authors/:id" exact component={AuthorsForm} />
     <Route path="/localities" exact component={LocalitiesList} />
     <Route path="/localities/:id" exact component={LocalitiesForm} />
+    <Route path="/loans" exact component={LoansList} />
+    <Route path="/loans/:id" exact component={LoansForm} />
     </BrowserRouter>    
   );
 }

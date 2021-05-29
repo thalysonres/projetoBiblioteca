@@ -6,9 +6,11 @@ import livro from '../../../assets/images/icons/livros2.svg';
 import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
+import editar from '../../../assets/images/icons/editar.svg';
+import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 
-function LocalitiesForm() {
+function LoansList() {
     
   return (
     <div id="container">
@@ -18,10 +20,10 @@ function LocalitiesForm() {
           <span>Biblioteca</span>
         </div>
         <div id="items-menu">
-        <ul id="navigation">
-            <li class="students">
+          <ul id="navigation">
+            <li class="loans">
               <img src={estudante} alt="estudante"/>
-              <a href="/students">Estudantes</a>
+              <a href="/loans">Estudantes</a>
             </li>
             <li class="authors">
               <img src={autor} alt="autor"/>
@@ -46,47 +48,47 @@ function LocalitiesForm() {
           </ul>
         </div>
       </div>
-      
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={localidade} alt="localidades"/>
-            <span>Localidades</span>
+            <img src={emprestimo} alt="empréstimos"/>
+            <span>Empréstimos</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="localityF_list">
-          <section>
-            <h2>Nova Localidade</h2>
-            <form>
-              <fieldset>
-                <div>
-                  <label for="hall">Corredor:</label>
-                  <input type="text" name="hall" id="localityF_hall" placeholder="Digite o corredor"/>
-                </div>
-                <div>
-                  <label for="bookcase">Estante:</label>
-                  <input type="text" name="bookcase" id="localityF_bookcase" placeholder="Digite a estante" />
-                </div>
-                <div>  
-                  <label for="shelf">Prateleira:</label>
-                  <input type="text" name="shelf" id="localityF_shelf" placeholder="Digite a prateleira" />
-                </div>
-              </fieldset>
-              <div id="localityF_input">
-                <input className="localityF_confirm" type="submit" value="Cadastrar" />
-                <input className="localityF_cancel" type="submit" value="Cancelar" />
-              </div>
-            </form>
+        <div id="loan_list">
+          <section className="loan_allLoans">
+            <table cellSpacing={0}>
+              <thead className="loan_title">
+                <tr>
+                  <th>Estudante</th>
+                  <th>Livro</th>
+                  <th>Devol.</th>
+                  <th>Renov.</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody className="loan_list">
+                <tr>
+                  <th>Wilian Rodrigues Santos</th>
+                  <th>Memórias Póstumas de Brás Cubas</th>
+                  <th>14/06/2021</th>
+                  <th>2</th>
+                  <th>
+                  <img src={editar} alt="editar"/>
+                  <img src={excluir} alt="excluir"/>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
           </section>
         </div>    
-
       </div>    
     </div>
   );
 }
 
-export default LocalitiesForm;
+export default LoansList;
