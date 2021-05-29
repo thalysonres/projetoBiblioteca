@@ -107,7 +107,7 @@ function StudentsForm(props) {
 
   return (
     <div id="container">
-      {console.log(' Uma vez ', umaVez, params)}
+
       <Menu />
 
       <div id="main">
