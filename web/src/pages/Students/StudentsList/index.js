@@ -1,21 +1,14 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import bookPP from '../../../assets/images/book-pp.svg';
+import { Link } from 'react-router-dom';
+import { Menu } from '../../../components/Menu';
+import { server } from '../../../common'
 import estudante from '../../../assets/images/icons/estudantes.svg';
-import autor from '../../../assets/images/icons/autores.svg';
-import livro from '../../../assets/images/icons/livros2.svg';
-import localidade from '../../../assets/images/icons/localidade.svg';
-import emprestimo from '../../../assets/images/icons/emprestimos.svg';
-import funcionario from '../../../assets/images/icons/funcionarios.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 import StudentsForm from '../StudentsForm';
-import { Menu } from '../../../components/Menu';
-import { server } from '../../../common'
-
-
 
 function StudentsList() {
 

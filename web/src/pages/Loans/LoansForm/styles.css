@@ -5,18 +5,6 @@ body{
   padding: 0;
 }
 
-#menu{
-  background-color: rgba(0, 212, 212, 0.95);
-  box-sizing: border-box;
-  box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
-  float: left;
-  position: absolute;
-  width: 260px;
-  height: 100vh;
-  left: 0px;
-  top: 0px;
-}
-
 #main{
   position: absolute;
   top: 0px;
@@ -24,47 +12,6 @@ body{
   width: calc(100vw - 260px);
   height: 100vh;
   overflow-y: scroll;
-}
-
-#icon-menu{
-  width: 214px;
-  height: 101.03px;
-  align-items: center;
-  display: flex;
-  margin: 14px 22px;
-}
-
-#icon-menu span{
-  font-size: 30px;
-  line-height: 36.15px;
-}
-
-#items-menu{
-  display: flex;
-  top: 170px;
-}
-
-#items-menu li{
-  width: 216px;
-  margin: 16px -22px;
-  list-style: none;
-  display: flex;
-  background-color: rgba(98, 66, 66, 0.05);
-}
-
-#items-menu li a{
-  color: black;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:133px;
-  line-height: 30px;
-  font-size: 26px;
-}
-
-#items-menu li img{
-  height:70px;
 }
 
 #create{
@@ -120,7 +67,7 @@ body{
   cursor: pointer;
 }
 
-#studentF_list{
+#loanF_list{
   width: 947px;
   margin: 31px auto 51px auto;
   padding-bottom: 15px;
@@ -130,7 +77,7 @@ body{
   justify-content: center;
 }
 
-#studentF_list h2{
+#loanF_list h2{
   font-size: 39px;
   line-height: 46px;
   display: flex;  
@@ -138,33 +85,32 @@ body{
   justify-content: center;
 }
 
-#studentF_list form{
+#loanF_list form{
   margin-left: 13px;
 }
 
-#studentF_list fieldset{
+#loanF_list fieldset{
   border: none;  
   padding: 0;
 }
 
-#studentF_list fieldset div{
+#loanF_list fieldset div{
   width: 780px;  
   display: flex;
   align-items: center;
   align-content: center;
 }
 
-#studentF_list label{
+#loanF_list label{  
   cursor: pointer;
   height: 30px;
-  min-width: 112px;
-  max-width: 245px;
+  min-width: 150px;
   font-size: 26px;
   line-height: 30px;
   margin-left: 10px;
 }
 
-#studentF_list input{
+#loanF_list input{
   width: stretch;
   height: 30px;
   line-height: 23px;
@@ -174,23 +120,12 @@ body{
   border: none;
 }
 
-#studentF_cpf{
-  width: 170px !important;
+#loanF_dates{    
+  align-items: flex-start !important;
+  height: 60px;
 }
 
-#studentF_birthDate{
-  width: min-content !important; 
-}
-
-.studentF_birthDate{
-  width: stretch;
-}
-
-.studentF_confirmPass{
-  width: stretch;
-}
-
-#studentF_input{
+#loanF_input{
   line-height: 41px;
   margin-top: 22px;
   border: none;
@@ -201,7 +136,7 @@ body{
   gap: 32px;
 }
 
-#studentF_input .studentF_confirm{
+#loanF_input .loanF_confirm{
   width: 350px;
   height: 50px;
   font-size: 35px;
@@ -211,7 +146,7 @@ body{
 
 }
 
-#studentF_input .studentF_cancel{
+#loanF_input .loanF_cancel{
   width: 350px;
   height: 50px;
   font-size: 35px;

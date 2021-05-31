@@ -1,10 +1,10 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { Menu } from '../../../components/Menu';
+import { server } from '../../../common';
 import estudante from '../../../assets/images/icons/estudantes.svg';
 import './styles.css';
-import { Menu } from '../../../components/Menu';
-import axios from 'axios';
-import { server } from '../../../common';
-import { Redirect } from 'react-router-dom';
 
 function StudentsForm(props) {
   const [name, setName] = useState()
@@ -107,7 +107,6 @@ function StudentsForm(props) {
 
   return (
     <div id="container">
-      {console.log(' Uma vez ', umaVez, params)}
       <Menu />
 
       <div id="main">

@@ -5,64 +5,12 @@ body{
   padding: 0;
 }
 
-#menu{
-  background-color: rgba(0, 212, 212, 0.95);
-  box-sizing: border-box;
-  box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
-  float: left;
-  width: 260px;
-  height: 100vh;
-  left: 0px;
-  top: 0px;
-}
-
 #main{
   top: 0px;
   left: 260px;
   width: calc(100vw - 260px);
   height: 100vh;
   overflow-y: scroll;
-}
-
-#icon-menu{
-  width: 214px;
-  height: 101.03px;
-  align-items: center;
-  display: flex;
-  margin: 14px 22px;
-}
-
-#icon-menu span{
-  font-size: 30px;
-  line-height: 36.15px;
-}
-
-#items-menu{
-  display: flex;
-  top: 170px;
-}
-
-#items-menu li{
-  width: 216px;
-  margin: 16px -22px;
-  list-style: none;
-  display: flex;
-  background-color: rgba(98, 66, 66, 0.05);
-}
-
-#items-menu li a{
-  color: black;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:133px;
-  line-height: 30px;
-  font-size: 26px;
-}
-
-#items-menu li img{
-  height:70px;
 }
 
 #create{

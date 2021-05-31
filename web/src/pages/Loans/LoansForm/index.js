@@ -1,11 +1,5 @@
 import React from 'react';
-import bookPP from '../../../assets/images/book-pp.svg';
-import estudante from '../../../assets/images/icons/estudantes.svg';
-import autor from '../../../assets/images/icons/autores.svg';
-import livro from '../../../assets/images/icons/livros2.svg';
-import localidade from '../../../assets/images/icons/localidade.svg';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
-import funcionario from '../../../assets/images/icons/funcionarios.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
 
@@ -26,51 +20,33 @@ function LoansForm() {
           </div>
         </div>
 
-        <div id="studentF_list">
+        <div id="loanF_list">
           <section>
             <h2>Novo Empréstimo</h2>
             <form>
               <fieldset>
                 <div>
-                  <label for="name">Nome:</label>
-                  <input type="text" name="name" id="studentF_name" placeholder="Digite o nome" />
+                  <label for="literaryWork">Livro:</label>
+                  <input type="text" literaryWork="literaryWork" id="loanF_literaryWork" placeholder="Selecione o livro" />
                 </div>
                 <div>
-                  <label for="phone">Telefone:</label>
-                  <input type="tel" name="phone" id="studentF_phone" placeholder="Digite o telefone" />
-                  <label for="state">Estado:</label>
-                  <input type="text" name="state" id="studentF_state" placeholder="Digite o estado" />
+                  <label for="student">Estudante:</label>
+                  <input type="text" name="student" id="loanF_student" placeholder="Selecione o estudante" />
                 </div>
                 <div>
-                  <label for="street">Rua:</label>
-                  <input type="text" name="street" id="studentF_street" placeholder="Digite a rua" />
+                  <label for="employee">Funcionário:</label>
+                  <input type="text" name="employee" id="loanF_employee" placeholder="Selecione o funcionário" />
                 </div>
-                <div>
-                  <label for="district">Bairro:</label>
-                  <input type="text" name="district" id="studentF_district" placeholder="Digite o bairro" />
-                </div>
-                <div>
-                  <label for="city">Cidade:</label>
-                  <input type="text" name="city" id="studentF_city" placeholder="Digite a cidade" />
-                </div>
-                <div>
-                  <label for="cpf">CPF:</label>
-                  <input type="text" name="cpf" id="studentF_cpf" placeholder="Digite o CPF" />
-                  <label className="studentF_birthDate" for="birthDate">Data de nascimento:</label>
-                  <input type="date" name="birthDate" id="studentF_birthDate" />
-                </div>
-                <div>
-                  <label for="pass">Senha:</label>
-                  <input type="password" name="pass" id="studentF_pass" placeholder="Digite a senha" />
-                </div>
-                <div>
-                  <label className="studentF_confirmPass" for="confirmPass">Confirmar senha:</label>
-                  <input type="password" name="confirmPass" id="studentF_confirmPass" placeholder="Confirme a senha" />
+                <div id="loanF_dates">
+                  <label className="loanF_loanDate" for="loanDate">Data de empréstimo:</label>
+                  <input type="date" name="loanDate" id="loanF_loanDate" />
+                  <label className="loanF_returnDate" for="returnDate">Data de devolução:</label>
+                  <input type="date" name="returnDate" id="loanF_returnDate" />
                 </div>
               </fieldset>
-              <div id="studentF_input">
-                <input className="studentF_confirm" type="submit" value="Cadastrar" />
-                <input className="studentF_cancel" type="submit" value="Cancelar" />
+              <div id="loanF_input">
+                <input className="loanF_confirm" type="submit" value="Cadastrar" />
+                <input className="loanF_cancel" type="submit" value="Cancelar" />
               </div>
             </form>
           </section>
