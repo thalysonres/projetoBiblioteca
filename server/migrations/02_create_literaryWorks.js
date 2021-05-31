@@ -15,7 +15,6 @@ exports.up = function(knex) {
         table.boolean('borrowed');
         table.string('file')
 
-
         table.integer('author_id')
             .notNullable()
             .references('id')
@@ -28,6 +27,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('literaryWorks');
-  
+    return knex.schema.dropTable('literaryWorks');  
 };

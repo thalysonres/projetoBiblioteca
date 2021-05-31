@@ -1,10 +1,11 @@
 import React from 'react';
-import emprestimo from '../../../assets/images/icons/emprestimos.svg';
+import livro from '../../../assets/images/icons/livros2.svg';
 import editar from '../../../assets/images/icons/editar.svg';
+import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
 
-function StudentLoansList() {
+function LiteraryWorksList() {
 
   return (
     <div id="container">
@@ -13,32 +14,35 @@ function StudentLoansList() {
       <div id="main">
         <div id="create">
           <div id="new">
-            <img src={emprestimo} alt="empréstimos" />
-            <span>Empréstimos</span>
+            <img src={livro} alt="livros" />
+            <span>Livros</span>
           </div>
           <div id="new_button">
             <button>+</button>
           </div>
         </div>
 
-        <div id="loan_list">
-          <section className="loan_allStudentLoans">
+        <div id="literaryWork_list">
+          <section className="literaryWork_allLiteraryWorks">
             <table cellSpacing={0}>
-              <thead className="loan_title">
+              <thead className="literaryWork_title">
                 <tr>
                   <th>Livro</th>
-                  <th>Devol.</th>
-                  <th>Nº de renov.</th>
+                  <th>Autor</th>
+                  <th>Dispon.</th>
+                  <th>Local</th>
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody className="loan_list">
+              <tbody className="literaryWork_list">
                 <tr>
                   <th>Memórias Póstumas de Brás Cubas</th>
-                  <th>14/06/2021</th>
-                  <th>2</th>
+                  <th>Machado de Assis</th>
+                  <th>5</th>
+                  <th>01-01-AC</th>
                   <th>
                     <img src={editar} alt="editar" />
+                    <img src={excluir} alt="excluir" />
                   </th>
                 </tr>
               </tbody>
@@ -50,4 +54,4 @@ function StudentLoansList() {
   );
 }
 
-export default StudentLoansList;
+export default LiteraryWorksList;
