@@ -67,6 +67,11 @@ body{
   cursor: pointer;
 }
 
+#create #new_button button img{
+  width: 40px;
+  height: 40px;
+}
+
 #literaryWorkF_list{
   width: 947px;
   margin: 31px auto 51px auto;
@@ -117,19 +122,24 @@ body{
   line-height: 23px;
   font-size: 20px;
   margin-bottom: 10px;
+  margin-left: 10px;
   background-color: #fff;
   border: none;
 }
 
-#literaryWorkF_list #literaryWorkF_file{
+#literaryWorkF_file{
   width: min-content !important;
+}
+
+#literaryWorkF_CDD, #literaryWorkF_editionYear{
+  width: 120px !important;
 }
 
 .literaryWorkF_translator, .literaryWorkF_locality{
   min-width: min-content !important;
 }
 
-.literaryWorkF_numberPage, .literaryWorkF_publication, .literaryWorkF_CDD{
+.literaryWorkF_numberPage, .literaryWorkF_publication, .literaryWorkF_CDU{
   min-width: max-content !important;
 }
 

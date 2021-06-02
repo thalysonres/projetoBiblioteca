@@ -53,8 +53,6 @@ body{
 }
 
 #create #new_button button{
-  font-size: 67px;
-  line-height: 81px;  
   width: 70px;
   height: 70px;
   border-radius:35px;
@@ -72,7 +70,7 @@ body{
   height: 40px;
 }
 
-#employeeF_list{
+#literaryWorksI_list{
   width: 947px;
   margin: 31px auto 51px auto;
   padding-bottom: 15px;
@@ -82,92 +80,10 @@ body{
   justify-content: center;
 }
 
-#employeeF_list h2{
+#literaryWorksI_list h2{
   font-size: 39px;
   line-height: 46px;
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: center;
-}
-
-#employeeF_list form{
-  margin-left: 13px;
-}
-
-#employeeF_list fieldset{
-  border: none;  
-  padding: 0;
-}
-
-#employeeF_list fieldset div{
-  width: 780px; 
-  display: flex;
-  align-items: center;
-  align-content: center;  
-}
-
-#employeeF_list label{
-  cursor: pointer;
-  height: 30px;
-  min-width: 112px;
-  max-width: 245px;
-  font-size: 26px;
-  line-height: 30px;
-  margin-left: 10px;
-}
-
-#employeeF_list input{
-  width: stretch; 
-  height: 30px;
-  line-height: 23px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  background-color: #fff;
-  border: none;  
-}
-
-#employeeF_cpf{
-  width: 170px !important;
-}
-
-#employeeF_birthDate{
-  width: min-content !important;  
-}
-
-.employeeF_birthDate{
-  width: stretch;
-}
-
-.employeeF_confirmPass{
-  width: stretch;
-}
-
-#employeeF_input{
-  line-height: 41px;
-  margin-top: 22px;
-  border: none;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  gap: 32px;
-}
-
-#employeeF_input .employeeF_confirm{
-  width: 350px;
-  height: 50px;
-  font-size: 35px;
-  border-radius: 153px ;
-  background-color: #D4EDDA;
-  color: #155724;
-
-}
-
-#employeeF_input .employeeF_cancel{
-  width: 350px;
-  height: 50px;
-  font-size: 35px;
-  border-radius: 153px;
-  background-color: #F8D7DA;
-  color: #721C24;
 }

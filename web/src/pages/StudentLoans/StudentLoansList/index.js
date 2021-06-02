@@ -1,5 +1,6 @@
 import React from 'react';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
+import retorno from '../../../assets/images/icons/return.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
@@ -17,7 +18,7 @@ function StudentLoansList() {
             <span>Empréstimos</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <button><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 

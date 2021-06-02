@@ -67,6 +67,11 @@ body{
   cursor: pointer;
 }
 
+#create #new_button button img{
+  width: 40px;
+  height: 40px;
+}
+
 #loanF_list{
   width: 947px;
   margin: 31px auto 51px auto;

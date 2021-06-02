@@ -1,5 +1,6 @@
 import React from 'react';
 import livro from '../../../assets/images/icons/livros2.svg';
+import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
 
@@ -16,7 +17,7 @@ function LiteraryWorksForm() {
             <span>Livros</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <button><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 
@@ -36,26 +37,26 @@ function LiteraryWorksForm() {
                 <div>
                   <label for="edition">Edição:</label>
                   <input type="text" name="edition" id="literaryWorkF_edition" placeholder="Digite a edição" />
-                  <label for="editionYear">Ano:</label>
-                  <input type="text" name="editionYear" id="literaryWorkF_editionYear" placeholder="Digite o ano" />
-                </div>
-                <div>
                   <label className="literaryWorkF_numberPage" for="numberPage">Nº de pág:</label>
                   <input type="text" name="numberPage" id="literaryWorkF_numberPage" placeholder="Digite o nº de páginas" />
+                </div>
+                <div>
+                  <label for="editionYear">Ano:</label>
+                  <input type="text" name="editionYear" id="literaryWorkF_editionYear" placeholder="Digite o ano" />
                   <label for="publishingComp">Editora:</label>
                   <input type="text" name="publishingComp" id="literaryWorkF_publishingComp" placeholder="Digite a editora" />
                 </div>
                 <div>
-                  <label className="literaryWorkF_publication" for="publication">Local de pub:</label>
-                  <input type="text" name="publication" id="literaryWorkF_publication" placeholder="Digite o local de publicação" />
-                  <label className="literaryWorkF_CDD" for="CDD">CDD:</label>
-                  <input type="text" name="CDD" id="literaryWorkF_CDD" placeholder="Digite o CDD" />
-                </div>
-                <div>
                   <label for="ISBN">ISBN:</label>
                   <input type="text" name="ISBN" id="literaryWorkF_ISBN" placeholder="Digite o ISBN" />
-                  <label for="CDU">CDU:</label>
+                  <label className="literaryWorkF_CDU" for="CDU">CDU:</label>
                   <input type="text" name="CDU" id="literaryWorkF_CDU" placeholder="Digite o CDU" />
+                </div>
+                <div>
+                  <label className="literaryWorkF_CDD" for="CDD">CDD:</label>
+                  <input type="text" name="CDD" id="literaryWorkF_CDD" placeholder="Digite o CDD" />
+                  <label className="literaryWorkF_publication" for="publication">Local de pub:</label>
+                  <input type="text" name="publication" id="literaryWorkF_publication" placeholder="Digite o local de publicação" />
                 </div>
                 <div>
                   <label className="literaryWorkF_translator" for="translator">Tradutor:</label>

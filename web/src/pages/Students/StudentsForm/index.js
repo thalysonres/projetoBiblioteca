@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
 import estudante from '../../../assets/images/icons/estudantes.svg';
+import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
 
 function StudentsForm(props) {
@@ -116,7 +117,7 @@ function StudentsForm(props) {
             <span>Estudantes</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <button><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 

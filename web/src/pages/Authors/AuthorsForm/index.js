@@ -1,5 +1,6 @@
 import React from 'react';
 import autor from '../../../assets/images/icons/autores.svg';
+import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
 
@@ -16,7 +17,7 @@ function AuthorsForm() {
             <span>Autores</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <button><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 

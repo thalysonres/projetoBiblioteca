@@ -1,5 +1,6 @@
 import React from 'react';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
+import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
 
@@ -16,7 +17,7 @@ function EmployeesForm() {
             <span>Funcionários</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <button><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 

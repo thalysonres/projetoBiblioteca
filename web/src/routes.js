@@ -15,6 +15,7 @@ import LoansForm from './pages/Loans/LoansForm';
 import StudentLoansList from './pages/StudentLoans/StudentLoansList';
 import LiteraryWorksList from './pages/LiteraryWorks/LiteraryWorksList';
 import LiteraryWorksForm from './pages/LiteraryWorks/LiteraryWorksForm';
+import LiteraryWorksInfo from './pages/LiteraryWorks/LiteraryWorksInfo';
 
 
 function Routes() {
@@ -40,6 +41,7 @@ function Routes() {
       <Route path="/studentloans" exact component={StudentLoansList} />
       <Route path="/literaryworks" exact component={LiteraryWorksList} />
       <Route path="/literaryworksform" exact component={LiteraryWorksForm} />
+      <Route path="/literaryworksinfo" exact component={LiteraryWorksInfo} />
     </BrowserRouter>
   );
 }
