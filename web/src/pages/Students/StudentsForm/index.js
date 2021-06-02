@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
 import estudante from '../../../assets/images/icons/estudantes.svg';
 import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
+import { Loading } from '../../../components/Loading';
 
 function StudentsForm(props) {
   const [name, setName] = useState()
@@ -20,6 +21,7 @@ function StudentsForm(props) {
   const [birthDate, setBirthDate] = useState()
   const [redirect, setRedirect] = useState(false)
   const [editA, setEditA] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const params = props.match.params.id
 
@@ -32,10 +34,9 @@ function StudentsForm(props) {
   const cadastrar = (e) => {
     e.preventDefault()
 
-
-
     if (params != undefined) {
       alert('Update')
+      setLoading(false)
       axios.put(`${server}/students/${params}`, {
         name: name,
         phone: phone,
@@ -49,14 +50,21 @@ function StudentsForm(props) {
         alert('User alterado');
         setEditA(false)
         setRedirect(true)
+        setLoading(true)
+
         // window.location = '/students'
       })
         .catch(e => alert('Ou não algo deu errado!!!'))
     } else {
+      setLoading(false)
 
       alert('Cadastrar')
       if (pass != passConfirm) {
         return alert('Senhas não confere')
+      }
+
+      if (String(cpf).length < 11) {
+        return alert('cpf nao tem 11 digitos')
       }
 
       axios.post(`${server}/students`, {
@@ -73,6 +81,7 @@ function StudentsForm(props) {
         alert('Novo usuario cadastrado')
         setEditA(false)
         setRedirect(true)
+        setLoading(false)
       })
         .catch(e => alert('Ou não algo deu errado!!!'))
 
@@ -100,11 +109,19 @@ function StudentsForm(props) {
         setCpf(student.cpf)
         setPass(student.pass)
         setBirthDate(student.birthDate)
-      }).then(_ => setEditA(true))
+      }).then(_ => {
+        setEditA(true)
+        setLoading(true)
+      })
+    } else {
+      setLoading(true)
     }
   }
 
-  edit()
+  useEffect(() => {
+    edit()
+
+  })
 
   return (
     <div id="container">
@@ -117,11 +134,11 @@ function StudentsForm(props) {
             <span>Estudantes</span>
           </div>
           <div id="new_button">
-            <button><img src={retorno} alt="retorno" /></button>
+            <button onClick={() => setRedirect(true)} ><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 
-        <div id="studentF_list">
+        {loading ? <div id="studentF_list">
           <section>
             <h2>Novo Usuário</h2>
             <form>
@@ -171,6 +188,8 @@ function StudentsForm(props) {
             </form>
           </section>
         </div>
+          : <Loading />
+        }
         {redirect && <Redirect to="/students" />}
       </div>
     </div>

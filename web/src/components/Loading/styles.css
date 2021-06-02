@@ -1,0 +1,11 @@
+.img-book-load {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    
+}
+
+.div-book-load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from '../../../components/Menu';
 import { server } from '../../../common'
@@ -7,18 +7,27 @@ import estudante from '../../../assets/images/icons/estudantes.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
+import { Loading } from '../../../components/Loading';
 
-import StudentsForm from '../StudentsForm';
+const loadStudents = async (setLoad, setLoading) => {
+  const students = await axios(`${server}/students`).then(es => {
+
+    setLoading(true)
+    return es.data
+  })
+    .catch((e, i, o) => {
+      alert(`algo de errado ocorreu => ${e}`)
+      setLoading(false)
+    })
+  setLoad(students)
+
+}
 
 function StudentsList() {
 
   const [load, setLoad] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  const loadStudents = async () => {
-    const students = await axios(`${server}/students`).then(es => es.data)
-
-    setLoad(students)
-  }
 
   const deletar = (params) => {
     let resultado = window.confirm('Deseja realmente excluir o usuario?')
@@ -26,12 +35,16 @@ function StudentsList() {
       axios.delete(`${server}/students/${params}`)
         .then(_ => {
           alert('Usuario excluido com sucesso!')
-          loadStudents()
+          loadStudents(setLoad, setLoading)
         }).catch(e => alert('Usuario não excluido!!'))
     }
   }
 
-  loadStudents()
+  const mask = (cpf) => cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9, 11)
+
+  useEffect(() => {
+    loadStudents(setLoad, setLoading)
+  })
 
   return (
     <div id="container">
@@ -61,9 +74,9 @@ function StudentsList() {
               </thead>
               <tbody className="student_list">
 
-                {load.map(e => (
+                {loading && load.map(e => (
                   <tr key={e.id}>
-                    <th>{e.cpf}</th>
+                    <th>{mask(e.cpf)}</th>
                     <th>{e.name}</th>
                     <th>
                       <Link to={`/studentsForm/${e.id}`}><img src={editar} alt="editar" /></Link>
@@ -71,10 +84,12 @@ function StudentsList() {
                     </th>
                   </tr>
                 ))
+
                 }
 
               </tbody>
             </table>
+            {!loading && <Loading />}
           </section>
         </div>
       </div>

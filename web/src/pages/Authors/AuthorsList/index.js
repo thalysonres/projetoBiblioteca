@@ -4,6 +4,7 @@ import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
+import { Link } from 'react-router-dom';
 
 function AuthorsList() {
 
@@ -19,7 +20,7 @@ function AuthorsList() {
             <span>Autores</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <Link className="button" to="/authorsform">+</Link>
           </div>
         </div>
 

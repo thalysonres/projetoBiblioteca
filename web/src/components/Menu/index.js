@@ -28,19 +28,19 @@ export const Menu = props => {
 					</li>
 					<li class="books">
 						<img src={livro} alt="livro" />
-						<Link href="#">Livros</Link>
+						<Link to="#">Livros</Link>
 					</li>
 					<li class="localities">
 						<img src={localidade} alt="localidade" />
-						<Link href="/localities">Localidades</Link>
+						<Link to="/localities">Localidades</Link>
 					</li>
 					<li class="loans">
 						<img src={emprestimo} alt="empréstimo" />
-						<Link href="#">Empréstimos</Link>
+						<Link to="/loans">Empréstimos</Link>
 					</li>
 					<li class="employees">
 						<img src={funcionario} alt="funcionário" />
-						<Link href="/employees">Funcionários</Link>
+						<Link to="/employees">Funcionários</Link>
 					</li>
 				</ul>
 			</div>
