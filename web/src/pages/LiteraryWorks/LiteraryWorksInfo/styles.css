@@ -70,7 +70,7 @@ body{
   height: 40px;
 }
 
-#literaryWorksI_list{
+#literaryWorkI_list{
   width: 947px;
   margin: 31px auto 51px auto;
   padding-bottom: 15px;
@@ -80,10 +80,30 @@ body{
   justify-content: center;
 }
 
-#literaryWorksI_list h2{
+#literaryWorkI_list h2{
   font-size: 39px;
   line-height: 46px;
   display: flex;  
   align-items: center;
   justify-content: center;
+}
+
+#literaryWorkI_list table{
+  width: 878px;
+  height: 47px;
+  font-size: 26px;
+  line-height: 30px;
+  margin: 24px;
+}
+
+#literaryWorkI_list .literaryWorkI_title{
+  background: #D2D2D2;
+}
+
+#literaryWorkI_list .literaryWorkI_title .capa{
+  width: 200px;
+}
+
+#literaryWorkI_list .literaryWorkI_list{
+  background: #EAEAEA;
 }
