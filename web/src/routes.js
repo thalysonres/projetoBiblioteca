@@ -23,15 +23,17 @@ function Routes() {
     <BrowserRouter>
       <Route path="/auth" exact component={Auth} />
       <Route path="/students" exact component={StudentsList} />
-      <Route path="/studentsform" exact component={StudentsForm} />
-      <Route path="/studentsform/:id" exact component={StudentsForm} />
-      {/* <Route path="/students/:id" exact component={StudentsForm} /> */}
+      <Route path="/studentsForm" exact component={StudentsForm} />
+      <Route path="/studentsForm/:id" exact component={StudentsForm} />
+      {/* <Route path="/studentform/:id" exact component={StudentsForm} /> */}
       <Route path="/employees" exact component={EmployeesList} />
       <Route path="/employeesform" exact component={EmployeesForm} />
+      <Route path="/employeesform/:id" exact component={EmployeesForm} />
       {/* <Route path="/employees/:id" exact component={EmployeesForm} /> */}
       <Route path="/authors" exact component={AuthorsList} />
       <Route path="/authorsform" exact component={AuthorsForm} />
-      {/* <Route path="/authors/:id" exact component={AuthorsForm} /> */}
+      <Route path="/authorsform/:id" exact component={AuthorsForm} />
+      {/* <Route path="/authorsform/:id" exact component={AuthorsForm} /> */}
       <Route path="/localities" exact component={LocalitiesList} />
       <Route path="/localitiesform" exact component={LocalitiesForm} />
       {/* <Route path="/localities/:id" exact component={LocalitiesForm} /> */}

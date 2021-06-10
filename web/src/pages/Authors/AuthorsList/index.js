@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import autor from '../../../assets/images/icons/autores.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import { server } from '../../../common';
+let teste = 0
 function AuthorsList() {
+
+
+  const loadingAuthors = async () => {
+
+    const autores = await axios.get(`${server}/authors`)
+      .then(aut => aut.data)
+      .catch(e => console.log('erro: ', e))
+
+    setAuthor(autores)
+    // console.log('lkd ', teste++, authorsL)
+  }
+
+  const deletar = (id) => {
+    let resultado = window.confirm('Deseja realmente excluir?')
+    if (resultado) {
+      axios.delete(`${server}/authors/${id}`)
+        .then(_ => alert('Deletado com sucesso!'))
+        .catch(e => alert('algo deu errodo'))
+    }
+
+  }
+
+  const [authorsL, setAuthor] = useState([])
+
+  useEffect(() => {
+    loadingAuthors()
+  })
 
   return (
     <div id="container">
@@ -35,14 +64,18 @@ function AuthorsList() {
                 </tr>
               </thead>
               <tbody className="author_list">
-                <tr>
-                  <th>K61n</th>
-                  <th>Masashi Kishimoto</th>
-                  <th>
-                    <img src={editar} alt="editar" />
-                    <img src={excluir} alt="excluir" />
-                  </th>
-                </tr>
+                {authorsL.map(aut => (
+                  <tr>
+                    <th>{aut.authorsNotation}</th>
+                    <th>{aut.name}</th>
+                    <th>
+                      <Link to={`/authorsform/${aut.id}`}><img src={editar} alt="editar" /></Link>
+                      <img src={excluir} alt="excluir" onClick={() => deletar(aut.id)} />
+                    </th>
+                  </tr>
+                ))
+
+                }
               </tbody>
             </table>
           </section>

@@ -7,6 +7,7 @@ import estudante from '../../../assets/images/icons/estudantes.svg';
 import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
 import { Loading } from '../../../components/Loading';
+import { cadastrarUpdate } from '../../../utils';
 
 function StudentsForm(props) {
   const [name, setName] = useState()
@@ -68,15 +69,15 @@ function StudentsForm(props) {
       }
 
       axios.post(`${server}/students`, {
-        name: name,
-        phone: phone,
-        street: street,
-        district: district,
-        city: city,
-        state: state,
-        cpf: cpf,
-        pass: pass,
-        birthDate: birthDate
+        name,
+        phone,
+        street,
+        district,
+        city,
+        state,
+        cpf,
+        pass,
+        birthDate
       }).then(_ => {
         alert('Novo usuario cadastrado')
         setEditA(false)
@@ -88,6 +89,8 @@ function StudentsForm(props) {
     }
 
   }
+
+
   const cancelar = (e) => {
     e.preventDefault()
     setEditA(false)
@@ -108,6 +111,7 @@ function StudentsForm(props) {
         setState(student.state)
         setCpf(student.cpf)
         setPass(student.pass)
+        setPassConfirm(student.pass)
         setBirthDate(student.birthDate)
       }).then(_ => {
         setEditA(true)

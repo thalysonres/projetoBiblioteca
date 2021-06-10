@@ -28,7 +28,7 @@ export const Menu = props => {
 					</li>
 					<li class="books">
 						<img src={livro} alt="livro" />
-						<Link to="#">Livros</Link>
+						<Link to="/literaryWorks">Livros</Link>
 					</li>
 					<li class="localities">
 						<img src={localidade} alt="localidade" />

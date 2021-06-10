@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import funcionario from '../../../assets/images/icons/funcionarios.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
+import axios from 'axios';
+import { server } from '../../../common';
+import { Link, Redirect } from 'react-router-dom';
 
 function EmployeesList() {
+
+  const [employeeLoad, setEmployeeLoad] = useState([])
+
+  const employee_load = async () => {
+    let employee = await axios.get(`${server}/employees`).then(e => e.data)
+    setEmployeeLoad(employee)
+  }
+
+  const deletar = (id) => {
+    let resultado = window.confirm('Deseja deletar?')
+    if (resultado) {
+      axios.delete(`${server}/employees/${id}`).then(_ => alert('Deletado com sucesso!'))
+        .catch(e => alert('Algo de errado!'))
+    }
+  }
+
+  useEffect(() => {
+    employee_load()
+  })
 
   return (
     <div id="container">
@@ -17,7 +39,7 @@ function EmployeesList() {
             <span>Funcionários</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <Link className="button" to="/employeesform">+</Link>
           </div>
         </div>
 
@@ -32,14 +54,16 @@ function EmployeesList() {
                 </tr>
               </thead>
               <tbody className="employee_list">
-                <tr>
-                  <th>999.999.999-99</th>
-                  <th>Wilian Rodrigues Santos</th>
-                  <th>
-                    <img src={editar} alt="editar" />
-                    <img src={excluir} alt="excluir" />
-                  </th>
-                </tr>
+                {employeeLoad.map(emp =>
+                  <tr>
+                    <th>{emp.cpf}</th>
+                    <th>{emp.name}</th>
+                    <th>
+                      <Link to={`/employeesform/${emp.id}`}><img src={editar} alt="editar" /></Link>
+                      <img src={excluir} alt="excluir" onClick={() => deletar(emp.id)} />
+                    </th>
+                  </tr>
+                )}
               </tbody>
             </table>
           </section>
