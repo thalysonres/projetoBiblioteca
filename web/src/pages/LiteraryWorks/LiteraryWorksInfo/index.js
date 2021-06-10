@@ -13,7 +13,7 @@ function LiteraryWorksInfo() {
       <div id="main">
         <div id="create">
           <div id="new">
-          <img src={livro} alt="livros" />
+            <img src={livro} alt="livros" />
             <span>Livros</span>
           </div>
           <div id="new_button">
