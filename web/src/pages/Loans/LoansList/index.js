@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
+import axios from 'axios';
+import { server } from './../../../common'
+import { Link } from 'react-router-dom';
 
 function LoansList() {
+
+  const [emprestim, setEmprestim] = useState([])
+
+  const loadEmprestimo = async () => {
+    let emp = await axios.get(`${server}/loans`).then(e => e.data)
+    setEmprestim(emp)
+  }
+
+  const apagar = (e) => {
+    alert('apagou kkk')
+  }
+
+  useEffect(() => {
+    loadEmprestimo()
+    console.log(emprestim)
+  })
 
   return (
     <div id="container">
@@ -35,16 +54,19 @@ function LoansList() {
                 </tr>
               </thead>
               <tbody className="loan_list">
-                <tr>
-                  <th>Wilian Rodrigues Santos</th>
-                  <th>Memórias Póstumas de Brás Cubas</th>
-                  <th>14/06/2021</th>
-                  <th>2</th>
-                  <th>
-                    <img src={editar} alt="editar" />
-                    <img src={excluir} alt="excluir" />
-                  </th>
-                </tr>
+                {emprestim.map(emp => (
+                  <tr key={emp.id}>
+                    <th>{emp.student_id}</th>
+                    <th>{emp.literaryWorks_id}</th>
+                    <th>{emp.returnDate}</th>
+                    <th>{emp.loanDate}</th>
+                    <th>
+                      <Link to={`/loansform/${emp.id}`}><img src={editar} alt="editar" /></Link>
+                      <img src={excluir} alt="excluir" onClick={() => apagar()} />
+                    </th>
+                  </tr>
+                ))
+                }
               </tbody>
             </table>
           </section>

@@ -1,10 +1,113 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import livro from '../../../assets/images/icons/livros2.svg';
 import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
 import { Menu } from '../../../components/Menu';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
+import { server } from '../../../common';
 
-function LiteraryWorksForm() {
+function LiteraryWorksForm(props) {
+
+  const [author, setAuthor] = useState()
+  const [title, setTitle] = useState()
+  const [edition, setEdition] = useState()
+  const [numberPage, setNumberPage] = useState()
+  const [editionYear, setEditionYear] = useState()
+  const [publishingComp, setPublishingComp] = useState()
+  const [ISBN, setISBN] = useState()
+  const [CDU, setCDU] = useState()
+  const [CDD, setCDD] = useState()
+  const [publication, setPublication] = useState()
+  const [translator, setTranslator] = useState()
+  const [locality, setLocality] = useState()
+  const [file, setFile] = useState()
+  const [load, setLoad] = useState(true)
+  const [redirect, setRedirect] = useState(false)
+
+  const params = props.match.params.id
+
+  const loading = () => {
+    if ((params != undefined) && load) {
+      axios.get(`${server}/literaryWorks/${params}`)
+        .then(livro => {
+          let liv = livro.data
+          setLoad(false)
+          setAuthor(liv.author_id)
+          setTitle(liv.title)
+          setEdition(liv.edition)
+          setNumberPage(liv.numberPage)
+          setEditionYear(liv.editionYear)
+          setPublishingComp(liv.publishingComp)
+          setISBN(liv.ISBN)
+          setCDU(liv.CDU)
+          setCDD(liv.CDD)
+          setPublication(liv.publication)
+          setTranslator(liv.translator)
+          setLocality(liv.locality_id)
+          setFile(liv.file)
+          console.log('aut ', liv.file)
+        })
+        .catch(e => alert('Algo deu errado'))
+    }
+
+  }
+
+  const cadastrar = (e) => {
+    e.preventDefault()
+    // upload()
+    if (params != undefined) {
+      alert('update')
+      axios.put(`${server}/literaryWorks/${params}`, {
+        author,
+        title,
+        edition,
+        numberPage,
+        editionYear,
+        publishingComp,
+        ISBN,
+        CDU,
+        CDD,
+        publication,
+        translator,
+        locality,
+        file
+      })
+        .then(_ => {
+          setRedirect(true)
+          alert('Salvo com sucesso!')
+        })
+        .catch('Algo deu errado')
+    }
+    else {
+      alert('novo')
+      axios.post(`${server}/literaryWorks`, {
+        author, title, edition, numberPage, editionYear, publishingComp, ISBN,
+        CDU, CDD, publication, translator, locality,
+        // file
+      })
+        .then(_ => {
+          setRedirect(true)
+          alert('Salvo com sucesso!')
+        })
+        .catch('Algo deu errado')
+    }
+  }
+
+  const cancelar = (e) => {
+    e.preventDefault()
+    setRedirect(true)
+  }
+
+  const upload = (e) => {
+    let formData = new FormData()
+    console.log('files ', e.target.files[0])
+    setFile(formData.append('image', e.target.files[0], e.target.files[0].name))
+  }
+
+  useEffect(() => {
+    loading()
+  })
 
   return (
     <div id="container">
@@ -13,11 +116,11 @@ function LiteraryWorksForm() {
       <div id="main">
         <div id="create">
           <div id="new">
-          <img src={livro} alt="livros" />
+            <img src={livro} alt="livros" />
             <span>Livros</span>
           </div>
           <div id="new_button">
-            <button><img src={retorno} alt="retorno" /></button>
+            <button onClick={() => setRedirect(true)}><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 
@@ -28,58 +131,60 @@ function LiteraryWorksForm() {
               <fieldset>
                 <div>
                   <label for="author">Autor:</label>
-                  <input type="text" name="author" id="literaryWorkF_author" placeholder="Selecione o autor" />
+                  <input type="text" name="author" id="literaryWorkF_author" value={author} onChange={e => setAuthor(e.target.value)} placeholder="Selecione o autor" />
                 </div>
                 <div>
                   <label for="title">Nome:</label>
-                  <input type="text" name="title" id="literaryWorkF_title" placeholder="Digite o nome" />
+                  <input type="text" name="title" id="literaryWorkF_title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Digite o nome" />
                 </div>
                 <div>
                   <label for="edition">Edição:</label>
-                  <input type="text" name="edition" id="literaryWorkF_edition" placeholder="Digite a edição" />
+                  <input type="text" name="edition" id="literaryWorkF_edition" value={edition} onChange={e => setEdition(e.target.value)} placeholder="Digite a edição" />
                   <label className="literaryWorkF_numberPage" for="numberPage">Nº de pág:</label>
-                  <input type="text" name="numberPage" id="literaryWorkF_numberPage" placeholder="Digite o nº de páginas" />
+                  <input type="text" name="numberPage" id="literaryWorkF_numberPage" value={numberPage} onChange={e => setNumberPage(e.target.value)} placeholder="Digite o nº de páginas" />
                 </div>
                 <div>
                   <label for="editionYear">Ano:</label>
-                  <input type="text" name="editionYear" id="literaryWorkF_editionYear" placeholder="Digite o ano" />
+                  <input type="text" name="editionYear" id="literaryWorkF_editionYear" value={editionYear} onChange={e => setEditionYear(e.target.value)} placeholder="Digite o ano" />
                   <label for="publishingComp">Editora:</label>
-                  <input type="text" name="publishingComp" id="literaryWorkF_publishingComp" placeholder="Digite a editora" />
+                  <input type="text" name="publishingComp" id="literaryWorkF_publishingComp" value={publishingComp} onChange={e => setPublishingComp(e.target.value)} placeholder="Digite a editora" />
                 </div>
                 <div>
                   <label for="ISBN">ISBN:</label>
-                  <input type="text" name="ISBN" id="literaryWorkF_ISBN" placeholder="Digite o ISBN" />
+                  <input type="text" name="ISBN" id="literaryWorkF_ISBN" value={ISBN} onChange={e => setISBN(e.target.value)} placeholder="Digite o ISBN" />
                   <label className="literaryWorkF_CDU" for="CDU">CDU:</label>
-                  <input type="text" name="CDU" id="literaryWorkF_CDU" placeholder="Digite o CDU" />
+                  <input type="text" name="CDU" id="literaryWorkF_CDU" value={CDU} onChange={e => setCDU(e.target.value)} placeholder="Digite o CDU" />
                 </div>
                 <div>
                   <label className="literaryWorkF_CDD" for="CDD">CDD:</label>
-                  <input type="text" name="CDD" id="literaryWorkF_CDD" placeholder="Digite o CDD" />
+                  <input type="text" name="CDD" id="literaryWorkF_CDD" value={CDD} onChange={e => setCDD(e.target.value)} placeholder="Digite o CDD" />
                   <label className="literaryWorkF_publication" for="publication">Local de pub:</label>
-                  <input type="text" name="publication" id="literaryWorkF_publication" placeholder="Digite o local de publicação" />
+                  <input type="text" name="publication" id="literaryWorkF_publication" value={publication} onChange={e => setPublication(e.target.value)} placeholder="Digite o local de publicação" />
                 </div>
                 <div>
                   <label className="literaryWorkF_translator" for="translator">Tradutor:</label>
-                  <input type="text" name="translator" id="literaryWorkF_translator" placeholder="Digite o nome do tradutor" />
+                  <input type="text" name="translator" id="literaryWorkF_translator" value={translator} onChange={e => setTranslator(e.target.value)} placeholder="Digite o nome do tradutor" />
                 </div>
                 <div>
-                  <label  className="literaryWorkF_locality" for="locality">Localidade:</label>
-                  <input type="text" name="locality" id="literaryWorkF_locality" placeholder="Selecione o local" />
+                  <label className="literaryWorkF_locality" for="locality">Localidade:</label>
+                  <input type="text" name="locality" id="literaryWorkF_locality" value={locality} onChange={e => setLocality(e.target.value)} placeholder="Selecione o local" />
                 </div>
                 <div>
                   <label className="file" for="file">Capa do livro:
-                    <input type="file" name="file" id="literaryWorkF_file"/>
+                    <input type="file" name="file" value={''} onChange={e => upload(e)} id="literaryWorkF_file" />
                   </label>
                 </div>
+                <img src={file} width={'155px'} height={'233px'} />
               </fieldset>
               <div id="literaryWorkF_input">
-                <input className="literaryWorkF_confirm" type="submit" value="Cadastrar" />
-                <input className="literaryWorkF_cancel" type="submit" value="Cancelar" />
+                <input className="literaryWorkF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="literaryWorkF_cancel" type="submit" value="Cancelar" onClick={e => cancelar(e)} />
               </div>
             </form>
           </section>
         </div>
-
+        {console.log('file: ', file)}
+        {redirect && <Redirect to={"/literaryWorks"} />}
       </div>
     </div>
   );

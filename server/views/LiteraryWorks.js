@@ -1,7 +1,7 @@
 renderLiterary = async (app, literary) => {
 
     let author = await app.db('authors')
-        .select('name')
+        .select('*')
         .where({ id: literary.author_id })
         .first()
         .then(author => author)
@@ -13,7 +13,7 @@ renderLiterary = async (app, literary) => {
         .first()
         .then(locality => locality)
         .catch(err => err)
-
+    
     return {        
         id: literary.id,
         title: literary.title,
@@ -27,7 +27,7 @@ renderLiterary = async (app, literary) => {
         CDU: literary.CDU,
         translator: literary.translator,
         borrowed: literary.borrowed,
-        file: `http://localhost:3000/uploads/${literary.file}`,
+        file: `http://localhost:3001/uploads/${literary.file}`,
         author_id: author.name,
         locality_id: locality
     }

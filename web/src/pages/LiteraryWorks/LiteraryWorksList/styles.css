@@ -51,7 +51,7 @@ body{
   justify-content: flex-end;
 }
 
-#create #new_button button{
+#create #new_button .button{
   font-size: 67px;
   line-height: 81px;  
   width: 70px;
@@ -85,6 +85,10 @@ body{
 
 #literaryWork_list .literaryWork_title{
   background: #D2D2D2;
+}
+
+.borred{
+  background: #f8cbcb;
 }
 
 #literaryWork_list .literaryWork_list{

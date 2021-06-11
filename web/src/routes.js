@@ -39,10 +39,12 @@ function Routes() {
       {/* <Route path="/localities/:id" exact component={LocalitiesForm} /> */}
       <Route path="/loans" exact component={LoansList} />
       <Route path="/loansform" exact component={LoansForm} />
+      <Route path="/loansform/:id" exact component={LoansForm} />
       {/* <Route path="/loans/:id" exact component={LoansForm} /> */}
       <Route path="/studentloans" exact component={StudentLoansList} />
       <Route path="/literaryworks" exact component={LiteraryWorksList} />
       <Route path="/literaryworksform" exact component={LiteraryWorksForm} />
+      <Route path="/literaryworksform/:id" exact component={LiteraryWorksForm} />
       <Route path="/literaryworksinfo" exact component={LiteraryWorksInfo} />
     </BrowserRouter>
   );
