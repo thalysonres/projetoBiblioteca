@@ -93,7 +93,7 @@ function AuthorsForm(props) {
 
         <div id="authorF_list">
           <section>
-            <h2>Novo Autor</h2>
+            {!params ? <h2>Novo Autor</h2> : <h2>Alterar Autor</h2>}
             <form>
               <fieldset>
                 <div>

@@ -133,7 +133,7 @@ function LiteraryWorksForm(props) {
 
         <div id="literaryWorkF_list">
           <section>
-            <h2>Novo Livro</h2>
+            {!params ? <h2>Novo Livro</h2> : <h2>Alterar Livro</h2>}
             <form>
               <fieldset>
                 <div>

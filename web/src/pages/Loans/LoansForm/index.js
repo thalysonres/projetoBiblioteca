@@ -95,7 +95,7 @@ function LoansForm(props) {
 
         <div id="loanF_list">
           <section>
-            <h2>Novo Empréstimo</h2>
+            {!params ? <h2>Novo Empréstimo</h2> : <h2>Alterar Empréstimo</h2>}
             <form>
               <fieldset>
                 <div>

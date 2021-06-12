@@ -74,7 +74,7 @@ function LocalitiesForm(props) {
 
         <div id="localityF_list">
           <section>
-            <h2>Nova Localidade</h2>
+            {!params ? <h2>Nova Localidade</h2> : <h2>Alterar Localidade</h2>}
             <form>
               <fieldset>
                 <div>

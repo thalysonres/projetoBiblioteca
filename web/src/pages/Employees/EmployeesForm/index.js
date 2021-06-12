@@ -115,7 +115,7 @@ function EmployeesForm(props) {
 
         <div id="employeeF_list">
           <section>
-            <h2>Novo Funcionário</h2>
+            {!params ? <h2>Novo Funcionário</h2> : <h2>Alterar Funcionário</h2>}
             <form>
               <fieldset>
                 <div>

@@ -144,7 +144,7 @@ function StudentsForm(props) {
 
         {loading ? <div id="studentF_list">
           <section>
-            <h2>Novo Usuário</h2>
+            {!params ? <h2>Novo Usuário</h2> : <h2>Alterar Usuário</h2>}
             <form>
               <fieldset>
                 <div>
