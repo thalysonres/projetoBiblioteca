@@ -61,10 +61,10 @@ function LiteraryWorksList() {
 
                 {livros.map(liv => (
 
-                  <tr key={liv.id} className={liv.borrowed ? '' : 'borred'}>
+                  <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
                     <th>{liv.title}</th>
                     <th>{liv.author_id}</th>
-                    {liv.borrowed ? <th>Sim</th> : <th>Não</th>}
+                    {liv.borrowed ? <th>Não</th> : <th>Sim</th>}
                     <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th>
                     <th>
                       <Link to={`/literaryworksform/${liv.id}`}><img src={editar} alt="editar" /></Link>
