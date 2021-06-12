@@ -36,6 +36,7 @@ function Routes() {
       {/* <Route path="/authorsform/:id" exact component={AuthorsForm} /> */}
       <Route path="/localities" exact component={LocalitiesList} />
       <Route path="/localitiesform" exact component={LocalitiesForm} />
+      <Route path="/localitiesform/:id" exact component={LocalitiesForm} />
       {/* <Route path="/localities/:id" exact component={LocalitiesForm} /> */}
       <Route path="/loans" exact component={LoansList} />
       <Route path="/loansform" exact component={LoansForm} />
