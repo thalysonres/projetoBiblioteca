@@ -55,26 +55,29 @@ function LiteraryWorksForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
-    upload()
+
     if (params != undefined) {
-      alert('update')
-      axios.put(`${server}/literaryWorks/${params}`, {
-        author,
-        title,
-        edition,
-        numberPage,
-        editionYear,
-        publishingComp,
-        ISBN,
-        CDU,
-        CDD,
-        publication,
-        translator,
-        locality,
-        file
-      }, {
+      const formData = new FormData()
+      const img = document.querySelector('#literaryWorkF_file')
+      console.log('=> ', img.files[0])
+      formData.append('file', img.files[0])
+      formData.append('author', author)
+      formData.append('title', title)
+      formData.append('edition', edition)
+      formData.append('editionYear', editionYear)
+      formData.append('numberPage', numberPage)
+      formData.append('publishingComp', publishingComp)
+      formData.append('publication', publication)
+      formData.append('ISBN', ISBN)
+      formData.append('CDD', CDD)
+      formData.append('CDU', CDU)
+      formData.append('translator', translator)
+      formData.append('author_id', author)
+      formData.append('locality_id', locality)
+
+      axios.put(`${server}/literaryWorks/${params}`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
         }
       })
         .then(_ => {
@@ -85,31 +88,56 @@ function LiteraryWorksForm(props) {
     }
     else {
       alert('novo')
-      axios.post(`${server}/literaryWorks`, {
-        author, title, edition, numberPage, editionYear, publishingComp, ISBN,
-        CDU, CDD, publication, translator, locality,
-        // file
+
+      const formData = new FormData()
+      const img = document.querySelector('#literaryWorkF_file')
+      console.log('=> ', img.files[0])
+      formData.append('file', img.files[0])
+      formData.append('author', author)
+      formData.append('title', title)
+      formData.append('edition', edition)
+      formData.append('editionYear', editionYear)
+      formData.append('numberPage', numberPage)
+      formData.append('publishingComp', publishingComp)
+      formData.append('publication', publication)
+      formData.append('ISBN', ISBN)
+      formData.append('CDD', CDD)
+      formData.append('CDU', CDU)
+      formData.append('translator', translator)
+      formData.append('author_id', author)
+      formData.append('locality_id', locality)
+
+      // , title, edition, numberPage, editionYear, publishingComp, ISBN,
+      //   CDU, CDD, publication, translator, locality)
+
+
+      axios.post(`${server}/literaryWorks`, formData, {
+        headers: {
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        }
       })
         .then(_ => {
           setRedirect(true)
           alert('Salvo com sucesso!')
         })
         .catch('Algo deu errado')
+
+      // axios.post(`${server}/literaryWorks`, {
+      //   author, title, edition, numberPage, editionYear, publishingComp, ISBN,
+      //   CDU, CDD, publication, translator, locality,
+      //   // file
+      // })
+      //   .then(_ => {
+      //     setRedirect(true)
+      //     alert('Salvo com sucesso!')
+      //   })
+      //   .catch('Algo deu errado')
     }
   }
 
   const cancelar = (e) => {
     e.preventDefault()
     setRedirect(true)
-  }
-
-  const upload = (e) => {
-    let formData = new FormData()
-    console.log('files ', e)
-    // 
-    // ;
-    // 
-    setFile(formData.append('image', e, e.name))
   }
 
   useEffect(() => {
@@ -178,7 +206,7 @@ function LiteraryWorksForm(props) {
                 </div>
                 <div>
                   <label className="file" for="file">Capa do livro:
-                    <input type="file" name="file" value={file} onChange={e => upload(e.target.files[0])} id="literaryWorkF_file" />
+                    <input type="file" name="file" id="literaryWorkF_file" />
                   </label>
                 </div>
                 <img src={file} width={'155px'} height={'233px'} />
@@ -190,7 +218,6 @@ function LiteraryWorksForm(props) {
             </form>
           </section>
         </div>
-        {console.log('file: ', file)}
         {redirect && <Redirect to={"/literaryWorks"} />}
       </div>
     </div>
