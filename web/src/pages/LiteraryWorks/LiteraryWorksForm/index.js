@@ -55,7 +55,7 @@ function LiteraryWorksForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
-    // upload()
+    upload()
     if (params != undefined) {
       alert('update')
       axios.put(`${server}/literaryWorks/${params}`, {
@@ -72,6 +72,10 @@ function LiteraryWorksForm(props) {
         translator,
         locality,
         file
+      }, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       })
         .then(_ => {
           setRedirect(true)
@@ -101,8 +105,11 @@ function LiteraryWorksForm(props) {
 
   const upload = (e) => {
     let formData = new FormData()
-    console.log('files ', e.target.files[0])
-    setFile(formData.append('image', e.target.files[0], e.target.files[0].name))
+    console.log('files ', e)
+    // 
+    // ;
+    // 
+    setFile(formData.append('image', e, e.name))
   }
 
   useEffect(() => {
@@ -171,7 +178,7 @@ function LiteraryWorksForm(props) {
                 </div>
                 <div>
                   <label className="file" for="file">Capa do livro:
-                    <input type="file" name="file" value={''} onChange={e => upload(e)} id="literaryWorkF_file" />
+                    <input type="file" name="file" value={file} onChange={e => upload(e.target.files[0])} id="literaryWorkF_file" />
                   </label>
                 </div>
                 <img src={file} width={'155px'} height={'233px'} />

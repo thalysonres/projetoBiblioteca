@@ -17,8 +17,11 @@ function LoansList() {
     setEmprestim(emp)
   }
 
-  const apagar = (e) => {
-    alert('apagou kkk')
+  const apagar = (id) => {
+    alert('apagou kkk', id)
+    axios.delete(`${server}/loans/${id}`)
+      .then(_ => alert('Deletado com sucesso!!!'))
+      .catch(e => alert('Algo deu errado!!!'))
   }
 
   useEffect(() => {
@@ -37,7 +40,7 @@ function LoansList() {
             <span>Empréstimos</span>
           </div>
           <div id="new_button">
-            <button>+</button>
+            <Link to={'/loansform'} className="button">+</Link>
           </div>
         </div>
 
@@ -62,7 +65,7 @@ function LoansList() {
                     <th>{emp.loanDate}</th>
                     <th>
                       <Link to={`/loansform/${emp.id}`}><img src={editar} alt="editar" /></Link>
-                      <img src={excluir} alt="excluir" onClick={() => apagar()} />
+                      <img src={excluir} alt="excluir" onClick={() => apagar(emp.id)} />
                     </th>
                   </tr>
                 ))
