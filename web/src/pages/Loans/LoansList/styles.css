@@ -51,7 +51,7 @@ body{
   justify-content: flex-end;
 }
 
-#create #new_button button{
+#create #new_button .button{
   font-size: 67px;
   line-height: 81px;  
   width: 70px;
@@ -93,4 +93,5 @@ body{
 
 #loan_list .loan_list tr img{
   margin-left: 11px;
+  cursor: pointer;
 }

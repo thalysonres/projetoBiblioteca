@@ -161,7 +161,11 @@ body{
   border-radius: 153px;
   background-color: #D4EDDA;
   color: #155724;
+  cursor: pointer;
+}
 
+#literaryWorkF_input .literaryWorkF_confirm:hover{
+  background-color: #81ff9e;
 }
 
 #literaryWorkF_input .literaryWorkF_cancel{
@@ -171,4 +175,9 @@ body{
   border-radius: 153px;
   background-color: #F8D7DA;
   color: #721C24;
+  cursor: pointer;
+}
+
+#literaryWorkF_input .literaryWorkF_cancel:hover{
+  background-color: #ff919a;
 }

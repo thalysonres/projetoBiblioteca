@@ -160,7 +160,11 @@ body{
   border-radius: 153px ;
   background-color: #D4EDDA;
   color: #155724;
+  cursor: pointer;
+}
 
+#employeeF_input .employeeF_confirm:hover {
+  background-color: #5fff84;
 }
 
 #employeeF_input .employeeF_cancel{
@@ -170,4 +174,9 @@ body{
   border-radius: 153px;
   background-color: #F8D7DA;
   color: #721C24;
+  cursor: pointer;
+}
+
+#employeeF_input .employeeF_cancel:hover {
+  background-color: #ff7c87;
 }
