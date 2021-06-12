@@ -25,6 +25,8 @@ function EmployeesList() {
     }
   }
 
+  const mask = (cpf) => cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9, 11)
+
   useEffect(() => {
     employee_load()
   })
@@ -56,7 +58,7 @@ function EmployeesList() {
               <tbody className="employee_list">
                 {employeeLoad.map(emp =>
                   <tr>
-                    <th>{emp.cpf}</th>
+                    <th>{mask(emp.cpf)}</th>
                     <th>{emp.name}</th>
                     <th>
                       <Link to={`/employeesform/${emp.id}`}><img src={editar} alt="editar" /></Link>

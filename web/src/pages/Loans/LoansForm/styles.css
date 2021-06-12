@@ -148,7 +148,11 @@ body{
   border-radius: 153px;
   background-color: #D4EDDA;
   color: #155724;
+  cursor: pointer;
+}
 
+#loanF_input .loanF_confirm:hover{
+  background-color: #77ff97;
 }
 
 #loanF_input .loanF_cancel{
@@ -158,4 +162,9 @@ body{
   border-radius: 153px;
   background-color: #F8D7DA;
   color: #721C24;
+  cursor: pointer;
+}
+
+#loanF_input .loanF_cancel:hover{
+  background-color: #ff7480;
 }

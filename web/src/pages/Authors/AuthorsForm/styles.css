@@ -147,7 +147,11 @@ body{
   border-radius: 153px ;
   background-color: #D4EDDA;
   color: #155724;
+  cursor: pointer;
+}
 
+#authorF_input .authorF_confirm:hover{
+  background-color: #85ffa2;
 }
 
 #authorF_input .authorF_cancel{
@@ -157,4 +161,9 @@ body{
   border-radius: 153px;
   background-color: #F8D7DA;
   color: #721C24;
+  cursor: pointer;
+}
+
+#authorF_input .authorF_cancel:hover{
+  background-color: #ff808a;
 }
