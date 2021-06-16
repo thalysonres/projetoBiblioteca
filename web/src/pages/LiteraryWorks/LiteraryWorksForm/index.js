@@ -24,8 +24,17 @@ function LiteraryWorksForm(props) {
   const [file, setFile] = useState()
   const [load, setLoad] = useState(true)
   const [redirect, setRedirect] = useState(false)
+  const [autoresListas, setAutoresLista] = useState([])
+  const [localidadeList, setLocalidadeList] = useState([])
 
   const params = props.match.params.id
+
+  const loadingAutorLocalidade = async () => {
+    let autores = await axios.get(`${server}/authors`).then(res => res.data)
+    let loc = await axios.get(`${server}/localities`).then(res => res.data)
+    setLocalidadeList(loc)
+    setAutoresLista(autores)
+  }
 
   const loading = () => {
     if ((params != undefined) && load) {
@@ -46,11 +55,15 @@ function LiteraryWorksForm(props) {
           setTranslator(liv.translator)
           setLocality(liv.locality_id)
           setFile(liv.file)
-          console.log('aut ', liv.file)
+          // console.log('aut ', liv.file)
         })
         .catch(e => alert('Algo deu errado'))
     }
 
+  }
+
+  const getIdSelected = (id) => {
+    return id.slice(0, id.indexOf(':'))
   }
 
   const cadastrar = (e) => {
@@ -72,8 +85,8 @@ function LiteraryWorksForm(props) {
       formData.append('CDD', CDD)
       formData.append('CDU', CDU)
       formData.append('translator', translator)
-      formData.append('author_id', author)
-      formData.append('locality_id', locality)
+      formData.append('author_id', getIdSelected(author))
+      formData.append('locality_id', getIdSelected(locality))
 
       axios.put(`${server}/literaryWorks/${params}`, formData, {
         headers: {
@@ -104,8 +117,8 @@ function LiteraryWorksForm(props) {
       formData.append('CDD', CDD)
       formData.append('CDU', CDU)
       formData.append('translator', translator)
-      formData.append('author_id', author)
-      formData.append('locality_id', locality)
+      formData.append('author_id', getIdSelected(author))
+      formData.append('locality_id', getIdSelected(locality))
 
       // , title, edition, numberPage, editionYear, publishingComp, ISBN,
       //   CDU, CDD, publication, translator, locality)
@@ -142,7 +155,8 @@ function LiteraryWorksForm(props) {
 
   useEffect(() => {
     loading()
-  })
+    loadingAutorLocalidade()
+  }, [])
 
   return (
     <div id="container">
@@ -166,7 +180,14 @@ function LiteraryWorksForm(props) {
               <fieldset>
                 <div>
                   <label for="author">Autor:</label>
-                  <input type="text" name="author" id="literaryWorkF_author" value={author} onChange={e => setAuthor(e.target.value)} placeholder="Selecione o autor" />
+                  <input type="search" name="author" list="autorList" id="literaryWorkF_author" value={author} onChange={e => setAuthor(e.target.value)} placeholder="Selecione o autor" />
+
+                  <datalist id="autorList">
+                    {autoresListas.map(aut => (
+                      <option key={aut.id} value={`${aut.id}: ${aut.name}`}>{aut.name}</option>)
+                    )}
+                  </datalist>
+
                 </div>
                 <div>
                   <label for="title">Nome:</label>
@@ -202,7 +223,14 @@ function LiteraryWorksForm(props) {
                 </div>
                 <div>
                   <label className="literaryWorkF_locality" for="locality">Localidade:</label>
-                  <input type="text" name="locality" id="literaryWorkF_locality" value={locality} onChange={e => setLocality(e.target.value)} placeholder="Selecione o local" />
+                  <input type="search" name="locality" id="literaryWorkF_locality" list="localidadesList" value={locality} onChange={e => setLocality(e.target.value)} placeholder="Selecione o local" />
+
+                  <datalist id="localidadesList">
+                    {localidadeList.map(loc => (
+                      <option key={loc.id} value={`${loc.id}: ${loc.hall}/${loc.bookcase}/${loc.shelf}`}></option>
+                    ))
+                    }
+                  </datalist>
                 </div>
                 <div>
                   <label className="file" for="file">Capa do livro:
@@ -220,7 +248,7 @@ function LiteraryWorksForm(props) {
         </div>
         {redirect && <Redirect to={"/literaryWorks"} />}
       </div>
-    </div>
+    </div >
   );
 }
 
