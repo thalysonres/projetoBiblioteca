@@ -61,13 +61,13 @@ module.exports = app => {
     }
 
     const del = async (req, res) => {
+        const idLiterary = await app.db('loans').where({ id: req.params.id })
         await app.db('loans')
             .where({ id: req.params.id })
             .delete()
             .then(user => {
-
                 app.db('literaryWorks')
-                    .where({ id: req.body.literaryWorks_id })
+                    .where({ id: idLiterary[0].literaryWorks_id })
                     .update({ borrowed: false })
                     .then(inserido => res.json({ OK: inserido, message: "deletado" }))
             })

@@ -97,4 +97,5 @@ body{
 
 #literaryWork_list .literaryWork_list tr img{
   margin-left: 11px;
+  cursor: pointer;
 }
