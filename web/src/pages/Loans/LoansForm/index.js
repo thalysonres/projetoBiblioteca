@@ -45,11 +45,14 @@ function LoansForm(props) {
         literaryWork, student, employee,
         loanDate, returnDate
       })
-        .then(_ => {
+        .then(m => {
           alert('Salva com sucesso!!')
           setRedirect(true)
         })
-        .catch(e => alert('Algo errado!'))
+        .catch(e => {
+          console.log(e)
+          alert(`Algo errado! ${e.response.data.message}`)
+        })
     }
 
     else {
@@ -62,7 +65,9 @@ function LoansForm(props) {
       }).then(() => {
         alert('Salva com sucesso!!!')
         setRedirect(true)
-      }).catch(e => alert('Algo errado!'))
+      }).catch(e => {
+        alert(`Algo errado! ${e.response.data.message}`)
+      })
     }
 
     console.log(literaryWork, student, employee,

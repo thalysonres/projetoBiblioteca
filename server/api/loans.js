@@ -7,9 +7,17 @@ module.exports = app => {
     const save = async (req, res) => {
         app.db('loans')
             .select('*')
-            .where({ id: req.body.student_id })
+            .where({ student_id: req.body.student_id })
             .then(loans => {
-                if (loans.length <= 5) setLoans(app, req, res)
+                if (loans.length < 3) {
+                    setLoans(app, req, res)
+                }
+                else {
+                    console.log('cheio')
+                    return res.status(401).json({
+                        message: 'Limite de emprestimo atingido :('
+                    })
+                }
             })
             .catch(err => res.json(401).json(err))
     }
