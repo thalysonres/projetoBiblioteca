@@ -18,7 +18,7 @@ function LoansList() {
   }
 
   const apagar = (id) => {
-    alert('apagou kkk', id)
+    alert('Empréstimo excluido', id)
     axios.delete(`${server}/loans/${id}`)
       .then(_ => alert('Deletado com sucesso!!!'))
       .catch(e => alert('Algo deu errado!!!'))

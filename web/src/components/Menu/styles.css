@@ -6,12 +6,12 @@
   width: 260px;
   height: 100vh;
   left: 0px;
-  top: 0px;
+  top: 0px;  
 }
 
 #icon-menu{
   width: 214px;
-  height: 101.03px;
+  height: 65px;
   align-items: center;
   display: flex;
   margin: 14px 22px;
@@ -19,7 +19,7 @@
 
 #icon-menu span{
   font-size: 30px;
-  line-height: 36.15px;
+  line-height: 35px;
 }
 
 #items-menu{
@@ -29,7 +29,7 @@
 
 #items-menu li{
   width: 216px;
-  margin: 16px -22px;
+  margin: 14px -22px;
   list-style: none;
   display: flex;
   background-color: rgba(98, 66, 66, 0.05);
@@ -39,13 +39,31 @@
   color: black;
   text-decoration: none;
   display: flex;
-  justify-content: center;
   align-items: center;
   width:133px;
   line-height: 30px;
   font-size: 26px;
 }
 
+
 #items-menu li img{
   height:70px;
+}
+
+@media (max-width: 900px) {
+  #menu{
+    width: 100px;
+  }
+  span{
+    display:none;
+  }
+
+  #items-menu li{
+    width: 50px;
+    margin: 14px -30px;
+  }
+
+  #icon-menu{
+    margin: 14px 20px;
+  }
 }

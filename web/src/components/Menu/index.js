@@ -19,28 +19,40 @@ export const Menu = props => {
 			<div id="items-menu">
 				<ul id="navigation">
 					<li class="students">
-						<img src={estudante} alt="estudante" />
-						<Link to="/students">Estudantes</Link>
+						<Link to="/students">
+							<img src={estudante} alt="estudante" />
+							<span>Estudantes</span>
+						</Link>
 					</li>
 					<li class="authors">
-						<img src={autor} alt="autor" />
-						<Link to="/authors">Autores</Link>
+						<Link to="/authors">
+							<img src={autor} alt="autor" />
+							<span>Autores</span>
+						</Link>
 					</li>
 					<li class="books">
-						<img src={livro} alt="livro" />
-						<Link to="/literaryWorks">Livros</Link>
+						<Link to="/literaryWorks">
+							<img src={livro} alt="livro" />
+							<span>Livros</span>
+						</Link>
 					</li>
 					<li class="localities">
-						<img src={localidade} alt="localidade" />
-						<Link to="/localities">Localidades</Link>
+						<Link to="/localities">
+							<img src={localidade} alt="localidade" />
+							<span>Localidades</span>
+						</Link>
 					</li>
 					<li class="loans">
-						<img src={emprestimo} alt="empréstimo" />
-						<Link to="/loans">Empréstimos</Link>
+						<Link to="/loans">
+							<img src={emprestimo} alt="empréstimo" />
+							<span>Empréstimos</span>
+						</Link>
 					</li>
 					<li class="employees">
-						<img src={funcionario} alt="funcionário" />
-						<Link to="/employees">Funcionários</Link>
+						<Link to="/employees">
+							<img src={funcionario} alt="funcionário" />
+							<span>Funcionários</span>
+						</Link>
 					</li>
 				</ul>
 			</div>

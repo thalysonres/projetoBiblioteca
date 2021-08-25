@@ -2,11 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Menu } from '../../../components/Menu';
+import { Loading } from '../../../components/Loading';
 import { server } from '../../../common';
 import estudante from '../../../assets/images/icons/estudantes.svg';
 import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
-import { Loading } from '../../../components/Loading';
 import { cadastrarUpdate } from '../../../utils';
 
 function StudentsForm(props) {
