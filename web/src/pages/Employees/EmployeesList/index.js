@@ -35,7 +35,7 @@ function EmployeesList() {
     <div id="container">
       <Menu />
       <div id="main">
-        <div id="create">
+        <div id="createEmployees">
           <div id="new">
             <img src={funcionario} alt="funcionários" />
             <span>Funcionários</span>

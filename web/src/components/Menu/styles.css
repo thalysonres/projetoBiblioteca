@@ -60,6 +60,7 @@ ul#navigation{
   #menu{
     width: 100px;
   }
+
   span{
     display:none;
   }
@@ -72,7 +73,6 @@ ul#navigation{
   #items-menu{
     width: 100px;
     margin: 0;
-
   }
   
   #items-menu li{

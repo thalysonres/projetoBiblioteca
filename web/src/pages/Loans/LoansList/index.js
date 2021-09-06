@@ -1,12 +1,12 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu } from '../../../components/Menu';
+import { server } from './../../../common'
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
 import './styles.css';
-import { Menu } from '../../../components/Menu';
-import axios from 'axios';
-import { server } from './../../../common'
-import { Link } from 'react-router-dom';
 
 function LoansList() {
 
@@ -34,7 +34,7 @@ function LoansList() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createLoans">
           <div id="new">
             <img src={emprestimo} alt="empréstimos" />
             <span>Empréstimos</span>
@@ -46,7 +46,7 @@ function LoansList() {
 
         <div id="loan_list">
           <section className="loan_allLoans">
-            <table cellSpacing={0}>
+            <table className="loan_table">
               <thead className="loan_title">
                 <tr>
                   <th>Estudante</th>
@@ -59,14 +59,14 @@ function LoansList() {
               <tbody className="loan_list">
                 {emprestim.map(emp => (
                   <tr key={emp.id}>
-                    <th>{emp.student_id}</th>
-                    <th>{emp.literaryWorks_id}</th>
-                    <th>{emp.returnDate}</th>
-                    <th>{emp.loanDate}</th>
-                    <th>
+                    <td>{emp.student_id}</td>
+                    <td>{emp.literaryWorks_id}</td>
+                    <td>{emp.returnDate}</td>
+                    <td>{emp.loanDate}</td>
+                    <td>
                       <Link to={`/loansform/${emp.id}`}><img src={editar} alt="editar" /></Link>
                       <img src={excluir} alt="excluir" onClick={() => apagar(emp.id)} />
-                    </th>
+                    </td>
                   </tr>
                 ))
                 }

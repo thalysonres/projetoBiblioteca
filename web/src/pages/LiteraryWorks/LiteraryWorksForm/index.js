@@ -163,7 +163,7 @@ function LiteraryWorksForm(props) {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createLiteraryF">
           <div id="new">
             <img src={livro} alt="livros" />
             <span>Livros</span>

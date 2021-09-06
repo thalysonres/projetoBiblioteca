@@ -88,7 +88,7 @@ function LoansForm(props) {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createLoansF">
           <div id="new">
             <img src={emprestimo} alt="empréstimos" />
             <span>Empréstimos</span>

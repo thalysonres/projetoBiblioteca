@@ -52,7 +52,7 @@ function StudentsList() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createStudents">
           <div id="new">
             <img src={estudante} alt="estudantes" />
             <span>Estudantes</span>

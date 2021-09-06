@@ -103,7 +103,7 @@ function EmployeesForm(props) {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createEmployeesF">
           <div id="new">
             <img src={funcionario} alt="funcionários" />
             <span>Funcionários</span>

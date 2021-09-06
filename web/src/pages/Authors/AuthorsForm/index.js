@@ -81,7 +81,7 @@ function AuthorsForm(props) {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createAuthorsF">
           <div id="new">
             <img src={autor} alt="autores" />
             <span>Autores</span>

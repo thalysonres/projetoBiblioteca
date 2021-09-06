@@ -62,7 +62,7 @@ function LocalitiesForm(props) {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createLocalitiesF">
           <div id="new">
             <img src={localidade} alt="localidades" />
             <span>Localidades</span>

@@ -132,7 +132,7 @@ function StudentsForm(props) {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createStudentsF">
           <div id="new">
             <img src={estudante} alt="estudantes" />
             <span>Estudantes</span>

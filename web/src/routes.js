@@ -21,7 +21,7 @@ import LiteraryWorksInfo from './pages/LiteraryWorks/LiteraryWorksInfo';
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/auth" exact component={Auth} />
+      <Route path="/" exact component={Auth} />
       <Route path="/students" exact component={StudentsList} />
       <Route path="/studentsForm" exact component={StudentsForm} />
       <Route path="/studentsForm/:id" exact component={StudentsForm} />

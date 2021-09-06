@@ -1,58 +1,59 @@
 #main{
   top: 0px;
-  left: 260px;
-  width: calc(100vw - 260px);
+  /*width: calc(100vw - 260px);*/
   height: 100vh;
   overflow-y: scroll;
 }
 
-#create{
+#createLiterary{
   width: 947px;
   height: 114px;
-  margin: 31px auto 51px auto;
+  margin: 31px auto;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
 }
 
-#create #new{
+#createLiterary #new{
   width: 430px;
   height:70px;
   margin-left: 55px;
   display: flex;
+  justify-content: flex-start;
   background: rgba(98, 66, 66, 0.05);
 }
 
-#create #new img{
-  width: 141.34px;
+#createLiterary #new img{
+  width: 140px;
   height:70px;
 }
 
-#create #new span{
+#createLiterary #new span{
   line-height: 30px;
   font-size: 26px;  
-  width: 288.66px;
+  width: 290px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#create #new_button{
+#createLiterary #new_button{
   width: 100vw;
   margin-right: 27px;
   display: flex;  
   justify-content: flex-end;
 }
 
-#create #new_button .button{
+#createLiterary #new_button .button{
   font-size: 67px;
-  line-height: 81px;  
   width: 70px;
-  height: 70px;
+  height: 70px ;
   border-radius:35px;
+  text-decoration: none;
   border: none;
   box-shadow: 2px 3px 10px #000000;
   background: #00D4AE;
+  color: #000000;
   display: flex;  
   align-items: center;
   justify-content: center;

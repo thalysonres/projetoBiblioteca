@@ -43,7 +43,7 @@ function AuthorsList() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createAuthors">
           <div id="new">
             <img src={autor} alt="autores" />
             <span>Autores</span>
