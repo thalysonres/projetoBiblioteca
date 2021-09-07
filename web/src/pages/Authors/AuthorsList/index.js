@@ -55,7 +55,7 @@ function AuthorsList() {
 
         <div id="author_list">
           <section className="author_allAuthors">
-            <table cellSpacing={0}>
+            <table className="author_table">
               <thead className="author_title">
                 <tr>
                   <th>Notação do autor</th>

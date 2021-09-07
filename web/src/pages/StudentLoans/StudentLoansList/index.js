@@ -24,7 +24,7 @@ function StudentLoansList() {
 
         <div id="studentL_list">
           <section className="studentL_allStudents">
-            <table cellSpacing={0}>
+            <table  className="studentL_table">
               <thead className="studentL_title">
                 <tr>
                   <th>Livro</th>

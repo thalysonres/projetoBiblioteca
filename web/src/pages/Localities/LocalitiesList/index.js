@@ -47,7 +47,7 @@ function LocalitiesList() {
 
         <div id="locality_list">
           <section className="locality_allLocalities">
-            <table cellSpacing={0}>
+            <table className="locality_table">
               <thead className="locality_title">
                 <tr>
                   <th>Corredor</th>

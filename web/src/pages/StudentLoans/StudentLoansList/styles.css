@@ -1,17 +1,10 @@
-/* #main{
-  top: 0px;
-  width: calc(100vw - 260px);
-  height: 100vh;
-  overflow-y: scroll;
-}
-
 #createStudentsL{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
-  align-items: center;  
+  align-items: center;   
 }
 
 #createStudentsL #new{
@@ -61,24 +54,28 @@
 }
 
 #studentL_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   background-color: rgba(0, 212, 212, 0.5);
-  display: flex;  
   align-items: center;
   justify-content: center;
 }
 
+.studentL_allStudents{
+  display:flex;
+  margin: auto;
+}
+
 #studentL_list table{
-  width: 878px;
+  width: 100%; 
   height: 47px;
-  font-size: 26px;
-  line-height: 30px;
   margin: 24px;
+  text-align: center;
+  border-collapse: collapse;
 }
 
 #studentL_list .studentL_title{
   background: #D2D2D2;
+  font-weight: bold;
 }
 
 #studentL_list .studentL_list{
@@ -87,5 +84,68 @@
 
 #studentL_list .studentL_list tr img{
   margin-left: 11px;
+  cursor: pointer;
 }
- */
+
+#studentL_list .studentL_table th, #studentL_list .studentL_table td {
+  padding: 8px;
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px){
+  #createStudentsL #new span{
+    width: 200px;
+  }
+
+  #createStudentsL #new img{
+    width: 110px;
+  }
+
+  .studentL_allStudentsL{
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 720px){
+  #container{
+    min-width: 480px;
+    max-width: 720px;
+  }
+
+  #createStudentsL #new{
+    width: auto;
+  }
+
+  #createStudentsL #new span{
+    display: none;
+  }
+
+  #createStudentsL #new img{
+    width: 90px;
+  }
+
+  .studentL_allStudentsL{
+    width: 94%;
+  }
+
+  .studentL_table .studentL_title{
+    display:none;
+  }
+
+  .studentL_table .studentL_list td:not(:last-child){
+    display: flex;
+    flex-direction: column; 
+  }
+
+  #studentL_list .studentL_table tr {
+    border-bottom: #999999 solid 1px;
+  }
+  
+  #studentL_list .studentL_list tr img{
+    width: 35px;
+    margin-bottom: 10px;
+    display: block;
+  }
+}

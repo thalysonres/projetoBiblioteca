@@ -1,14 +1,7 @@
-#main{
-  top: 0px;
-  /*width: calc(100vw - 260px);*/
-  height: 100vh;
-  overflow-y: scroll;
-}
-
 #createLocalities{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
@@ -61,24 +54,28 @@
 }
 
 #locality_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   background-color: rgba(0, 212, 212, 0.5);
-  display: flex;  
   align-items: center;
   justify-content: center;
 }
 
+.locality_allLocalities{
+  display:flex;
+  margin: auto;
+}
+
 #locality_list table{
-  width: 878px;
+  width: 100%; 
   height: 47px;
-  font-size: 26px;
-  line-height: 30px;
   margin: 24px;
+  text-align: center;
+  border-collapse: collapse;
 }
 
 #locality_list .locality_title{
   background: #D2D2D2;
+  font-weight: bold;
 }
 
 #locality_list .locality_list{
@@ -88,4 +85,67 @@
 #locality_list .locality_list tr img{
   margin-left: 11px;
   cursor: pointer;
+}
+
+#locality_list .locality_table th, #locality_list .locality_table td {
+  padding: 8px;
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px){
+  #createLocalities #new span{
+    width: 200px;
+  }
+
+  #createLocalities #new img{
+    width: 110px;
+  }
+
+  .locality_allLocalities{
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 720px){
+  #container{
+    min-width: 480px;
+    max-width: 720px;
+  }
+
+  #createLocalities #new{
+    width: auto;
+  }
+
+  #createLocalities #new span{
+    display: none;
+  }
+
+  #createLocalities #new img{
+    width: 90px;
+  }
+
+  .locality_allLocalities{
+    width: 94%;
+  }
+
+  .locality_table .locality_title{
+    display:none;
+  }
+
+  .locality_table .locality_list td:not(:last-child){
+    display: flex;
+    flex-direction: column; 
+  }
+
+  #locality_list .locality_table tr {
+    border-bottom: #999999 solid 1px;
+  }
+  
+  #locality_list .locality_list tr img{
+    width: 35px;
+    margin-bottom: 10px;
+    display: block;
+  }
 }

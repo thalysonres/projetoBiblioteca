@@ -64,7 +64,7 @@ function StudentsList() {
 
         <div id="student_list">
           <section className="student_allStudents">
-            <table cellSpacing={0}>
+            <table  className="student_table">
               <thead className="student_title">
                 <tr>
                   <th>CPF</th>
