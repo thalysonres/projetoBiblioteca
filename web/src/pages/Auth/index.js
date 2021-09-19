@@ -19,7 +19,11 @@ function Auth() {
         pass: password
       })
       alert(`Funcionario Logado`)
-      axios.defaults.headers.common['Authorization'] = `bearer ${res.data.token}`
+
+      localStorage.setItem('logadoUser', res.data.token )
+      console.log(res.data)
+
+      axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
       setLogado(1)
     } catch (e) {
       alert(`Usuario não encontro ou senha/cpf invalidos`)
