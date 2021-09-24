@@ -34,7 +34,7 @@ function LiteraryWorksList() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createLiterary">
           <div id="new">
             <img src={livro} alt="livros" />
             <span>Livros</span>
@@ -46,7 +46,7 @@ function LiteraryWorksList() {
 
         <div id="literaryWork_list">
           <section className="literaryWork_allLiteraryWorks">
-            <table cellSpacing={0}>
+            <table  className="literaryWork_table">
               <thead className="literaryWork_title">
                 <tr>
                   <th>Livro</th>

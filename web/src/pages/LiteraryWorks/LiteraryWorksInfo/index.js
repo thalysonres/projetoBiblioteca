@@ -11,7 +11,7 @@ function LiteraryWorksInfo() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createLiteraryI">
           <div id="new">
             <img src={livro} alt="livros" />
             <span>Livros</span>

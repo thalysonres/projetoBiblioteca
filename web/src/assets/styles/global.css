@@ -4,3 +4,9 @@ body{
   margin: 0;
   padding: 0;
 }
+
+#main{
+  top: 0px;
+  height: 100vh;
+  overflow-y: auto;
+}

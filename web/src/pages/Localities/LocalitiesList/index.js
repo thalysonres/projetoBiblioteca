@@ -35,7 +35,7 @@ function LocalitiesList() {
     <div id="container">
       <Menu />
       <div id="main">
-        <div id="create">
+        <div id="createLocalities">
           <div id="new">
             <img src={localidade} alt="localidades" />
             <span>Localidades</span>
@@ -47,7 +47,7 @@ function LocalitiesList() {
 
         <div id="locality_list">
           <section className="locality_allLocalities">
-            <table cellSpacing={0}>
+            <table className="locality_table">
               <thead className="locality_title">
                 <tr>
                   <th>Corredor</th>

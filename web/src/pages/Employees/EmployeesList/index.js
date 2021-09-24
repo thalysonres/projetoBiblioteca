@@ -35,7 +35,7 @@ function EmployeesList() {
     <div id="container">
       <Menu />
       <div id="main">
-        <div id="create">
+        <div id="createEmployees">
           <div id="new">
             <img src={funcionario} alt="funcionários" />
             <span>Funcionários</span>
@@ -47,7 +47,7 @@ function EmployeesList() {
 
         <div id="employee_list">
           <section className="employee_allEmployees">
-            <table cellSpacing={0}>
+            <table className="employee_table">
               <thead className="employee_title">
                 <tr>
                   <th>CPF</th>

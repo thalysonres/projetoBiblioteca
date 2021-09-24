@@ -45,7 +45,7 @@ function AuthorsList() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createAuthors">
           <div id="new">
             <img src={autor} alt="autores" />
             <span>Autores</span>
@@ -57,7 +57,7 @@ function AuthorsList() {
 
         <div id="author_list">
           <section className="author_allAuthors">
-            <table cellSpacing={0}>
+            <table className="author_table">
               <thead className="author_title">
                 <tr>
                   <th>Notação do autor</th>

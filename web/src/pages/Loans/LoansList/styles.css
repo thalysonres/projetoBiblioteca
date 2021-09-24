@@ -1,56 +1,52 @@
-#main{
-  width: calc(100vw - 260px);
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-#create{
-  width: 947px;
+#createLoans{
+  width: auto;
   height: 114px;
-  margin: 31px auto 51px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
 }
 
-#create #new{
+#createLoans #new{
   width: 430px;
   height:70px;
   margin-left: 55px;
   display: flex;
+  justify-content: flex-start;
   background: rgba(98, 66, 66, 0.05);
 }
 
-#create #new img{
-  width: 141.34px;
+#createLoans #new img{
+  width: 140px;
   height:70px;
 }
 
-#create #new span{
+#createLoans #new span{
   line-height: 30px;
   font-size: 26px;  
-  width: 288.66px;
+  width: 290px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#create #new_button{
+#createLoans #new_button{
   width: 100vw;
   margin-right: 27px;
   display: flex;  
   justify-content: flex-end;
 }
 
-#create #new_button .button{
+#createLoans #new_button .button{
   font-size: 67px;
-  line-height: 81px;  
   width: 70px;
-  height: 70px;
+  height: 70px ;
   border-radius:35px;
+  text-decoration: none;
   border: none;
   box-shadow: 2px 3px 10px #000000;
   background: #00D4AE;
+  color: #000000;
   display: flex;  
   align-items: center;
   justify-content: center;
@@ -58,31 +54,98 @@
 }
 
 #loan_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   background-color: rgba(0, 212, 212, 0.5);
-  display: flex;  
   align-items: center;
   justify-content: center;
 }
 
-#loan_list table{
-  width: 878px;
+.loan_allLoans{
+  display:flex;
+  margin: auto;
+}
+
+#loan_list .loan_table{
+  width: 100%; 
   height: 47px;
-  font-size: 26px;
-  line-height: 30px;
   margin: 24px;
+  text-align: center;
+  border-collapse: collapse;
 }
 
-#loan_list .loan_title{
+.loan_table .loan_title{
   background: #D2D2D2;
+  font-weight: bold;
 }
 
-#loan_list .loan_list{
+.loan_table .loan_list{
   background: #EAEAEA;
 }
 
 #loan_list .loan_list tr img{
   margin-left: 11px;
   cursor: pointer;
+}
+
+#loan_list .loan_table th, #loan_list .loan_table td {
+  padding: 8px;
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px){
+  #createLoans #new span{
+    width: 200px;
+  }
+
+  #createLoans #new img{
+    width: 110px;
+  }
+
+  .loan_allLoans{
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 720px){
+  #container{
+    min-width: 480px;
+    max-width: 720px;
+  }
+
+  #createLoans #new{
+    width: auto;
+  }
+
+  #createLoans #new span{
+    display: none;
+  }
+
+  #createLoans #new img{
+    width: 90px;
+  }
+
+  .loan_allLoans{
+    width: 94%;
+  }
+
+  .loan_table .loan_title{
+    display:none;
+  }
+
+  .loan_table .loan_list td:not(:last-child){
+    display: flex;
+    flex-direction: column; 
+  }
+
+  #loan_list .loan_table tr {
+    border-bottom: #999999 solid 1px;
+  }
+  
+  #loan_list .loan_list tr img{
+    width: 35px;
+    margin-bottom: 10px;
+    display: block;
+  }
 }

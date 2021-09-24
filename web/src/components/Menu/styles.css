@@ -1,12 +1,12 @@
 #menu{
-  background-color: rgba(0, 212, 212, 0.95);
-  box-sizing: border-box;
-  box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
-  float: left;
   width: 260px;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: rgba(0, 212, 212, 0.95);
+  box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  float: left;
 }
 
 #icon-menu{
@@ -60,6 +60,7 @@ ul#navigation{
   #menu{
     width: 100px;
   }
+
   span{
     display:none;
   }
@@ -72,7 +73,6 @@ ul#navigation{
   #items-menu{
     width: 100px;
     margin: 0;
-
   }
   
   #items-menu li{

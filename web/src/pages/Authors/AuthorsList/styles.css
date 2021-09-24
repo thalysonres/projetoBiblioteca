@@ -1,58 +1,52 @@
-#main{
-  top: 0px;
-  left: 260px;
-  width: calc(100vw - 260px);
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-#create{
-  width: 947px;
+#createAuthors{
+  width: auto;
   height: 114px;
-  margin: 31px auto 51px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
 }
 
-#create #new{
+#createAuthors #new{
   width: 430px;
   height:70px;
   margin-left: 55px;
   display: flex;
+  justify-content: flex-start;
   background: rgba(98, 66, 66, 0.05);
 }
 
-#create #new img{
-  width: 141.34px;
+#createAuthors #new img{
+  width: 140px;
   height:70px;
 }
 
-#create #new span{
+#createAuthors #new span{
   line-height: 30px;
   font-size: 26px;  
-  width: 288.66px;
+  width: 290px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#create #new_button{
+#createAuthors #new_button{
   width: 100vw;
   margin-right: 27px;
   display: flex;  
   justify-content: flex-end;
 }
 
-#create #new_button .button{
+#createAuthors #new_button .button{
   font-size: 67px;
-  line-height: 81px;  
   width: 70px;
-  height: 70px;
+  height: 70px ;
   border-radius:35px;
+  text-decoration: none;
   border: none;
   box-shadow: 2px 3px 10px #000000;
   background: #00D4AE;
+  color: #000000;
   display: flex;  
   align-items: center;
   justify-content: center;
@@ -60,30 +54,98 @@
 }
 
 #author_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   background-color: rgba(0, 212, 212, 0.5);
-  display: flex;  
   align-items: center;
   justify-content: center;
 }
 
-#author_list table{
-  width: 878px;
+.author_allAuthors{
+  display:flex;
+  margin: auto;
+}
+
+#author_list .author_table{
+  width: 100%; 
   height: 47px;
-  font-size: 26px;
-  line-height: 30px;
   margin: 24px;
+  text-align: center;
+  border-collapse: collapse;
 }
 
-#author_list .author_title{
+.author_table .author_title{
   background: #D2D2D2;
+  font-weight: bold;
 }
 
-#author_list .author_list{
+.author_table .author_list{
   background: #EAEAEA;
 }
 
 #author_list .author_list tr img{
   margin-left: 11px;
+  cursor: pointer;
+}
+
+#author_list .author_table th, #author_list .author_table td {
+  padding: 8px;
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px){
+  #createAuthors #new span{
+    width: 200px;
+  }
+
+  #createAuthors #new img{
+    width: 110px;
+  }
+
+  .author_allAuthors{
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 720px){
+  #container{
+    min-width: 480px;
+    max-width: 720px;
+  }
+
+  #createAuthors #new{
+    width: auto;
+  }
+
+  #createAuthors #new span{
+    display: none;
+  }
+
+  #createAuthors #new img{
+    width: 90px;
+  }
+
+  .author_allAuthors{
+    width: 94%;
+  }
+
+  .author_table .author_title{
+    display:none;
+  }
+
+  .author_table .author_list td:not(:last-child){
+    display: flex;
+    flex-direction: column; 
+  }
+
+  #author_list .author_table tr {
+    border-bottom: #999999 solid 1px;
+  }
+  
+  #author_list .author_list tr img{
+    width: 35px;
+    margin-bottom: 10px;
+    display: block;
+  }
 }

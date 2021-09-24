@@ -12,7 +12,7 @@ function StudentLoansList() {
       <Menu />
 
       <div id="main">
-        <div id="create">
+        <div id="createStudentsL">
           <div id="new">
             <img src={emprestimo} alt="empréstimos" />
             <span>Empréstimos</span>
@@ -22,10 +22,10 @@ function StudentLoansList() {
           </div>
         </div>
 
-        <div id="loan_list">
-          <section className="loan_allStudentLoans">
-            <table cellSpacing={0}>
-              <thead className="loan_title">
+        <div id="studentL_list">
+          <section className="studentL_allStudents">
+            <table  className="studentL_table">
+              <thead className="studentL_title">
                 <tr>
                   <th>Livro</th>
                   <th>Devol.</th>
@@ -33,7 +33,7 @@ function StudentLoansList() {
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody className="loan_list">
+              <tbody className="studentL_list">
                 <tr>
                   <th>Memórias Póstumas de Brás Cubas</th>
                   <th>14/06/2021</th>

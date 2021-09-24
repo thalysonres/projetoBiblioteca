@@ -35,6 +35,7 @@ function Routes() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Auth} />
+
       <Route path="/auth" exact component={Auth} />
       <Rota path="/students" exact component={StudentsList} />
       <Rota path="/studentsForm" exact component={StudentsForm} />
@@ -61,6 +62,7 @@ function Routes() {
       <Rota path="/literaryworksform" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksform/:id" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksinfo" exact component={LiteraryWorksInfo} />
+
     </BrowserRouter>
   );
 }
