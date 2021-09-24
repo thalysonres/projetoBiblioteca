@@ -37,8 +37,7 @@
   justify-content: flex-end;
 }
 
-#createEmployeesF #new_button .button{
-  font-size: 67px;
+#createEmployeesF #new_button button{
   width: 70px;
   height: 70px ;
   border-radius:35px;
