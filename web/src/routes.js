@@ -19,8 +19,7 @@ import LiteraryWorksForm from './pages/LiteraryWorks/LiteraryWorksForm';
 import LiteraryWorksInfo from './pages/LiteraryWorks/LiteraryWorksInfo';
 
 const Rota = ({...rest}) => {
-
-  if( localStorage.getItem('logadoUser') && localStorage.getItem('logadoUser') != '' ){
+  if( localStorage.getItem('logadoUser') && localStorage.getItem('logadoUser') !== '' ){
     axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
     return (
       <Route { ...rest } />
@@ -30,7 +29,6 @@ const Rota = ({...rest}) => {
       <Redirect to="auth" />
     )
   }
-
 }
 
 function Routes() {

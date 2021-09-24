@@ -15,12 +15,9 @@ function AuthorsList() {
   
 
   const loadingAuthors = async () => {
-    
     const autores = await axios.get(`${server}/authors`)
       .then(aut => aut.data)
       .catch(e => console.log('erro: ', e))
-
-      // console.log('lkd ', teste++, authorsL)
       setAuthor(autores)
   }
 
