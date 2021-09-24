@@ -7,18 +7,18 @@ import { Menu } from '../../../components/Menu';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { server } from '../../../common';
+import { logado } from '../../../logado'
+
 let teste = 0
 function AuthorsList() {
 
+  
 
   const loadingAuthors = async () => {
-
     const autores = await axios.get(`${server}/authors`)
       .then(aut => aut.data)
       .catch(e => console.log('erro: ', e))
-
-    setAuthor(autores)
-    // console.log('lkd ', teste++, authorsL)
+      setAuthor(autores)
   }
 
   const deletar = (id) => {
@@ -34,7 +34,9 @@ function AuthorsList() {
   const [authorsL, setAuthor] = useState([])
 
   useEffect(() => {
+    logado()
     loadingAuthors()
+    
   })
 
   return (
@@ -64,7 +66,7 @@ function AuthorsList() {
                 </tr>
               </thead>
               <tbody className="author_list">
-                {authorsL.map(aut => (
+                { ( authorsL ) ? authorsL.map(aut => (
                   <tr>
                     <th>{aut.authorsNotation}</th>
                     <th>{aut.name}</th>
@@ -74,7 +76,7 @@ function AuthorsList() {
                     </th>
                   </tr>
                 ))
-
+                  : ''
                 }
               </tbody>
             </table>
