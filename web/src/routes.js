@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import Auth from './pages/Auth';
+import AuthEstudents from './pages/AuthEstudents'
 import StudentsList from './pages/Students/StudentsList';
 import StudentsForm from './pages/Students/StudentsForm';
 import EmployeesList from './pages/Employees/EmployeesList';
@@ -17,6 +18,7 @@ import StudentLoansList from './pages/StudentLoans/StudentLoansList';
 import LiteraryWorksList from './pages/LiteraryWorks/LiteraryWorksList';
 import LiteraryWorksForm from './pages/LiteraryWorks/LiteraryWorksForm';
 import LiteraryWorksInfo from './pages/LiteraryWorks/LiteraryWorksInfo';
+import myLoads from './pages/LiteraryWorks/LiteraryWorksListMyLoads'
 
 const Rota = ({...rest}) => {
   if( localStorage.getItem('logadoUser') && localStorage.getItem('logadoUser') !== '' ){
@@ -34,7 +36,7 @@ const Rota = ({...rest}) => {
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={Auth} />
+      <Route path="/" exact component={AuthEstudents} />
 
       <Route path="/auth" exact component={Auth} />
       <Rota path="/students" exact component={StudentsList} />
@@ -62,6 +64,7 @@ function Routes() {
       <Rota path="/literaryworksform" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksform/:id" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksinfo" exact component={LiteraryWorksInfo} />
+      <Rota path="/meusEmprestimos" exact component={myLoads} />
 
     </BrowserRouter>
   );

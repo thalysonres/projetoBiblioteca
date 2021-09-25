@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 export const Menu = props => {
+
+	let admin = parseInt( localStorage.getItem('admin') )
+	{ console.log( (admin)) }
 	return (
 		<div id="menu">
 			<div id="icon-menu">
@@ -18,42 +21,57 @@ export const Menu = props => {
 			</div>
 			<div id="items-menu">
 				<ul id="navigation">
-					<li class="students">
-						<Link to="/students">
-							<img src={estudante} alt="estudante" />
-							<span>Estudantes</span>
-						</Link>
-					</li>
-					<li class="authors">
-						<Link to="/authors">
-							<img src={autor} alt="autor" />
-							<span>Autores</span>
-						</Link>
-					</li>
+					{ !!admin &&
+						<li class="students">
+							<Link to="/students">
+								<img src={estudante} alt="estudante" />
+								<span>Estudantes</span>
+							</Link>
+						</li>
+					}
+
+					{ !!admin &&
+						<li class="authors">
+							<Link to="/authors">
+								<img src={autor} alt="autor" />
+								<span>Autores</span>
+							</Link>
+						</li>
+					}
+
 					<li class="books">
 						<Link to="/literaryWorks">
 							<img src={livro} alt="livro" />
 							<span>Livros</span>
 						</Link>
 					</li>
-					<li class="localities">
-						<Link to="/localities">
-							<img src={localidade} alt="localidade" />
-							<span>Localidades</span>
-						</Link>
-					</li>
+
+					{ !!admin &&
+						<li class="localities">
+							<Link to="/localities">
+								<img src={localidade} alt="localidade" />
+								<span>Localidades</span>
+							</Link>
+						</li>
+					}
+					
+					{/* mudar rota */}
 					<li class="loans">
-						<Link to="/loans">
+						<Link to="/meusEmprestimos">
 							<img src={emprestimo} alt="empréstimo" />
 							<span>Empréstimos</span>
 						</Link>
 					</li>
-					<li class="employees">
-						<Link to="/employees">
-							<img src={funcionario} alt="funcionário" />
-							<span>Funcionários</span>
-						</Link>
-					</li>
+
+					{ !!admin &&
+						<li class="employees">
+							<Link to="/employees">
+								<img src={funcionario} alt="funcionário" />
+								<span>Funcionários</span>
+							</Link>
+						</li>
+					}
+
 				</ul>
 			</div>
 		</div>

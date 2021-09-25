@@ -14,14 +14,14 @@ function Auth() {
   const authentication = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(`${server}/signin2`, {
+      const res = await axios.post(`${server}/signin`, {
         cpf: cpf,
         pass: password
       })
-      alert(`Funcionario Logado`)
+      alert(`Aluno Logado`)
 
       localStorage.setItem('logadoUser', res.data.token )
-      localStorage.setItem('admin', 1 )
+      localStorage.setItem('admin', 0 )
       console.log(res.data)
 
       axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
@@ -56,7 +56,7 @@ function Auth() {
         </form>
       </div>
       {(logado === 1) &&
-        <Redirect to="/students" />
+        <Redirect to="/literaryWorks" />
       }
     </div>
   );
