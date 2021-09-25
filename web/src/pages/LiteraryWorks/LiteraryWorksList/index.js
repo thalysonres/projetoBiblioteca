@@ -29,6 +29,9 @@ function LiteraryWorksList() {
   useEffect(() => {
     load()
   })
+
+
+  let admin = parseInt( localStorage.getItem('admin') )
   return (
     <div id="container">
       <Menu />
@@ -53,7 +56,9 @@ function LiteraryWorksList() {
                   <th>Autor</th>
                   <th>Dispon.</th>
                   <th>Local</th>
-                  <th>Ações</th>
+                  {!!admin &&
+                    <th>Ações</th>
+                  }
                 </tr>
               </thead>
               <tbody className="literaryWork_list">
@@ -66,10 +71,12 @@ function LiteraryWorksList() {
                     <th>{liv.author_id}</th>
                     {liv.borrowed ? <th>Não</th> : <th>Sim</th>}
                     <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th>
-                    <th>
-                      <Link to={`/literaryworksform/${liv.id}`}><img src={editar} alt="editar" /></Link>
-                      <img src={excluir} alt="excluir" onClick={() => excluir1(liv.id)} />
-                    </th>
+                    {!!admin &&
+                      <th>
+                        <Link to={`/literaryworksform/${liv.id}`}><img src={editar} alt="editar" /></Link>
+                        <img src={excluir} alt="excluir" onClick={() => excluir1(liv.id)} />
+                      </th>
+                    }
                   </tr>
                 ))}
 
