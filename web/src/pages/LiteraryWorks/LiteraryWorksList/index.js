@@ -28,7 +28,7 @@ function LiteraryWorksList() {
 
   useEffect(() => {
     load()
-  })
+  }, [])
 
 
   let admin = parseInt( localStorage.getItem('admin') )
@@ -65,12 +65,13 @@ function LiteraryWorksList() {
 
 
                 {livros.map(liv => (
-
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
-                    <th>{liv.title}</th>
+                    
+                    <th><Link to ={`literaryworksinfo/${liv.id}`}>{liv.title}</Link></th>
                     <th>{liv.author_id}</th>
                     {liv.borrowed ? <th>Não</th> : <th>Sim</th>}
                     <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th>
+                  
                     {!!admin &&
                       <th>
                         <Link to={`/literaryworksform/${liv.id}`}><img src={editar} alt="editar" /></Link>

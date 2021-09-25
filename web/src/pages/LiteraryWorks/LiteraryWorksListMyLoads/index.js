@@ -29,7 +29,7 @@ function LiteraryWorksList() {
 
   useEffect(() => {
     load()
-  })
+  }, [])
   return (
     <div id="container">
       <Menu />
@@ -63,7 +63,7 @@ function LiteraryWorksList() {
                 { (livros.length != 0) ? livros.map(liv => (
 
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
-                    <th>{liv.literaryWorks_id}</th>
+                    <th><Link to={`/literaryworksinfo/${liv.id}`}> {liv.literaryWorks_id} </Link></th>
                     <th>{liv.loanDate}</th>
                     <th>{liv.returnDate}</th>
                     {/* <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th> */}

@@ -28,7 +28,7 @@ const Rota = ({...rest}) => {
     )
   }else {
     return(
-      <Redirect to="auth" />
+      <Redirect to="/" />
     )
   }
 }
@@ -37,8 +37,8 @@ function Routes() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={AuthEstudents} />
-
       <Route path="/auth" exact component={Auth} />
+
       <Rota path="/students" exact component={StudentsList} />
       <Rota path="/studentsForm" exact component={StudentsForm} />
       <Rota path="/studentsForm/:id" exact component={StudentsForm} />
@@ -63,7 +63,7 @@ function Routes() {
       <Rota path="/literaryworks" exact component={LiteraryWorksList} />
       <Rota path="/literaryworksform" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksform/:id" exact component={LiteraryWorksForm} />
-      <Rota path="/literaryworksinfo" exact component={LiteraryWorksInfo} />
+      <Rota path="/literaryworksinfo/:id" exact component={LiteraryWorksInfo} />
       <Rota path="/meusEmprestimos" exact component={myLoads} />
 
     </BrowserRouter>

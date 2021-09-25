@@ -27,7 +27,7 @@ function LoansList() {
   useEffect(() => {
     loadEmprestimo()
     console.log(emprestim)
-  })
+  }, [])
 
   return (
     <div id="container">
