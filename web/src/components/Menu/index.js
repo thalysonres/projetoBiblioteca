@@ -56,12 +56,23 @@ export const Menu = props => {
 					}
 					
 					{/* mudar rota */}
-					<li class="loans">
-						<Link to="/meusEmprestimos">
-							<img src={emprestimo} alt="empréstimo" />
-							<span>Empréstimos</span>
-						</Link>
-					</li>
+					{ !!admin ?
+						<li class="loans">
+							<Link to="/loans">
+								<img src={emprestimo} alt="empréstimo" />
+								<span>Empréstimos</span>
+							</Link>
+						</li>
+
+						:
+
+						<li class="loans">
+							<Link to="/meusEmprestimos">
+								<img src={emprestimo} alt="empréstimo" />
+								<span>Empréstimos</span>
+							</Link>
+						</li>
+					}
 
 					{ !!admin &&
 						<li class="employees">
