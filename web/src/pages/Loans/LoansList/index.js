@@ -1,11 +1,11 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from '../../../components/Menu';
-import { server } from './../../../common'
-import emprestimo from '../../../assets/images/icons/emprestimos.svg';
+import axios from 'axios';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
+import emprestimo from '../../../assets/images/icons/emprestimos.svg';
+import { Menu } from '../../../components/Menu';
+import { server } from './../../../common'
 import './styles.css';
 
 function LoansList() {
@@ -20,8 +20,8 @@ function LoansList() {
   const apagar = (id) => {
     alert('Empréstimo excluido', id)
     axios.delete(`${server}/loans/${id}`)
-      .then(_ => alert('Deletado com sucesso!!!'))
-      .catch(e => alert('Algo deu errado!!!'))
+      .then(_ => alert('Deletado com sucesso!'))
+      .catch(e => alert('Erro ao deletar'))
   }
 
   useEffect(() => {

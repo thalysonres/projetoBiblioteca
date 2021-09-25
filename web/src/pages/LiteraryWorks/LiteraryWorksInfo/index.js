@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import livro from '../../../assets/images/icons/livros2.svg';
 import retorno from '../../../assets/images/icons/return.svg';
-import './styles.css';
 import { Menu } from '../../../components/Menu';
-import axios from 'axios';
 import { server } from '../../../common';
+import axios from 'axios';
+import './styles.css';
 
 function LiteraryWorksInfo(props) {
 
@@ -13,15 +13,13 @@ function LiteraryWorksInfo(props) {
   const params = props.match.params.id
   // console.log('id é: ', params)
 
-  
-
   useEffect( () => {
 
     axios.get(`${server}/literaryWorks/${params}`).then(res => {
       setLiterary(res.data)
       console.log(res.data)
     }).catch(e => {
-      alert('Livros nao encontrado')
+      alert('Livros não encontrados')
       window.history.back()
     })
 

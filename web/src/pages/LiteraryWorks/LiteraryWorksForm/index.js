@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import livro from '../../../assets/images/icons/livros2.svg';
-import retorno from '../../../assets/images/icons/return.svg';
-import './styles.css';
-import { Menu } from '../../../components/Menu';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import livro from '../../../assets/images/icons/livros2.svg';
+import retorno from '../../../assets/images/icons/return.svg';
+import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
+import './styles.css';
 
 function LiteraryWorksForm(props) {
 
@@ -59,7 +59,6 @@ function LiteraryWorksForm(props) {
         })
         .catch(e => alert('Algo deu errado'))
     }
-
   }
 
   const getIdSelected = (id) => {
@@ -97,10 +96,10 @@ function LiteraryWorksForm(props) {
           setRedirect(true)
           alert('Salvo com sucesso!')
         })
-        .catch('Algo deu errado')
+        .catch('Erro ao atualizar cadastro')
     }
     else {
-      alert('novo')
+      alert('Novo')
 
       const formData = new FormData()
       const img = document.querySelector('#literaryWorkF_file')
@@ -123,7 +122,6 @@ function LiteraryWorksForm(props) {
       // , title, edition, numberPage, editionYear, publishingComp, ISBN,
       //   CDU, CDD, publication, translator, locality)
 
-
       axios.post(`${server}/literaryWorks`, formData, {
         headers: {
           "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
@@ -133,7 +131,7 @@ function LiteraryWorksForm(props) {
           setRedirect(true)
           alert('Salvo com sucesso!')
         })
-        .catch('Algo deu errado')
+        .catch('Erro ao cadastrar')
 
       // axios.post(`${server}/literaryWorks`, {
       //   author, title, edition, numberPage, editionYear, publishingComp, ISBN,

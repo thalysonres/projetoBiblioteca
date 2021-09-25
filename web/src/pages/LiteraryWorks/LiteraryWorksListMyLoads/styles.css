@@ -1,4 +1,4 @@
-#createLiterary{
+#createLiteraryS{
   width: auto;
   height: 114px;
   margin: 31px 50px;
@@ -7,7 +7,7 @@
   align-items: center;  
 }
 
-#createLiterary #new{
+#createLiteraryS #new{
   width: 430px;
   height:70px;
   margin-left: 55px;
@@ -16,12 +16,12 @@
   background: rgba(98, 66, 66, 0.05);
 }
 
-#createLiterary #new img{
+#createLiteraryS #new img{
   width: 140px;
   height:70px;
 }
 
-#createLiterary #new span{
+#createLiteraryS #new span{
   line-height: 30px;
   font-size: 26px;  
   width: 290px;
@@ -30,14 +30,14 @@
   justify-content: center;
 }
 
-#createLiterary #new_button{
+#createLiteraryS #new_button{
   width: 100vw;
   margin-right: 27px;
   display: flex;  
   justify-content: flex-end;
 }
 
-#createLiterary #new_button .button{
+#createLiteraryS #new_button .button{
   font-size: 67px;
   width: 70px;
   height: 70px ;
@@ -53,19 +53,19 @@
   cursor: pointer;
 }
 
-#literaryWork_list{
+#literaryWorkS_list{
   margin: 51px 50px;
   background-color: rgba(0, 212, 212, 0.5);
   align-items: center;
   justify-content: center;
 }
 
-.literaryWork_allLiteraryWorks{
+.literaryWorkS_allLiteraryWorks{
   display:flex;
   margin: auto;
 }
 
-#literaryWork_list .literaryWork_table{
+#literaryWorkS_list .literaryWorkS_table{
   width: 100%; 
   height: 47px;
   margin: 24px;
@@ -73,21 +73,32 @@
   border-collapse: collapse;
 }
 
-.literaryWork_table .literaryWork_title{
+.literaryWorkS_table .literaryWorkS_title{
   background: #D2D2D2;
   font-weight: bold;
 }
 
-.literaryWork_table .literaryWork_list{
+.literaryWorkS_table .literaryWorkS_list{
   background: #EAEAEA;
 }
 
-#literaryWork_list .literaryWork_list tr img{
+#literaryWorkS_list .literaryWorkS_list tr img{
   margin-left: 11px;
   cursor: pointer;
 }
 
-#literaryWork_list .literaryWork_table th, #literaryWork_list .literaryWork_table td {
+#literaryWorkS_list .literaryWorkS_list tr img{
+  margin-left: 11px;
+  cursor: pointer;
+}
+
+#literaryWorkS_list .literaryWorkS_list tr .th_LWStitle a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #000000;
+}
+
+#literaryWorkS_list .literaryWorkS_table th, #literaryWorkS_list .literaryWorkS_table td {
   padding: 8px;
   font-size: 26px;
   text-align: center;
@@ -95,15 +106,15 @@
 }
 
 @media screen and (min-width: 720px) and (max-width: 1200px){
-  #createLiterary #new span{
+  #createLiteraryS #new span{
     width: 200px;
   }
 
-  #createLiterary #new img{
+  #createLiteraryS #new img{
     width: 110px;
   }
 
-  .literaryWork_allliteraryWorks{
+  .literaryWorkS_allliteraryWorks{
     width: 96%;
   }
 }
@@ -114,36 +125,36 @@
     max-width: 720px;
   }
 
-  #createLiterary #new{
+  #createLiteraryS #new{
     width: auto;
   }
 
-  #createLiterary #new span{
+  #createLiteraryS #new span{
     display: none;
   }
 
-  #createLiterary #new img{
+  #createLiteraryS #new img{
     width: 90px;
   }
 
-  .literaryWork_allliteraryWorks{
+  .literaryWorkS_allliteraryWorks{
     width: 94%;
   }
 
-  .literaryWork_table .literaryWork_title{
+  .literaryWorkS_table .literaryWorkS_title{
     display:none;
   }
 
-  .literaryWork_table .literaryWork_list td:not(:last-child){
+  .literaryWorkS_table .literaryWorkS_list td:not(:last-child){
     display: flex;
     flex-direction: column; 
   }
 
-  #literaryWork_list .literaryWork_table tr {
+  #literaryWorkS_list .literaryWorkS_table tr {
     border-bottom: #999999 solid 1px;
   }
   
-  #literaryWork_list .literaryWork_list tr img{
+  #literaryWorkS_list .literaryWorkS_list tr img{
     width: 35px;
     margin-bottom: 10px;
     display: block;

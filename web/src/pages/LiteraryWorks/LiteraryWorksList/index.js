@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import livro from '../../../assets/images/icons/livros2.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
-import './styles.css';
 import { Menu } from '../../../components/Menu';
-import axios from 'axios';
 import { server } from './../../../common'
-import { Link } from 'react-router-dom';
+import './styles.css';
 
 function LiteraryWorksList() {
 
@@ -21,7 +21,9 @@ function LiteraryWorksList() {
     let result = window.confirm('Deseja excluir?')
 
     if (result) {
-      axios.delete(`${server}/literaryWorks/${id}`).then(_ => alert('Excluido com sucesso!')).catch(e => alert('Ops, a algo errado!'))
+      axios.delete(`${server}/literaryWorks/${id}`)
+      .then(_ => alert('Excluído com sucesso!'))
+      .catch(e => alert('Erro ao excluir'))
     }
 
   }
@@ -30,8 +32,8 @@ function LiteraryWorksList() {
     load()
   }, [])
 
-
   let admin = parseInt( localStorage.getItem('admin') )
+
   return (
     <div id="container">
       <Menu />
@@ -67,7 +69,7 @@ function LiteraryWorksList() {
                 {livros.map(liv => (
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
                     
-                    <th><Link to ={`literaryworksinfo/${liv.id}`}>{liv.title}</Link></th>
+                    <th className="th_LWtitle"><Link to ={`literaryworksinfo/${liv.id}`}>{liv.title}</Link></th>
                     <th>{liv.author_id}</th>
                     {liv.borrowed ? <th>Não</th> : <th>Sim</th>}
                     <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th>

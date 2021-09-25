@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import localidade from '../../../assets/images/icons/localidade.svg';
-import retorno from '../../../assets/images/icons/return.svg';
-import './styles.css';
-import { Menu } from '../../../components/Menu';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import localidade from '../../../assets/images/icons/localidade.svg';
+import retorno from '../../../assets/images/icons/return.svg';
+import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
+import './styles.css';
 
 function LocalitiesForm(props) {
 
@@ -36,20 +36,20 @@ function LocalitiesForm(props) {
         hall, bookcase, shelf
       })
         .then(_ => {
-          alert('Salvo com sucesso!!!')
+          alert('Salvo com sucesso!')
           setRedirect(true)
         })
-        .catch(e => alert('Algo errado!'))
+        .catch(e => alert('Erro ao atualizar cadastro'))
     }
     else {
       axios.post(`${server}/localities`, {
         hall, bookcase, shelf
       })
         .then(_ => {
-          alert('Salvo com sucesso!!!')
+          alert('Salvo com sucesso!')
           setRedirect(true)
         })
-        .catch(e => alert('Algo errado!'))
+        .catch(e => alert('Erro ao cadastrar'))
     }
   }
 
@@ -68,7 +68,7 @@ function LocalitiesForm(props) {
             <span>Localidades</span>
           </div>
           <div id="new_button">
-            <button><img src={retorno} alt="retorno" /></button>
+            <button><img src={retorno} alt="retorno" onClick={() => setRedirect(true)} /></button>
           </div>
         </div>
 

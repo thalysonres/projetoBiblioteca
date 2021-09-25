@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import localidade from '../../../assets/images/icons/localidade.svg';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
-import './styles.css';
+import localidade from '../../../assets/images/icons/localidade.svg';
 import { Menu } from '../../../components/Menu';
-import axios from 'axios';
 import { server } from './../../../common'
-import { Link } from 'react-router-dom';
+import './styles.css';
 
 function LocalitiesList() {
 
@@ -22,8 +22,8 @@ function LocalitiesList() {
   const deletar = (id) => {
     let result = window.confirm('Deseja deletar?')
     if (result) {
-      axios.delete(`${server}/localities/${id}`).then(_ => alert('Deletado'))
-        .catch(e => alert('algo errado!'))
+      axios.delete(`${server}/localities/${id}`).then(_ => alert('Deletado com sucesso!'))
+        .catch(e => alert('Erro ao deletar'))
     }
   }
 

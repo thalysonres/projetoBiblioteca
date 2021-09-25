@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './styles.css';
-import bookGG from '../../assets/images/book-gg.svg';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
+import bookGG from '../../assets/images/book-gg.svg';
 import { server } from './../../common'
+import './styles.css';
 
 function Auth() {
 
@@ -27,7 +27,7 @@ function Auth() {
       axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
       setLogado(1)
     } catch (e) {
-      alert(`Usuario não encontro ou senha/cpf invalidos`)
+      alert(`Usuário não encontrado ou senha/cpf invalidos`)
     }
 
   }
@@ -42,7 +42,6 @@ function Auth() {
         </main>
       </div>
       <div>
-        {/* <div>{cpf}</div> */}
         <form >
           <div className="auth_input">
             <input type="text" name="text" id="auth_text" placeholder="CPF" value={cpf} onChange={e => setCpf(e.target.value)} />

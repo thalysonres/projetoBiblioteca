@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
+import axios from 'axios';
 import autor from '../../../assets/images/icons/autores.svg';
 import retorno from '../../../assets/images/icons/return.svg';
-import './styles.css';
 import { Menu } from '../../../components/Menu';
-import axios from 'axios';
 import { server } from '../../../common';
-import { Redirect } from 'react-router';
+import './styles.css';
 
 function AuthorsForm(props) {
 
@@ -55,11 +55,11 @@ function AuthorsForm(props) {
         alert('Salvo com sucesso!')
         setRedirect(true)
       }).catch(e => {
-        alert('Algo de errado')
+        alert('Erro ao atualizar cadastro')
       })
     }
     else {
-      alert('cadastrar')
+      alert('Cadastrar')
       axios.post(`${server}/authors`, {
         name: nome,
         countryOrigin: paisOrigem,
@@ -69,11 +69,10 @@ function AuthorsForm(props) {
         alert('Salvo com sucesso!')
         setRedirect(true)
       }).catch(e => {
-        alert('Algo de errado')
+        alert('Erro ao cadastrar')
         console.log(e)
       })
     }
-
   }
 
   return (
@@ -87,7 +86,7 @@ function AuthorsForm(props) {
             <span>Autores</span>
           </div>
           <div id="new_button">
-            <button><img src={retorno} alt="retorno" /></button>
+            <button><img src={retorno} alt="retorno" onClick={() => setRedirect(true)} /></button>
           </div>
         </div>
 

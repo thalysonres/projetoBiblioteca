@@ -1,13 +1,13 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from '../../../components/Menu';
-import { server } from '../../../common'
-import estudante from '../../../assets/images/icons/estudantes.svg';
+import axios from 'axios';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
-import './styles.css';
+import estudante from '../../../assets/images/icons/estudantes.svg';
+import { Menu } from '../../../components/Menu';
+import { server } from '../../../common'
 import { Loading } from '../../../components/Loading';
+import './styles.css';
 
 const loadStudents = async (setLoad, setLoading) => {
   const students = await axios(`${server}/students`).then(es => {
@@ -16,7 +16,7 @@ const loadStudents = async (setLoad, setLoading) => {
     return es.data
   })
     .catch((e, i, o) => {
-      alert(`algo de errado ocorreu => ${e}`)
+      alert(`Erro ao carregar os estudantes => ${e}`)
       setLoading(false)
     })
   setLoad(students)
@@ -30,13 +30,13 @@ function StudentsList() {
 
 
   const deletar = (params) => {
-    let resultado = window.confirm('Deseja realmente excluir o usuario?')
+    let resultado = window.confirm('Deseja excluir?')
     if (resultado) {
       axios.delete(`${server}/students/${params}`)
         .then(_ => {
           alert('Usuario excluido com sucesso!')
           loadStudents(setLoad, setLoading)
-        }).catch(e => alert('Usuario não excluido!!'))
+        }).catch(e => alert('Erro ao excluir'))
     }
   }
 
@@ -48,7 +48,6 @@ function StudentsList() {
 
   return (
     <div id="container">
-
       <Menu />
 
       <div id="main">

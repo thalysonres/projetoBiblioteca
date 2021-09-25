@@ -1,13 +1,13 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import { Menu } from '../../../components/Menu';
-import { Loading } from '../../../components/Loading';
 import { server } from '../../../common';
+import { Loading } from '../../../components/Loading';
+import { cadastrarUpdate } from '../../../utils';
 import estudante from '../../../assets/images/icons/estudantes.svg';
 import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
-import { cadastrarUpdate } from '../../../utils';
 
 function StudentsForm(props) {
   const [name, setName] = useState()
@@ -36,7 +36,7 @@ function StudentsForm(props) {
     e.preventDefault()
 
     if (params != undefined) {
-      alert('Update')
+      alert('Atualizar')
       setLoading(false)
       axios.put(`${server}/students/${params}`, {
         name: name,
@@ -55,17 +55,17 @@ function StudentsForm(props) {
 
         // window.location = '/students'
       })
-        .catch(e => alert('Ou não algo deu errado!!!'))
+        .catch(e => alert('Erro ao atualizar cadastro'))
     } else {
       setLoading(false)
 
       alert('Cadastrar')
       if (pass != passConfirm) {
-        return alert('Senhas não confere')
+        return alert('Senhas não conferem')
       }
 
       if (String(cpf).length < 11) {
-        return alert('cpf nao tem 11 digitos')
+        return alert('CPF não tem 11 dígitos')
       }
 
       axios.post(`${server}/students`, {
@@ -79,12 +79,12 @@ function StudentsForm(props) {
         pass,
         birthDate
       }).then(_ => {
-        alert('Novo usuario cadastrado')
+        alert('Novo usuário cadastrado!')
         setEditA(false)
         setRedirect(true)
         setLoading(false)
       })
-        .catch(e => alert('Ou não algo deu errado!!!'))
+        .catch(e => alert('Erro ao cadastrar'))
 
     }
 

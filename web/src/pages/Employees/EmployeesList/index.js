@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import funcionario from '../../../assets/images/icons/funcionarios.svg';
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
-import './styles.css';
+import funcionario from '../../../assets/images/icons/funcionarios.svg';
 import { Menu } from '../../../components/Menu';
-import axios from 'axios';
 import { server } from '../../../common';
-import { Link, Redirect } from 'react-router-dom';
+import './styles.css';
 
 function EmployeesList() {
 
@@ -21,7 +21,7 @@ function EmployeesList() {
     let resultado = window.confirm('Deseja deletar?')
     if (resultado) {
       axios.delete(`${server}/employees/${id}`).then(_ => alert('Deletado com sucesso!'))
-        .catch(e => alert('Algo de errado!'))
+        .catch(e => alert('Erro ao deletar!'))
     }
   }
 
@@ -34,6 +34,7 @@ function EmployeesList() {
   return (
     <div id="container">
       <Menu />
+
       <div id="main">
         <div id="createEmployees">
           <div id="new">

@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import autor from '../../../assets/images/icons/autores.svg';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
-import './styles.css';
 import { Menu } from '../../../components/Menu';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { server } from '../../../common';
 import { logado } from '../../../logado'
+import './styles.css';
 
-let teste = 0
 function AuthorsList() {
-
-  
 
   const loadingAuthors = async () => {
     const autores = await axios.get(`${server}/authors`)
@@ -22,26 +19,23 @@ function AuthorsList() {
   }
 
   const deletar = (id) => {
-    let resultado = window.confirm('Deseja realmente excluir?')
+    let resultado = window.confirm('Deseja excluir?')
     if (resultado) {
       axios.delete(`${server}/authors/${id}`)
         .then(_ => alert('Deletado com sucesso!'))
-        .catch(e => alert('algo deu errodo'))
+        .catch(e => alert('Erro ao deletar'))
     }
-
   }
 
   const [authorsL, setAuthor] = useState([])
 
   useEffect(() => {
     logado()
-    loadingAuthors()
-    
+    loadingAuthors()   
   })
 
   return (
     <div id="container">
-
       <Menu />
 
       <div id="main">

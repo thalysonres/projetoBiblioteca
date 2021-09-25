@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import bookPP from '../../assets/images/book-pp.svg';
-import estudante from '../../assets/images/icons/estudantes.svg';
 import autor from '../../assets/images/icons/autores.svg';
 import livro from '../../assets/images/icons/livros2.svg';
+import estudante from '../../assets/images/icons/estudantes.svg';
 import localidade from '../../assets/images/icons/localidade.svg';
 import emprestimo from '../../assets/images/icons/emprestimos.svg';
 import funcionario from '../../assets/images/icons/funcionarios.svg';
-import { Link } from 'react-router-dom';
 import './styles.css';
 
 export const Menu = props => {

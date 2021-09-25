@@ -37,8 +37,7 @@
   justify-content: flex-end;
 }
 
-#createLiteraryI #new_button .button{
-  font-size: 67px;
+#createLiteraryI #new_button button{
   width: 70px;
   height: 70px ;
   border-radius:35px;
@@ -69,6 +68,7 @@
   display: flex;  
   align-items: center;
   justify-content: center;
+   padding-left: 50px; /*tirar depois*/
 }
 
 #literaryWorkI_list table{
@@ -89,6 +89,7 @@
 
 #literaryWorkI_list .literaryWorkI_list{
   background: #EAEAEA;
+  text-align: center;
 }
 
 .img-livro-info{

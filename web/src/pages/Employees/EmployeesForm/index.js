@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import funcionario from '../../../assets/images/icons/funcionarios.svg';
-import retorno from '../../../assets/images/icons/return.svg';
-import './styles.css';
-import { Menu } from '../../../components/Menu';
 import { Redirect } from 'react-router';
 import axios from 'axios';
+import retorno from '../../../assets/images/icons/return.svg';
+import funcionario from '../../../assets/images/icons/funcionarios.svg';
+import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
+import './styles.css';
 
 function EmployeesForm(props) {
 
@@ -42,9 +42,7 @@ function EmployeesForm(props) {
           setSenhaConf(emp.pass)
 
           setCarregado(true)
-
         })
-
       }
     }
   }
@@ -52,12 +50,12 @@ function EmployeesForm(props) {
   const cadastrar = (e) => {
     e.preventDefault()
     if (senha != senhaConf) {
-      alert('senhas não conferem')
+      alert('Senhas não conferem')
       console.log(senhaConf, senha)
       return
     }
     if (params != undefined) {
-      alert('update')
+      alert('Atualizar')
       axios.put(`${server}/employees/${params}`, {
         name: nome,
         phone: telefone,
@@ -69,13 +67,13 @@ function EmployeesForm(props) {
         pass: senha,
         birthDate: niver
       }).then(_ => {
-        alert('Salvo com sucesso!!')
+        alert('Salvo com sucesso!')
         setRedirect(true)
       })
-        .catch(e => alert('Algo deu errado'))
+        .catch(e => alert('Erro ao atualizar cadastro'))
     }
     else {
-      alert('cadastrar')
+      alert('Cadastrar')
       axios.post(`${server}/employees`, {
         name: nome,
         phone: telefone,
@@ -90,7 +88,7 @@ function EmployeesForm(props) {
         alert('Salvo com sucesso!!')
         setRedirect(true)
       })
-        .catch(e => alert('Algo deu errado'))
+        .catch(e => alert('Erro ao cadastrar'))
     }
   }
 

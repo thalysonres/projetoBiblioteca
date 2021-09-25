@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import emprestimo from '../../../assets/images/icons/emprestimos.svg';
-import retorno from '../../../assets/images/icons/return.svg';
-import './styles.css';
-import { Menu } from '../../../components/Menu';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import retorno from '../../../assets/images/icons/return.svg';
+import emprestimo from '../../../assets/images/icons/emprestimos.svg';
+import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
+import './styles.css';
 
 function LoansForm(props) {
-
-
 
   const [literaryWork, setLiteraryWork] = useState()
   const [student, setStudent] = useState()
@@ -40,18 +38,18 @@ function LoansForm(props) {
     e.preventDefault()
 
     if (params != undefined) {
-      alert('update')
+      alert('Atualizar')
       axios.put(`${server}/loans/${params}`, {
         literaryWork, student, employee,
         loanDate, returnDate
       })
         .then(m => {
-          alert('Salva com sucesso!!')
+          alert('Salvo com sucesso!')
           setRedirect(true)
         })
         .catch(e => {
           console.log(e)
-          alert(`Algo errado! ${e.response.data.message}`)
+          alert(`Erro ao atualizar cadastro: ${e.response.data.message}`)
         })
     }
 
@@ -63,10 +61,10 @@ function LoansForm(props) {
         loanDate: loanDate,
         returnDate: returnDate
       }).then(() => {
-        alert('Salva com sucesso!!!')
+        alert('Salva com sucesso!')
         setRedirect(true)
       }).catch(e => {
-        alert(`Algo errado! ${e.response.data.message}`)
+        alert(`Erro ao cadastrar: ${e.response.data.message}`)
       })
     }
 

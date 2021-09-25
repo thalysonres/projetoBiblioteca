@@ -82,6 +82,12 @@
   background: #EAEAEA;
 }
 
+#literaryWork_list .literaryWork_list tr .th_LWtitle a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #000000;
+}
+
 #literaryWork_list .literaryWork_list tr img{
   margin-left: 11px;
   cursor: pointer;

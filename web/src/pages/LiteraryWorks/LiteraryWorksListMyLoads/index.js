@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import livro from '../../../assets/images/icons/livros2.svg';
-import editar from '../../../assets/images/icons/editar.svg';
-import excluir from '../../../assets/images/icons/excluir.svg';
-import './styles.css';
-import { Menu } from '../../../components/Menu';
-import axios from 'axios';
-import { server } from './../../../common'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import emprestimo from '../../../assets/images/icons/emprestimos.svg';
+import { Menu } from '../../../components/Menu';
+import { server } from './../../../common'
+import './styles.css';
 
 function LiteraryWorksList() {
 
@@ -24,7 +22,6 @@ function LiteraryWorksList() {
     // if (result) {
     //   axios.delete(`${server}/literaryWorks/${id}`).then(_ => alert('Excluido com sucesso!')).catch(e => alert('Ops, a algo errado!'))
     // }
-
   }
 
   useEffect(() => {
@@ -35,35 +32,34 @@ function LiteraryWorksList() {
       <Menu />
 
       <div id="main">
-        <div id="createLiterary">
+        <div id="createLiteraryS">
           <div id="new">
-            <img src={livro} alt="livros" />
-            <span>Livros</span>
+            <img src={emprestimo} alt="emprestimos" />
+            <span>Meus empréstimos</span>
           </div>
           <div id="new_button">
             <Link to="/literaryworksform" className={'button'}>+</Link>
           </div>
         </div>
 
-        <div id="literaryWork_list">
-          <section className="literaryWork_allLiteraryWorks">
-            <table  className="literaryWork_table">
-              <thead className="literaryWork_title">
+        <div id="literaryWorkS_list">
+          <section className="literaryWorkS_allLiteraryWorks">
+            <table  className="literaryWorkS_table">
+              <thead className="literaryWorkS_title">
                 <tr>
                   <th>Livro</th>
                   <th>Emprestado dia</th>
                   <th>Devolver</th>
-                  {/* <th>Local</th> */}
-                  {/* <th>Ações</th> */}
                 </tr>
               </thead>
-              <tbody className="literaryWork_list">
-
+              <tbody className="literaryWorkS_list">
 
                 { (livros.length != 0) ? livros.map(liv => (
 
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
-                    <th><Link to={`/literaryworksinfo/${liv.id}`}> {liv.literaryWorks_id} </Link></th>
+                    <th className="th_LWStitle">
+                      <Link to={`/literaryworksinfo/${liv.id}`}> {liv.literaryWorks_id} </Link>
+                    </th>
                     <th>{liv.loanDate}</th>
                     <th>{liv.returnDate}</th>
                     {/* <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th> */}
@@ -74,7 +70,6 @@ function LiteraryWorksList() {
                   :
                   (<div>Nao tem livros</div>)
               }
-
                 {console.log('tanto de livros', livros.length)}
               </tbody>
             </table>
