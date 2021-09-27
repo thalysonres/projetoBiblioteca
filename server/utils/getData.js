@@ -58,7 +58,7 @@ module.exports = {
                 totalDeDias = 31
                 break
             default:
-                console.log('algo errado')
+                console.log('Algo errado')
         }
 
         let diaEntregar = (DiasDeEmprestimo + dia)
@@ -77,5 +77,4 @@ module.exports = {
     }
 
     // return { getDateNow, devolver }
-
 }

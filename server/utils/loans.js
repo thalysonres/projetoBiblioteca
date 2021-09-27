@@ -25,7 +25,7 @@ module.exports = {
                         .catch(err => res.status(400).json({ message: err, status: "um erro" }))
 
                 } else {
-                    return res.send('livro emprestado')
+                    return res.send('Livro emprestado')
                 }
             })
             .catch(err => err)
