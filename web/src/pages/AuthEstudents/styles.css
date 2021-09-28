@@ -9,11 +9,19 @@ body{
   flex-direction: column;
 }
 
+#auth_employees{
+  position: fixed;
+  top: 15px;
+  right: 15px;
+}
+
 #auth_employees a{
   background-color: #FFF;
   text-decoration: none;
   cursor: pointer;
   color: #000000;
+  padding: 2px;
+  border-radius: 5px;
 }
 
 #auth_image img{
