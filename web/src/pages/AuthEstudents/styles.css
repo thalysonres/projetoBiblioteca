@@ -9,6 +9,13 @@ body{
   flex-direction: column;
 }
 
+#auth_employees a{
+  background-color: #FFF;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000000;
+}
+
 #auth_image img{
   display: flex;
   justify-content: center;

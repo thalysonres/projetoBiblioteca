@@ -35,6 +35,7 @@ function Auth() {
 
   return (
     <div id="auth_container">
+      <span id="auth_employees"><a href="http://">Funcionários</a></span>
       <div id="auth_image">
         <img src={bookGG} alt="livro" />
         <main>
