@@ -82,8 +82,11 @@ export const Menu = props => {
 							</Link>
 						</li>
 					}
-
 				</ul>
+
+				<span id="logout">
+      		<a href="http://">Sair</a>
+    		</span>
 			</div>
 		</div>
 	)

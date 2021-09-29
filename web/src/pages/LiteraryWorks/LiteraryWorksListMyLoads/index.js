@@ -37,9 +37,6 @@ function LiteraryWorksList() {
             <img src={emprestimo} alt="emprestimos" />
             <span>Meus empréstimos</span>
           </div>
-          <div id="new_button">
-            <Link to="/literaryworksform" className={'button'}>+</Link>
-          </div>
         </div>
 
         <div id="literaryWorkS_list">

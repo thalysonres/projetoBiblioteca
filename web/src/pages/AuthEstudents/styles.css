@@ -16,12 +16,12 @@ body{
 }
 
 #auth_employees a{
-  background-color: #FFF;
-  text-decoration: none;
-  cursor: pointer;
   color: #000000;
+  background-color: #FFFFFF;
   padding: 2px;
   border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #auth_image img{

@@ -56,6 +56,22 @@ ul#navigation{
   margin-left: -4px;
 }
 
+#logout{
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  width: 30px;
+}
+  
+#logout a{
+  color: #000000;
+  background-color: rgba(98, 66, 66, 0.05);
+  padding: 2px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
   #menu{
     width: 100px;
@@ -63,6 +79,10 @@ ul#navigation{
 
   span{
     display:none;
+  }
+
+  #logout{
+    display: block !important;
   }
 
   #icon-menu{
