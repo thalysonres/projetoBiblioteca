@@ -4,6 +4,7 @@ import axios from 'axios';
 import bookGG from '../../assets/images/book-gg.svg';
 import { server } from './../../common'
 import './styles.css';
+import { cpfMask } from '../../utils';
 
 function Auth() {
 
@@ -13,9 +14,10 @@ function Auth() {
 
   const authentication = async (e) => {
     e.preventDefault()
+    
     try {
       const res = await axios.post(`${server}/signin2`, {
-        cpf: cpf,
+        cpf: cpf.replaceAll('.', '').replace('-', ''),
         pass: password
       })
       alert(`Funcionário Logado`)
@@ -25,7 +27,8 @@ function Auth() {
       console.log(res.data)
 
       axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
-      setLogado(1)
+      // setLogado(1)
+      window.location.href = '/students'
     } catch (e) {
       alert(`Usuário não encontrado ou senha/cpf inválidos`)
     }
@@ -43,7 +46,7 @@ function Auth() {
       <div>
         <form >
           <div className="auth_input">
-            <input type="text" name="text" id="auth_text" placeholder="CPF" value={cpf} onChange={e => setCpf(e.target.value)} />
+            <input type="text" name="text" id="auth_text" placeholder="CPF" value={cpf} onChange={e => setCpf( cpfMask( e.target.value ) )} />
           </div>
           <div className="auth_input">
             <input type="password" name="password" id="auth_password" placeholder="Senha" value={password} onChange={e => setPassWord(e.target.value)} />

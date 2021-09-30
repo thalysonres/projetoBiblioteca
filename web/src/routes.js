@@ -18,11 +18,12 @@ import StudentLoansList from './pages/StudentLoans/StudentLoansList';
 import LiteraryWorksList from './pages/LiteraryWorks/LiteraryWorksList';
 import LiteraryWorksForm from './pages/LiteraryWorks/LiteraryWorksForm';
 import LiteraryWorksInfo from './pages/LiteraryWorks/LiteraryWorksInfo';
-import myLoads from './pages/LiteraryWorks/LiteraryWorksListMyLoads'
+import myLoads from './pages/LiteraryWorks/LiteraryWorksListMyLoads';
 
-const Rota = ({...rest}) => {
+export const Rota = ({...rest}) => {
   if( localStorage.getItem('logadoUser') && localStorage.getItem('logadoUser') !== '' ){
     axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
+    console.log( ...rest.path )
     return (
       <Route { ...rest } />
     )
