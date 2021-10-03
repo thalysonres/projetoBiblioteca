@@ -25,9 +25,11 @@ renderLoan = async (app, loans) => {
         id: loans.id,
         loanDate: loans.loanDate,
         returnDate: loans.returnDate,
+        renovations: loans.renovations,
         student_id: student.name,
         employees_id: employee.name,
         literaryWorks_id: literaryWork.title,
+        id_Book: loans.literaryWorks_id
     }
 },
 

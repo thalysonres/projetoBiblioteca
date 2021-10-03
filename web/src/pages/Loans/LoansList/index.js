@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import editar from '../../../assets/images/icons/editar.svg';
 import excluir from '../../../assets/images/icons/excluir.svg';
+import renovarImg from '../../../assets/images/icons/renovar.png'
 import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import { Menu } from '../../../components/Menu';
 import { server } from './../../../common'
@@ -15,6 +16,16 @@ function LoansList() {
   const loadEmprestimo = async () => {
     let emp = await axios.get(`${server}/loans`).then(e => e.data)
     setEmprestim(emp)
+  }
+
+  const renovar = (id) => {
+    let confirmar = window.confirm('deseja realmente renovar?')
+    if( confirmar ){
+      axios.put(`${server}/loans/renovations/${id}`).then(_ => {
+        alert('renovando o emprestimo', id)
+      })
+      .catch(e => alert('Nao foi possivel fazer a renovacao'))
+    }
   }
 
   const apagar = (id) => {
@@ -64,6 +75,7 @@ function LoansList() {
                     <td>{emp.returnDate}</td>
                     <td>{emp.loanDate}</td>
                     <td>
+                      <img width={45} src={renovarImg} alt="renovar" onClick={() => renovar(emp.id)} />
                       <Link to={`/loansform/${emp.id}`}><img src={editar} alt="editar" /></Link>
                       <img src={excluir} alt="excluir" onClick={() => apagar(emp.id)} />
                     </td>

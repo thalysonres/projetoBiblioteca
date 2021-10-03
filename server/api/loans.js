@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const { setLoans } = require('./../utils/loans')
 const { renderLoan, renderAllLoan } = require('./../views/Loans')
+const { devolver } = require('./../utils/getData')
 
 module.exports = app => {
 
@@ -68,6 +69,25 @@ module.exports = app => {
       .catch(err => res.status(400).json(err))
   }
 
+  const renovation = async (req, res) => {
+    await app.db('loans')
+      .where( { id: req.params.id } )
+      .first()
+      .then( async loan => {
+        if(loan.renovations < 3){
+          console.log('renovando ', loan)
+          await app.db('loans')
+          .where( { id: req.params.id } )
+          .update({
+            renovations: loan.renovations + 1,
+            returnDate: devolver()
+          }).then( _ => res.status(204).send('ok'))
+        }else {
+          res.status(404).json({message : 'Limite de emprestimo atingido'})
+        }
+      })
+  }
+
   const del = async (req, res) => {
     const idLiterary = await app.db('loans').where({ id: req.params.id })
     await app.db('loans')
@@ -82,6 +102,6 @@ module.exports = app => {
       .catch(err => res.status(400).json(err))
   }
 
-  return { save, list, listMyloans, listOne, update, del }
+  return { save, list, listMyloans, listOne, update, renovation, del }
 }
 

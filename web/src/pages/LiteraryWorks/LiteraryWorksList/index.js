@@ -54,6 +54,7 @@ function LiteraryWorksList() {
             <table  className="literaryWork_table">
               <thead className="literaryWork_title">
                 <tr>
+                  <th>Capa</th>
                   <th>Livro</th>
                   <th>Autor</th>
                   <th>Dispon.</th>
@@ -68,7 +69,7 @@ function LiteraryWorksList() {
 
                 {livros.map(liv => (
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
-                    
+                    <th> <Link to ={`literaryworksinfo/${liv.id}`}><img className="img-livro-list" src={liv.file} /></Link> </th>
                     <th className="th_LWtitle"><Link to ={`literaryworksinfo/${liv.id}`}>{liv.title}</Link></th>
                     <th>{liv.author_id}</th>
                     {liv.borrowed ? <th>Não</th> : <th>Sim</th>}

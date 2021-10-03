@@ -55,7 +55,7 @@ function LiteraryWorksList() {
 
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
                     <th className="th_LWStitle">
-                      <Link to={`/literaryworksinfo/${liv.id}`}> {liv.literaryWorks_id} </Link>
+                      <Link to={`/literaryworksinfo/${liv.id_Book}`}> {liv.literaryWorks_id} </Link>
                     </th>
                     <th>{liv.loanDate}</th>
                     <th>{liv.returnDate}</th>
@@ -67,7 +67,7 @@ function LiteraryWorksList() {
                   :
                   (<div>Nao tem livros</div>)
               }
-                {console.log('tanto de livros', livros.length)}
+                {console.log('tanto de livros', livros)}
               </tbody>
             </table>
           </section>

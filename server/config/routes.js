@@ -76,6 +76,10 @@ module.exports = app => {
         .put(admin(app.api.loans.update))
         .delete(admin(app.api.loans.del))
 
+    app.route('/loans/renovations/:id')
+        .all(app.config.passport.authenticate())
+        .put(admin( app.api.loans.renovation ))
+
     app.route('/myloans')
         .all(app.config.passport.authenticate())
         .get(app.api.loans.listMyloans) // student
