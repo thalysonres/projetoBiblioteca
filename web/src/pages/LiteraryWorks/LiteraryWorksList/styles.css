@@ -16,6 +16,15 @@
   background: rgba(98, 66, 66, 0.05);
 }
 
+.img-livro-list {
+  width: 100px;
+  transition: 1s;
+}
+
+.img-livro-list:hover {
+  transform: scale(2,2);
+}
+
 #createLiterary #new img{
   width: 140px;
   height:70px;

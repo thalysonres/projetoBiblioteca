@@ -4,6 +4,7 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.date('loanDate').notNullable();
         table.date('returnDate').notNullable();
+        table.integer('renovations')
 
         table.integer('student_id')
             .notNullable()

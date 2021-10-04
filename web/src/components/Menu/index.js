@@ -11,6 +11,12 @@ import './styles.css';
 
 export const Menu = props => {
 
+	const logout = () => {
+		window.localStorage.logadoUser = ''
+		window.localStorage.admin = ''
+		window.location.href = '/'
+	}
+
 	let admin = parseInt( localStorage.getItem('admin') )
 	{ console.log( (admin)) }
 	return (
@@ -85,7 +91,7 @@ export const Menu = props => {
 				</ul>
 
 				<span id="logout">
-      		<a href="http://">Sair</a>
+      		<a onClick={() => logout()}>Sair</a>
     		</span>
 			</div>
 		</div>
