@@ -2,20 +2,22 @@ body{
   background: #1DF1CB url(../../assets/images/background.png) top center;
 }
 
-#auth_container{
+#authStudent_container{
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
-#auth_employees{
+#authStudent_employees{
   position: fixed;
   top: 15px;
   right: 15px;
 }
 
-#auth_employees a{
+#authStudent_employees a{
   color: #000000;
   background-color: #FFFFFF;
   padding: 2px;
@@ -24,26 +26,25 @@ body{
   cursor: pointer;
 }
 
-#auth_image img{
+#authStudent_image{
   display: flex;
-  justify-content: center;
-  text-align: center; 
-  align-items: center; 
+  align-items: center;
+  flex-direction: column;
 }
 
-.auth_Text {
+.authStudent_Text{
   font-size: 70px;
   margin: 0;
 }
 
-.auth_input input{
+.authStudent_input input{
   width: 1024px;
-  height: 288px;
+  height: 84px;
   font-size: 57px;
-  text-align: center;
-  border-radius: 58px;
   margin-top: 20px;
   margin-bottom: 10px;
+  border-radius: 58px;
+  text-align: center;
   border: none;
   background-color: #fff;
   background-repeat: no-repeat;
@@ -51,24 +52,69 @@ body{
   background-size: 67px;
 }
 
-.auth_input #auth_text{
+.authStudent_input #authStudent_text{
   background-image: url(../../assets/images/icons/user.svg);
-  height: 84px;
-  top: 360px;
 }
 
-.auth_input #auth_password{
+.authStudent_input #authStudent_password{
   background-image: url(../../assets/images/icons/pass.svg);
-  height: 84px;
-  top: 462px;
 }
 
-.auth_input .auth_submit{
+.authStudent_input .authStudent_submit{
   color: #000;
-  height: 84px;
-  top: 564px;
   background: #FFE07D;
   box-shadow: -6px 15px 31px rgba(0, 0, 0, 0.5);
   border-radius: 13px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1200px){
+  #authStudent_image img{
+    width: 80%;
+  }
+
+  .authStudent_Text{
+    font-size: 60px;
+  }
+
+  .authStudent_input input{
+    background-position: 35px;
+    background-size: 60px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    width: auto;
+  }
+
+  .authStudent_submit{
+    width: 700px !important;
+  }  
+}  
+
+@media screen and (max-width: 720px){
+  #authStudent_container{
+    min-width: 480px;
+    max-width: 720px;
+  }
+  
+  #authStudent_image img{
+    width: 70%;
+  }  
+
+  .authStudent_Text{
+    font-size: 50px;
+  }  
+
+  .authStudent_input input{
+    background-position: 25px;
+    background-size: 45px;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-size: 35px;
+    width: 400px;
+    height: 80px;
+  }
+
+  .authStudent_submit{
+    width: 400px !important;
+  }
 }

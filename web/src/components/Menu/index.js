@@ -23,7 +23,7 @@ export const Menu = props => {
 		<div id="menu">
 			<div id="icon-menu">
 				<img src={bookPP} alt="livro" />
-				<span>Biblioteca</span>
+				<span id="menu_text">Biblioteca</span>
 			</div>
 			<div id="items-menu">
 				<ul id="navigation">
@@ -31,7 +31,7 @@ export const Menu = props => {
 						<li class="students">
 							<Link to="/students">
 								<img src={estudante} alt="estudante" />
-								<span>Estudantes</span>
+								<span id="menu_text">Estudantes</span>
 							</Link>
 						</li>
 					}
@@ -40,7 +40,7 @@ export const Menu = props => {
 						<li class="authors">
 							<Link to="/authors">
 								<img src={autor} alt="autor" />
-								<span>Autores</span>
+								<span id="menu_text">Autores</span>
 							</Link>
 						</li>
 					}
@@ -48,7 +48,7 @@ export const Menu = props => {
 					<li class="books">
 						<Link to="/literaryWorks">
 							<img src={livro} alt="livro" />
-							<span>Livros</span>
+							<span id="menu_text">Livros</span>
 						</Link>
 					</li>
 
@@ -56,7 +56,7 @@ export const Menu = props => {
 						<li class="localities">
 							<Link to="/localities">
 								<img src={localidade} alt="localidade" />
-								<span>Localidades</span>
+								<span id="menu_text">Localidades</span>
 							</Link>
 						</li>
 					}
@@ -66,7 +66,7 @@ export const Menu = props => {
 						<li class="loans">
 							<Link to="/loans">
 								<img src={emprestimo} alt="empréstimo" />
-								<span>Empréstimos</span>
+								<span id="menu_text">Empréstimos</span>
 							</Link>
 						</li>
 
@@ -75,7 +75,7 @@ export const Menu = props => {
 						<li class="loans">
 							<Link to="/meusEmprestimos">
 								<img src={emprestimo} alt="empréstimo" />
-								<span>Empréstimos</span>
+								<span id="menu_text">Empréstimos</span>
 							</Link>
 						</li>
 					}
@@ -84,7 +84,7 @@ export const Menu = props => {
 						<li class="employees">
 							<Link to="/employees">
 								<img src={funcionario} alt="funcionário" />
-								<span>Funcionários</span>
+								<span id="menu_text">Funcionários</span>
 							</Link>
 						</li>
 					}

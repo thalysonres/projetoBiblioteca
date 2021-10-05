@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import bookGG from '../../assets/images/book-gg.svg';
 import { server } from './../../common'
-import './styles.css';
 import { cpfMask } from '../../utils';
+import './styles.css';
 
 function Auth() {
 
@@ -34,26 +34,25 @@ function Auth() {
 
   }
 
-
   return (
-    <div id="auth_container">
-      <span id="auth_employees"><a href="/auth">Funcionários</a></span>
-      <div id="auth_image">
+    <div id="authStudent_container">
+      <span id="authStudent_employees"><a href="/auth">Funcionários</a></span>
+      <div id="authStudent_image">
         <img src={bookGG} alt="livro" />
         <main>
-          <h1 className="auth_Text">Biblioteca</h1>
+          <h1 className="authStudent_Text">Biblioteca</h1>
         </main>
       </div>
       <div>
         <form >
-          <div className="auth_input">
-            <input type="text" name="text" id="auth_text" placeholder="CPF" value={cpf} onChange={e => setCpf( cpfMask( e.target.value ))} />
+          <div className="authStudent_input">
+            <input type="text" name="text" id="authStudent_text" placeholder="CPF" value={cpf} onChange={e => setCpf( cpfMask( e.target.value ))} />
           </div>
-          <div className="auth_input">
-            <input type="password" name="password" id="auth_password" placeholder="Senha" value={password} onChange={e => setPassWord(e.target.value)} />
+          <div className="authStudent_input">
+            <input type="password" name="password" id="authStudent_password" placeholder="Senha" value={password} onChange={e => setPassWord(e.target.value)} />
           </div>
-          <div className="auth_input">
-            <input className="auth_submit" type="submit" value="Entrar" onClick={e => authentication(e)} />
+          <div className="authStudent_input">
+            <input className="authStudent_submit" type="submit" value="Entrar" onClick={e => authentication(e)} />
           </div>
         </form>
       </div>

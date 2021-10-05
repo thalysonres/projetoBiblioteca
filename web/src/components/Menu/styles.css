@@ -57,16 +57,16 @@ ul#navigation{
 }
 
 #logout{
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
-  width: 30px;
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  width: 35px;
 }
   
 #logout a{
-  color: #000000;
-  background-color: rgba(98, 66, 66, 0.05);
-  padding: 2px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 212, 212, 0.95);
+  padding: 2px 5px;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
@@ -77,12 +77,8 @@ ul#navigation{
     width: 100px;
   }
 
-  span{
+  #menu_text{
     display:none;
-  }
-
-  #logout{
-    display: block !important;
   }
 
   #icon-menu{

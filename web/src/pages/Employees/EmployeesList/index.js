@@ -59,12 +59,12 @@ function EmployeesList() {
               <tbody className="employee_list">
                 {employeeLoad.map(emp =>
                   <tr>
-                    <th>{mask(emp.cpf)}</th>
-                    <th>{emp.name}</th>
-                    <th>
+                    <td>{mask(emp.cpf)}</td>
+                    <td>{emp.name}</td>
+                    <td>
                       <Link to={`/employeesform/${emp.id}`}><img src={editar} alt="editar" /></Link>
                       <img src={excluir} alt="excluir" onClick={() => deletar(emp.id)} />
-                    </th>
+                    </td>
                   </tr>
                 )}
               </tbody>

@@ -62,12 +62,12 @@ function AuthorsList() {
               <tbody className="author_list">
                 { ( authorsL ) ? authorsL.map(aut => (
                   <tr>
-                    <th>{aut.authorsNotation}</th>
-                    <th>{aut.name}</th>
-                    <th>
+                    <td>{aut.authorsNotation}</td>
+                    <td>{aut.name}</td>
+                    <td>
                       <Link to={`/authorsform/${aut.id}`}><img src={editar} alt="editar" /></Link>
                       <img src={excluir} alt="excluir" onClick={() => deletar(aut.id)} />
-                    </th>
+                    </td>
                   </tr>
                 ))
                   : ''

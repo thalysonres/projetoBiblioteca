@@ -70,16 +70,16 @@ function LiteraryWorksList() {
                 {livros.map(liv => (
                   <tr key={liv.id} className={liv.borrowed ? 'borred' : ''}>
                     <th> <Link to ={`literaryworksinfo/${liv.id}`}><img className="img-livro-list" src={liv.file} /></Link> </th>
-                    <th className="th_LWtitle"><Link to ={`literaryworksinfo/${liv.id}`}>{liv.title}</Link></th>
-                    <th>{liv.author_id}</th>
-                    {liv.borrowed ? <th>Não</th> : <th>Sim</th>}
-                    <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th>
+                    <td className="th_LWtitle"><Link to ={`literaryworksinfo/${liv.id}`}>{liv.title}</Link></td>
+                    <td>{liv.author_id}</td>
+                    {liv.borrowed ? <td>Não</td> : <td>Sim</td>}
+                    <td>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</td>
                   
                     {!!admin &&
-                      <th>
+                      <td>
                         <Link to={`/literaryworksform/${liv.id}`}><img src={editar} alt="editar" /></Link>
                         <img src={excluir} alt="excluir" onClick={() => excluir1(liv.id)} />
-                      </th>
+                      </td>
                     }
                   </tr>
                 ))}

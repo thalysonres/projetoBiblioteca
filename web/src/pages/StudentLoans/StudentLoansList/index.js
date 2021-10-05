@@ -35,12 +35,12 @@ function StudentLoansList() {
               </thead>
               <tbody className="studentL_list">
                 <tr>
-                  <th>Memórias Póstumas de Brás Cubas</th>
-                  <th>14/06/2021</th>
-                  <th>2</th>
-                  <th>
+                  <td>Memórias Póstumas de Brás Cubas</td>
+                  <td>14/06/2021</td>
+                  <td>2</td>
+                  <td>
                     <img src={editar} alt="editar" />
-                  </th>
+                  </td>
                 </tr>
               </tbody>
             </table>

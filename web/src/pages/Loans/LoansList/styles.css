@@ -88,7 +88,7 @@
 }
 
 #loan_list .loan_table th, #loan_list .loan_table td {
-  padding: 8px;
+  padding: 5px;
   font-size: 26px;
   text-align: center;
   vertical-align: middle;
@@ -105,6 +105,10 @@
 
   .loan_allLoans{
     width: 96%;
+  }
+
+  #loan_list .loan_table th, #loan_list .loan_table td {
+    font-size: 23px;
   }
 }
 
@@ -128,6 +132,10 @@
 
   .loan_allLoans{
     width: 94%;
+  }
+
+  #loan_list .loan_table th, #loan_list .loan_table td {
+    font-size: 20px;
   }
 
   .loan_table .loan_title{

@@ -75,17 +75,14 @@ function StudentsList() {
 
                 {loading && load.map(e => (
                   <tr key={e.id}>
-                    <th>{mask(e.cpf)}</th>
-                    <th>{e.name}</th>
-                    <th>
+                    <td>{mask(e.cpf)}</td>
+                    <td>{e.name}</td>
+                    <td>
                       <Link to={`/studentsForm/${e.id}`}><img src={editar} alt="editar" /></Link>
                       <img src={excluir} alt="excluir" onClick={() => deletar(e.id)} />
-                    </th>
+                    </td>
                   </tr>
-                ))
-
-                }
-
+                ))}
               </tbody>
             </table>
             {!loading && <Loading />}

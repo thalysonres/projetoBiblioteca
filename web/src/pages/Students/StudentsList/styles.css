@@ -88,7 +88,7 @@
 }
 
 #student_list .student_table th, #student_list .student_table td {
-  padding: 8px;
+  padding: 5px;
   font-size: 26px;
   text-align: center;
   vertical-align: middle;
@@ -105,6 +105,10 @@
 
   .student_allStudents{
     width: 96%;
+  }
+
+  #student_list .student_table th, #student_list .student_table td {
+    font-size: 23px;
   }
 }
 
@@ -128,6 +132,10 @@
 
   .student_allStudents{
     width: 94%;
+  }
+  
+  #student_list .student_table th, #student_list .student_table td {
+    font-size: 20px;
   }
 
   .student_table .student_title{

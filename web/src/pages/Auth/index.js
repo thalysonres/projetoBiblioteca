@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import bookGG from '../../assets/images/book-gg.svg';
 import { server } from './../../common'
-import './styles.css';
 import { cpfMask } from '../../utils';
+import './styles.css';
 
 function Auth() {
 
