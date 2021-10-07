@@ -32,7 +32,7 @@ function LocalitiesList() {
   })
 
   return (
-    <div id="container">
+    <div id="localityContainer">
       <Menu />
       <div id="main">
         <div id="createLocalities">

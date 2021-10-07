@@ -41,7 +41,7 @@ function LoansList() {
   }, [])
 
   return (
-    <div id="container">
+    <div id="loanContainer">
       <Menu />
 
       <div id="main">

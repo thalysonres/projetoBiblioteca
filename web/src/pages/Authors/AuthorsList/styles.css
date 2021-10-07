@@ -113,7 +113,7 @@
 }
 
 @media screen and (max-width: 720px){
-  #container{
+  #authorContainer{
     min-width: 480px;
     max-width: 720px;
   }

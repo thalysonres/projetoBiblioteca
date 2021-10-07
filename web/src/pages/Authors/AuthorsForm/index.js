@@ -76,7 +76,7 @@ function AuthorsForm(props) {
   }
 
   return (
-    <div id="container">
+    <div id="authorFContainer">
       <Menu />
 
       <div id="main">

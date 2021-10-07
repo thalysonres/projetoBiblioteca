@@ -47,7 +47,7 @@ function StudentsList() {
   })
 
   return (
-    <div id="container">
+    <div id="studentContainer">
       <Menu />
 
       <div id="main">

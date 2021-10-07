@@ -120,7 +120,7 @@
 }
 
 @media screen and (max-width: 720px){
-  #container{
+  #literaryWorkSContainer{
     min-width: 480px;
     max-width: 720px;
   }

@@ -58,7 +58,7 @@ function LocalitiesForm(props) {
   })
 
   return (
-    <div id="container">
+    <div id="localityFContainer">
       <Menu />
 
       <div id="main">

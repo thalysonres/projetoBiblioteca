@@ -8,7 +8,7 @@ import { Menu } from '../../../components/Menu';
 function StudentLoansList() {
 
   return (
-    <div id="container">
+    <div id="studentLContainer">
       <Menu />
 
       <div id="main">

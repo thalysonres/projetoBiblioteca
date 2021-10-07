@@ -35,7 +35,7 @@ function AuthorsList() {
   })
 
   return (
-    <div id="container">
+    <div id="authorContainer">
       <Menu />
 
       <div id="main">

@@ -26,7 +26,7 @@ function LiteraryWorksInfo(props) {
   }, [])
 
   return (
-    <div id="container">
+    <div id="literaryWorkIContainer">
       <Menu />
 
       <div id="main">

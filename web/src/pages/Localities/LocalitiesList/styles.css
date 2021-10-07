@@ -109,7 +109,7 @@
 }
 
 @media screen and (max-width: 720px){
-  #container{
+  #localityContainer{
     min-width: 480px;
     max-width: 720px;
   }

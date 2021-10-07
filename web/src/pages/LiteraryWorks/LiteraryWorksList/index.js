@@ -35,7 +35,7 @@ function LiteraryWorksList() {
   let admin = parseInt( localStorage.getItem('admin') )
 
   return (
-    <div id="container">
+    <div id="literaryWorkContainer">
       <Menu />
 
       <div id="main">

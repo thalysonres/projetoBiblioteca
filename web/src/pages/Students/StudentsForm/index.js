@@ -128,7 +128,7 @@ function StudentsForm(props) {
   })
 
   return (
-    <div id="container">
+    <div id="studentFContainer">
       <Menu />
 
       <div id="main">
@@ -169,7 +169,7 @@ function StudentsForm(props) {
                   <label for="city">Cidade:</label>
                   <input type="text" name="city" id="studentF_city" placeholder="Digite a cidade" value={city} onChange={e => setCity(e.target.value)} />
                 </div>
-                <div>
+                <div id="studentF_cpfbd">
                   <label for="cpf">CPF:</label>
                   <input type="text" name="cpf" id="studentF_cpf" placeholder="Digite o CPF" value={cpf} onChange={e => setCpf(e.target.value)} />
                   <label className="studentF_birthDate" for="birthDate">Data de nascimento:</label>

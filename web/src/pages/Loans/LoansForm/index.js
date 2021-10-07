@@ -82,7 +82,7 @@ function LoansForm(props) {
   })
 
   return (
-    <div id="container">
+    <div id="loanFContainer">
       <Menu />
 
       <div id="main">

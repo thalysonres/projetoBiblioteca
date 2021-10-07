@@ -41,8 +41,8 @@ function Routes() {
       <Route path="/auth" exact component={Auth} />
 
       <Rota path="/students" exact component={StudentsList} />
-      <Rota path="/studentsForm" exact component={StudentsForm} />
-      <Rota path="/studentsForm/:id" exact component={StudentsForm} />
+      <Rota path="/studentsform" exact component={StudentsForm} />
+      <Rota path="/studentsform/:id" exact component={StudentsForm} />
       {/* <Rota path="/studentform/:id" exact component={StudentsForm} /> */}
       <Rota path="/employees" exact component={EmployeesList} />
       <Rota path="/employeesform" exact component={EmployeesForm} />
@@ -65,7 +65,7 @@ function Routes() {
       <Rota path="/literaryworksform" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksform/:id" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksinfo/:id" exact component={LiteraryWorksInfo} />
-      <Rota path="/meusEmprestimos" exact component={myLoads} />
+      <Rota path="/myloans" exact component={myLoads} />
 
     </BrowserRouter>
   );

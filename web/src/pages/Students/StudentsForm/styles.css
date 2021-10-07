@@ -1,7 +1,7 @@
 #createStudentsF{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
@@ -39,22 +39,19 @@
 
 #createStudentsF #new_button button{
   width: 70px;
-  height: 70px ;
+  height: 70px;
   border-radius:35px;
-  text-decoration: none;
   border: none;
-  box-shadow: 2px 3px 10px #000000;
-  background: #00D4AE;
   color: #000000;
+  background: #00D4AE;
+  box-shadow: 2px 3px 10px #000000;
   display: flex;  
   align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 #studentF_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   padding-bottom: 15px;
   background-color: rgba(0, 212, 212, 0.75);
   display: flex;  
@@ -70,20 +67,14 @@
   justify-content: center;
 }
 
-#studentF_list form{
-  margin-left: 13px;
-}
-
 #studentF_list fieldset{
   border: none;  
   padding: 0;
+  margin: 0;
 }
 
 #studentF_list fieldset div{
-  width: 780px;  
   display: flex;
-  align-items: center;
-  align-content: center;
 }
 
 #studentF_list label{
@@ -99,15 +90,15 @@
 #studentF_list input{
   width: stretch;
   height: 30px;
+  padding: 0 0 0 5px;
   line-height: 23px;
   font-size: 20px;
   margin-bottom: 10px;
-  background-color: #fff;
   border: none;
 }
 
 #studentF_cpf{
-  width: 170px !important;
+  width: 208px !important;
 }
 
 #studentF_birthDate{
@@ -123,14 +114,11 @@
 }
 
 #studentF_input{
-  line-height: 41px;
   margin-top: 22px;
-  border: none;
+  gap: 32px;
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
-  gap: 32px;
 }
 
 #studentF_input .studentF_confirm{
@@ -159,4 +147,87 @@
 
 #studentF_input .studentF_cancel:hover {
   background-color: #fc8690;
+}
+
+@media screen and (max-width: 1140px){
+  #createStudentsF #new span{
+    width: 200px;
+  }
+
+  #createStudentsF #new img{
+    width: 110px;
+  }
+  
+  #studentF_list fieldset div{
+    display: grid;
+  }
+
+  #studentF_cpf{
+    width: stretch !important;
+  }
+  
+  #studentF_birthDate{
+    width: stretch !important; 
+  }
+
+  #studentF_input .studentF_confirm{
+    width: 280px;
+    height: 50px;
+  }
+  
+  #studentF_input .studentF_cancel{
+    width: 280px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 1000px){
+    #studentF_input{
+      gap: 20px;
+    }
+    
+    #studentF_input .studentF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #studentF_input .studentF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
+
+  @media screen and (max-width: 720px){
+    #studentFContainer{
+      min-width: 480px;
+      max-width: stretch;
+    }
+  
+    #createStudentsF #new{
+      width: auto;
+    }
+  
+    #createStudentsF #new span{
+      display: none;
+    }
+  
+    #createStudentsF #new img{
+      width: 90px;
+    }
+
+    #studentF_input{
+      flex-direction: column;
+      gap: 10px;
+
+    }
+
+    #studentF_input .studentF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #studentF_input .studentF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
 }
