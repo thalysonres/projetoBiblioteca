@@ -69,8 +69,8 @@
 
 #studentF_list fieldset{
   border: none;  
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 #studentF_list fieldset div{
@@ -212,6 +212,10 @@
   
     #createStudentsF #new img{
       width: 90px;
+    }
+
+    #studentF_list h2{
+      font-size: 32px;
     }
 
     #studentF_input{

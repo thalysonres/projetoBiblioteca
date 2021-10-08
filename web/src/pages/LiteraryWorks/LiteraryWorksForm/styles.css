@@ -1,10 +1,10 @@
 #createLiteraryF{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
-  align-items: center;  
+  align-items: center;   
 }
 
 #createLiteraryF #new{
@@ -39,22 +39,19 @@
 
 #createLiteraryF #new_button button{
   width: 70px;
-  height: 70px ;
+  height: 70px;
   border-radius:35px;
-  text-decoration: none;
   border: none;
-  box-shadow: 2px 3px 10px #000000;
-  background: #00D4AE;
   color: #000000;
+  background: #00D4AE;
+  box-shadow: 2px 3px 10px #000000;
   display: flex;  
   align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 #literaryWorkF_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   padding-bottom: 15px;
   background-color: rgba(0, 212, 212, 0.75);
   display: flex;  
@@ -70,21 +67,14 @@
   justify-content: center;
 }
 
-#literaryWorkF_list form{
-  margin-left: 13px;
-}
-
 #literaryWorkF_list fieldset{
   border: none;  
+  margin: 0;
   padding: 0;
 }
 
 #literaryWorkF_list fieldset div{
-  width: 780px;  
   display: flex;
-  align-items: center;
-  align-content: center;
-  margin-bottom: 8px;
 }
 
 #literaryWorkF_list label{  
@@ -93,17 +83,16 @@
   min-width: 90px;
   font-size: 26px;
   line-height: 30px;
-  margin-left: 10px;
+  margin: 0 10px 0 10px;
 }
 
 #literaryWorkF_list input{
   width: stretch;
   height: 30px;
+  padding: 0 0 0 5px;
   line-height: 23px;
   font-size: 20px;
   margin-bottom: 10px;
-  margin-left: 10px;
-  background-color: #fff;
   border: none;
 }
 
@@ -123,15 +112,17 @@
   min-width: max-content !important;
 }
 
+.literaryWorkF_img{
+  margin-top: 5px;
+  justify-content: center;
+}
+
 #literaryWorkF_input{
-  line-height: 41px;
   margin-top: 22px;
-  border: none;
+  gap: 32px;
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
-  gap: 32px;
 }
 
 #literaryWorkF_input .literaryWorkF_confirm{
@@ -160,4 +151,91 @@
 
 #literaryWorkF_input .literaryWorkF_cancel:hover{
   background-color: #ff919a;
+}
+
+@media screen and (max-width: 1140px){
+  #createStudentsF #new span{
+    width: 200px;
+  }
+
+  #createStudentsF #new img{
+    width: 110px;
+  }
+  
+  #literaryWorkF_list fieldset div{
+    display: grid;
+  }
+  
+  #literaryWorkF_CDD, #literaryWorkF_editionYear{
+    width: min-content !important;
+  }
+
+  .literaryWorkF_img{
+    margin-top: 40px;
+  }
+
+  #literaryWorkF_input .literaryWorkF_confirm{
+    width: 280px;
+    height: 50px;
+  }
+  
+  #literaryWorkF_input .literaryWorkF_cancel{
+    width: 280px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 1000px){
+    #literaryWorkF_input{
+      gap: 20px;
+    }
+    
+    #literaryWorkF_input .literaryWorkF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #literaryWorkF_input .literaryWorkF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
+
+  @media screen and (max-width: 720px){
+    #literaryWorkFContainer{
+      min-width: 480px;
+      max-width: stretch;
+    }
+  
+    #createStudentsF #new{
+      width: auto;
+    }
+  
+    #createStudentsF #new span{
+      display: none;
+    }
+  
+    #createStudentsF #new img{
+      width: 90px;
+    }
+
+    #literaryWorkF_list h2{
+      font-size: 32px;
+    }
+
+    #literaryWorkF_input{
+      flex-direction: column;
+      gap: 10px;
+
+    }
+
+    #literaryWorkF_input .literaryWorkF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #literaryWorkF_input .literaryWorkF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
 }

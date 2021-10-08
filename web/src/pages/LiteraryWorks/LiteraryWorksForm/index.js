@@ -235,7 +235,9 @@ function LiteraryWorksForm(props) {
                     <input type="file" name="file" id="literaryWorkF_file" />
                   </label>
                 </div>
-                <img src={file} width={'155px'} height={'233px'} />
+                <div className="literaryWorkF_img"> 
+                  <img src={file} width={'155px'} height={'233px'} />
+                </div>
               </fieldset>
               <div id="literaryWorkF_input">
                 <input className="literaryWorkF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />

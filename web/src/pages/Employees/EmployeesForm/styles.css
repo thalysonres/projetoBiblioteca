@@ -1,7 +1,7 @@
 #createEmployeesF{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
@@ -39,22 +39,19 @@
 
 #createEmployeesF #new_button button{
   width: 70px;
-  height: 70px ;
+  height: 70px;
   border-radius:35px;
-  text-decoration: none;
   border: none;
-  box-shadow: 2px 3px 10px #000000;
-  background: #00D4AE;
   color: #000000;
+  background: #00D4AE;
+  box-shadow: 2px 3px 10px #000000;
   display: flex;  
   align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 #employeeF_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   padding-bottom: 15px;
   background-color: rgba(0, 212, 212, 0.75);
   display: flex;  
@@ -70,20 +67,14 @@
   justify-content: center;
 }
 
-#employeeF_list form{
-  margin-left: 13px;
-}
-
 #employeeF_list fieldset{
-  border: none;  
+  border: none;
+  margin: 0;
   padding: 0;
 }
 
 #employeeF_list fieldset div{
-  width: 780px; 
   display: flex;
-  align-items: center;
-  align-content: center;  
 }
 
 #employeeF_list label{
@@ -97,13 +88,13 @@
 }
 
 #employeeF_list input{
-  width: stretch; 
+  width: stretch;
   height: 30px;
+  padding: 0 0 0 5px;
   line-height: 23px;
   font-size: 20px;
   margin-bottom: 10px;
-  background-color: #fff;
-  border: none;  
+  border: none;
 }
 
 #employeeF_cpf{
@@ -123,14 +114,11 @@
 }
 
 #employeeF_input{
-  line-height: 41px;
   margin-top: 22px;
-  border: none;
+  gap: 32px;
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
-  gap: 32px;
 }
 
 #employeeF_input .employeeF_confirm{
@@ -159,4 +147,91 @@
 
 #employeeF_input .employeeF_cancel:hover {
   background-color: #ff7c87;
+}
+
+@media screen and (max-width: 1140px){
+  #createEmployeesF #new span{
+    width: 200px;
+  }
+
+  #createEmployeesF #new img{
+    width: 110px;
+  }
+  
+  #employeeF_list fieldset div{
+    display: grid;
+  }
+
+  #employeeF_cpf{
+    width: stretch !important;
+  }
+  
+  #employeeF_birthDate{
+    width: stretch !important; 
+  }
+
+  #employeeF_input .employeeF_confirm{
+    width: 280px;
+    height: 50px;
+  }
+  
+  #employeeF_input .employeeF_cancel{
+    width: 280px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 1000px){
+    #employeeF_input{
+      gap: 20px;
+    }
+    
+    #employeeF_input .employeeF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #employeeF_input .employeeF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
+
+  @media screen and (max-width: 720px){
+    #employeeFContainer{
+      min-width: 480px;
+      max-width: stretch;
+    }
+  
+    #createEmployeesF #new{
+      width: auto;
+    }
+  
+    #createEmployeesF #new span{
+      display: none;
+    }
+  
+    #createEmployeesF #new img{
+      width: 90px;
+    }
+
+    #employeeF_list h2{
+      font-size: 32px;
+    }
+
+    #employeeF_input{
+      flex-direction: column;
+      gap: 10px;
+
+    }
+
+    #employeeF_input .employeeF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #employeeF_input .employeeF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
 }

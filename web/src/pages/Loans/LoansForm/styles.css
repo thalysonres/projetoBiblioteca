@@ -1,7 +1,7 @@
 #createLoansF{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
@@ -39,22 +39,19 @@
 
 #createLoansF #new_button button{
   width: 70px;
-  height: 70px ;
+  height: 70px;
   border-radius:35px;
-  text-decoration: none;
   border: none;
-  box-shadow: 2px 3px 10px #000000;
-  background: #00D4AE;
   color: #000000;
+  background: #00D4AE;
+  box-shadow: 2px 3px 10px #000000;
   display: flex;  
   align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 #loanF_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   padding-bottom: 15px;
   background-color: rgba(0, 212, 212, 0.75);
   display: flex;  
@@ -70,20 +67,14 @@
   justify-content: center;
 }
 
-#loanF_list form{
-  margin-left: 13px;
-}
-
 #loanF_list fieldset{
-  border: none;  
+  border: none;
+  margin: 0;
   padding: 0;
 }
 
 #loanF_list fieldset div{
-  width: 780px;  
   display: flex;
-  align-items: center;
-  align-content: center;
 }
 
 #loanF_list label{  
@@ -98,27 +89,23 @@
 #loanF_list input{
   width: stretch;
   height: 30px;
+  padding: 0 0 0 5px;
   line-height: 23px;
   font-size: 20px;
   margin-bottom: 10px;
-  background-color: #fff;
   border: none;
 }
 
-#loanF_dates{    
-  align-items: flex-start !important;
+#loanF_dates{
   height: 60px;
 }
 
 #loanF_input{
-  line-height: 41px;
   margin-top: 22px;
-  border: none;
+  gap: 32px;
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
-  gap: 32px;
 }
 
 #loanF_input .loanF_confirm{
@@ -147,4 +134,87 @@
 
 #loanF_input .loanF_cancel:hover{
   background-color: #ff7480;
+}
+
+@media screen and (max-width: 1140px){
+  #createLoansF #new span{
+    width: 200px;
+  }
+
+  #createLoansF #new img{
+    width: 110px;
+  }
+  
+  #loanF_list fieldset div{
+    display: grid;
+  }
+
+  #loanF_dates{
+    margin-bottom: 82px;
+  }
+
+  #loanF_input .loanF_confirm{
+    width: 280px;
+    height: 50px;
+  }
+  
+  #loanF_input .loanF_cancel{
+    width: 280px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 1000px){
+    #loanF_input{
+      gap: 20px;
+    }
+    
+    #loanF_input .loanF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #loanF_input .loanF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
+
+  @media screen and (max-width: 720px){
+    #loanFContainer{
+      min-width: 480px;
+      max-width: stretch;
+    }
+  
+    #createLoansF #new{
+      width: auto;
+    }
+  
+    #createLoansF #new span{
+      display: none;
+    }
+  
+    #createLoansF #new img{
+      width: 90px;
+    }
+
+    #loanF_list h2{
+      font-size: 32px;
+    }
+
+    #loanF_input{
+      flex-direction: column;
+      gap: 10px;
+
+    }
+
+    #loanF_input .loanF_confirm{
+      width: 220px;
+      height: 50px;
+    }
+    
+    #loanF_input .loanF_cancel{
+      width: 220px;
+      height: 50px;
+    }
+  }
 }
