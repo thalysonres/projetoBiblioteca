@@ -73,7 +73,7 @@ export const Menu = props => {
 						:
 
 						<li class="loans">
-							<Link to="/meusEmprestimos">
+							<Link to="/myloans">
 								<img src={emprestimo} alt="empréstimo" />
 								<span id="menu_text">Empréstimos</span>
 							</Link>

@@ -71,8 +71,8 @@ function LiteraryWorksForm(props) {
     if (params != undefined) {
       const formData = new FormData()
       const img = document.querySelector('#literaryWorkF_file')
-      console.log('=> ', img.files[0])
-      formData.append('file', img.files[0])
+      //console.log('=> ', img.files[0])
+      (!!img.files[0] ? formData.append('file', img.files[0]) : '')
       formData.append('author', author)
       formData.append('title', title)
       formData.append('edition', edition)
@@ -84,7 +84,7 @@ function LiteraryWorksForm(props) {
       formData.append('CDD', CDD)
       formData.append('CDU', CDU)
       formData.append('translator', translator)
-      formData.append('author_id', getIdSelected(author))
+      formData.append('author_id', author)
       formData.append('locality_id', getIdSelected(locality))
 
       axios.put(`${server}/literaryWorks/${params}`, formData, {
@@ -182,7 +182,7 @@ function LiteraryWorksForm(props) {
 
                   <datalist id="autorList">
                     {autoresListas.map(aut => (
-                      <option key={aut.id} value={`${aut.id}: ${aut.name}`}>{aut.name}</option>)
+                      <option key={aut.id} value={`${aut.id}`}>{aut.name}</option>)
                     )}
                   </datalist>
 

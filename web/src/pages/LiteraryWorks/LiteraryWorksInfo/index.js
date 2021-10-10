@@ -25,6 +25,10 @@ function LiteraryWorksInfo(props) {
 
   }, [])
 
+  const voltar = () => {
+    window.history.back()
+  }
+
   return (
     <div id="literaryWorkIContainer">
       <Menu />
@@ -36,7 +40,7 @@ function LiteraryWorksInfo(props) {
             <span>Livros</span>
           </div>
           <div id="new_button">
-            <button><img src={retorno} alt="retorno" /></button>
+            <button onClick={voltar}><img src={retorno} alt="retorno" /></button>
           </div>
         </div>
 

@@ -44,11 +44,11 @@ function LiteraryWorksList() {
             <img src={livro} alt="livros" />
             <span>Livros</span>
           </div>
-          <div id="new_button">
+          { !!admin ? <div id="new_button">
             <Link to="/literaryworksform" className={'button'}>+</Link>
-          </div>
-        </div>
-
+          </div> : "" }
+        </div> 
+        
         <div id="literaryWork_list">
           <section className="literaryWork_allLiteraryWorks">
             <table  className="literaryWork_table">

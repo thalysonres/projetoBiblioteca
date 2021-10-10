@@ -23,14 +23,22 @@ import myLoads from './pages/LiteraryWorks/LiteraryWorksListMyLoads';
 export const Rota = ({...rest}) => {
   if( localStorage.getItem('logadoUser') && localStorage.getItem('logadoUser') !== '' ){
     axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('logadoUser')}`
-    console.log( ...rest.path )
+    
     return (
       <Route { ...rest } />
     )
   }else {
-    return(
-      <Redirect to="/" />
-    )
+    let rotaAtual = window.location.href.slice(window.location.href.lastIndexOf('/'), )
+    console.log(rotaAtual == '/', rotaAtual == '/auth')
+    if( rotaAtual == '/' || rotaAtual == '/auth' ){
+      return(
+        <Redirect to={`${rotaAtual}`} />
+      )
+    }else {
+      return(
+        <Redirect to="/" />
+      )
+    }
   }
 }
 
