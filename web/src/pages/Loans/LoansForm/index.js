@@ -103,11 +103,11 @@ function LoansForm(props) {
               <fieldset>
                 <div>
                   <label for="literaryWork">Livro:</label>
-                  <input type="text" literaryWork="literaryWork" value={literaryWork} onChange={e => setLiteraryWork(e.target.value)} id="loanF_literaryWork" placeholder="Selecione o livro" />
+                  <select type="text" literaryWork="literaryWork" value={literaryWork} onChange={e => setLiteraryWork(e.target.value)} id="loanF_literaryWork" placeholder="Selecione o livro" />
                 </div>
                 <div>
                   <label for="student">Estudante:</label>
-                  <input type="text" name="student" id="loanF_student" value={student} onChange={e => setStudent(e.target.value)} placeholder="Selecione o estudante" />
+                  <select type="text" name="student" id="loanF_student" value={student} onChange={e => setStudent(e.target.value)} placeholder="Selecione o estudante" />
                 </div>
                 <div>
                   <label for="employee">Funcionário:</label>

@@ -86,7 +86,7 @@
   margin: 0 10px 0 10px;
 }
 
-#literaryWorkF_list input{
+#literaryWorkF_list input, #literaryWorkF_list select{
   width: stretch;
   height: 30px;
   padding: 0 0 0 5px;
