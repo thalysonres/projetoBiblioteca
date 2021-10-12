@@ -18,7 +18,7 @@ export const Menu = props => {
 	}
 
 	let admin = parseInt( localStorage.getItem('admin') )
-	{ console.log( (admin)) }
+	// { console.log( (admin)) }
 	return (
 		<div id="menu">
 			<div id="icon-menu">

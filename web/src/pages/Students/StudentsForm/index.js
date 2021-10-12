@@ -23,6 +23,7 @@ function StudentsForm(props) {
   const [redirect, setRedirect] = useState(false)
   const [editA, setEditA] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [mudouSenha, setMudouSenha] = useState(false)
 
   const params = props.match.params.id
 
@@ -34,60 +35,80 @@ function StudentsForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
-
-    if (params != undefined) {
-      alert('Atualizar')
-      setLoading(false)
-      axios.put(`${server}/students/${params}`, {
-        name: name,
-        phone: phone,
-        street: street,
-        district: district,
-        city: city,
-        state: state,
-        cpf: cpf,
-        pass: pass,
-      }).then(_ => {
-        alert('User alterado');
-        setEditA(false)
-        setRedirect(true)
-        setLoading(true)
-
-        // window.location = '/students'
-      })
-        .catch(e => alert('Erro ao atualizar cadastro'))
-    } else {
-      setLoading(false)
-
-      alert('Cadastrar')
-      if (pass != passConfirm) {
-        return alert('Senhas não conferem')
-      }
-
-      if (String(cpf).length < 11) {
-        return alert('CPF não tem 11 dígitos')
-      }
-
-      axios.post(`${server}/students`, {
-        name,
-        phone,
-        street,
-        district,
-        city,
-        state,
-        cpf,
-        pass,
-        birthDate
-      }).then(_ => {
-        alert('Novo usuário cadastrado!')
-        setEditA(false)
-        setRedirect(true)
+    if( mudouSenha ){
+      if (params != undefined) {
         setLoading(false)
-      })
-        .catch(e => alert('Erro ao cadastrar'))
+        axios.put(`${server}/students/${params}`, {
+          name: name,
+          phone: phone,
+          street: street,
+          district: district,
+          city: city,
+          state: state,
+          cpf: cpf,
+          pass: pass,
+        }).then(_ => {
+          alert('User alterado');
+          setEditA(false)
+          setRedirect(true)
+          setLoading(true)
 
+          // window.location = '/students'
+        })
+          .catch(e => alert('Erro ao atualizar cadastro'))
+      } else {
+        setLoading(false)
+
+        alert('Cadastrar')
+        if (pass != passConfirm) {
+          return alert('Senhas não conferem')
+        }
+
+        if (String(cpf).length < 11) {
+          return alert('CPF não tem 11 dígitos')
+        }
+
+        axios.post(`${server}/students`, {
+          name,
+          phone,
+          street,
+          district,
+          city,
+          state,
+          cpf,
+          pass,
+          birthDate
+        }).then(_ => {
+          alert('Novo usuário cadastrado!')
+          setEditA(false)
+          setRedirect(true)
+          setLoading(false)
+        })
+          .catch(e => alert('Erro ao cadastrar'))
+
+      }
+    } else {
+      if (params != undefined) {
+        setLoading(false)
+        axios.put(`${server}/students/${params}`, {
+          name: name,
+          phone: phone,
+          street: street,
+          district: district,
+          city: city,
+          state: state,
+          cpf: cpf,
+        }).then(_ => {
+          alert('User alterado');
+          setEditA(false)
+          setRedirect(true)
+          setLoading(true)
+
+          // window.location = '/students'
+        })
+          .catch(e => alert('Erro ao atualizar cadastro'))
+      }
     }
-
   }
 
 
@@ -176,17 +197,19 @@ function StudentsForm(props) {
                   <input type="date" name="birthDate" id="studentF_birthDate" value={birthDate} onChange={e => setBirthDate(`${e.target.value}`)} />
                   {console.log('niver ====>', birthDate)}
                 </div>
+
                 <div>
                   <label for="pass">Senha:</label>
-                  <input type="password" name="pass" id="studentF_pass" placeholder="Digite a senha" value={pass} onChange={e => setPass(e.target.value)} />
+                  <input type="password" name="pass" id="studentF_pass" placeholder="Digite a senha" value={pass} onChange={e => {setPass(e.target.value); setMudouSenha(true)}} />
                 </div>
                 <div>
                   <label className="studentF_confirmPass" for="confirmPass">Confirmar senha:</label>
                   <input type="password" name="confirmPass" id="studentF_confirmPass" placeholder="Confirme a senha" value={passConfirm} onChange={e => setPassConfirm(e.target.value)} />
                 </div>
+
               </fieldset>
               <div id="studentF_input">
-                <input className="studentF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="studentF_confirm" type="submit" value={!params ? "Cadastrar" : "Atualizar"} onClick={e => cadastrar(e)} />
                 <input className="studentF_cancel" type="submit" value="Cancelar" onClick={e => cancelar(e)} />
               </div>
             </form>

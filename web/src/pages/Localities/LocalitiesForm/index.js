@@ -91,7 +91,7 @@ function LocalitiesForm(props) {
                 </div>
               </fieldset>
               <div id="localityF_input">
-                <input className="localityF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="localityF_confirm" type="submit" value={!params ? "Cadastrar" : "Atualizar"} onClick={e => cadastrar(e)} />
                 <input className="localityF_cancel" type="submit" value="Cancelar" onClick={() => setRedirect(true)} />
               </div>
             </form>

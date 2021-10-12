@@ -20,7 +20,7 @@ function LiteraryWorksForm(props) {
   const [CDD, setCDD] = useState()
   const [publication, setPublication] = useState()
   const [translator, setTranslator] = useState()
-  const [locality, setLocality] = useState()
+  const [locality, setLocality] = useState('')
   const [file, setFile] = useState()
   const [load, setLoad] = useState(true)
   const [redirect, setRedirect] = useState(false)
@@ -55,7 +55,7 @@ function LiteraryWorksForm(props) {
           setTranslator(liv.translator)
           setLocality(liv.locality_id)
           setFile(liv.file)
-          // console.log('aut ', liv.file)
+          // console.log('aut ', liv.locality_id)
         })
         .catch(e => alert('Algo deu errado'))
     }
@@ -72,7 +72,7 @@ function LiteraryWorksForm(props) {
       const formData = new FormData()
       const img = document.querySelector('#literaryWorkF_file')
       //console.log('=> ', img.files[0])
-      (!!img.files[0] ? formData.append('file', img.files[0]) : '')
+      // (!!img.files[0] ? formData.append('file', img.files[0]) : '')
       formData.append('author', author)
       formData.append('title', title)
       formData.append('edition', edition)
@@ -85,7 +85,7 @@ function LiteraryWorksForm(props) {
       formData.append('CDU', CDU)
       formData.append('translator', translator)
       formData.append('author_id', author)
-      formData.append('locality_id', getIdSelected(locality))
+      formData.append('locality_id', locality)
 
       axios.put(`${server}/literaryWorks/${params}`, formData, {
         headers: {
@@ -103,8 +103,10 @@ function LiteraryWorksForm(props) {
 
       const formData = new FormData()
       const img = document.querySelector('#literaryWorkF_file')
-      console.log('=> ', img.files[0])
-      formData.append('file', img.files[0])
+      // console.log('=> ', img.files[0])
+      if( img.value != '' ){
+        formData.append('file', img.files[0])
+      }
       formData.append('author', author)
       formData.append('title', title)
       formData.append('edition', edition)
@@ -116,8 +118,8 @@ function LiteraryWorksForm(props) {
       formData.append('CDD', CDD)
       formData.append('CDU', CDU)
       formData.append('translator', translator)
-      formData.append('author_id', getIdSelected(author))
-      formData.append('locality_id', getIdSelected(locality))
+      formData.append('author_id', author)
+      formData.append('locality_id', locality)
 
       // , title, edition, numberPage, editionYear, publishingComp, ISBN,
       //   CDU, CDD, publication, translator, locality)
@@ -178,13 +180,17 @@ function LiteraryWorksForm(props) {
               <fieldset>
                 <div>
                   <label for="author">Autor:</label>
-                  <input type="search" name="author" list="autorList" id="literaryWorkF_author" value={author} onChange={e => setAuthor(e.target.value)} placeholder="Selecione o autor" />
-
-                  <datalist id="autorList">
-                    {autoresListas.map(aut => (
-                      <option key={aut.id} value={`${aut.id}`}>{aut.name}</option>)
-                    )}
-                  </datalist>
+                  <select name="author" id="literaryWorkF_author" value={author} onChange={e => setAuthor(e.target.value)}  >  
+                      <option>Selecione um autor</option>                  
+                      {autoresListas.map(aut => {
+                        if( aut.name == author ){
+                          setAuthor(aut.id)
+                        }
+                        return(
+                        <option key={aut.id} selected={ (author == aut.id || aut.name == author ) ? 'selected' : false} value={aut.id}>{aut.name}</option>
+                      )})
+                    }
+                  </select>
 
                 </div>
                 <div>
@@ -221,14 +227,19 @@ function LiteraryWorksForm(props) {
                 </div>
                 <div>
                   <label className="literaryWorkF_locality" for="locality">Localidade:</label>
-                  <input type="search" name="locality" id="literaryWorkF_locality" list="localidadesList" value={locality} onChange={e => setLocality(e.target.value)} placeholder="Selecione o local" />
-
-                  <datalist id="localidadesList">
-                    {localidadeList.map(loc => (
-                      <option key={loc.id} value={`${loc.id}: ${loc.hall}/${loc.bookcase}/${loc.shelf}`}></option>
-                    ))
+                  <select type="search" name="locality" id="literaryWorkF_locality" value={locality} onChange={e => {setLocality(e.target.value); console.log('aqui: ', e.target.value)}}>
+                    <option>Selecione uma localidade</option>
+                    {localidadeList.map(loc => {
+                      
+                      if( locality != '' && locality.id == loc.id ){
+                        setLocality(loc.id)
+                      }
+                      return(
+                          <option key={loc.id} selected={ loc.id == locality  } value={`${loc.id}`}>{`${loc.hall}/${loc.bookcase}/${loc.shelf}`}</option>
+                        )
+                      })
                     }
-                  </datalist>
+                  </select>
                 </div>
                 <div>
                   <label className="file" for="file">Capa do livro:
@@ -240,7 +251,7 @@ function LiteraryWorksForm(props) {
                 </div>
               </fieldset>
               <div id="literaryWorkF_input">
-                <input className="literaryWorkF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="literaryWorkF_confirm" type="submit" value={!params ? "Cadastrar" : 'Atualizar'} onClick={e => cadastrar(e)} />
                 <input className="literaryWorkF_cancel" type="submit" value="Cancelar" onClick={e => cancelar(e)} />
               </div>
             </form>

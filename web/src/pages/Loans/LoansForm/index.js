@@ -6,11 +6,14 @@ import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
 import './styles.css';
+import { cpfMask } from '../../../utils';
 
 function LoansForm(props) {
 
   const [literaryWork, setLiteraryWork] = useState()
+  const [literaryWorkAll, setLiteraryWorkAll] = useState()
   const [student, setStudent] = useState()
+  const [studentAll, setStudentAll] = useState()
   const [employee, setEmployee] = useState()
   const [loanDate, setLoanDate] = useState()
   const [returnDate, setReturnDate] = useState()
@@ -18,6 +21,14 @@ function LoansForm(props) {
   const [carregar, setCarregar] = useState(true)
 
   const params = props.match.params.id
+
+  const carregarStudents = () => {
+    axios.get(`${server}/students`).then(e => setStudentAll(e.data) )
+  }
+
+  const carregarLivros = () => {
+    axios.get(`${server}/literaryWorks`).then(e => {setLiteraryWorkAll(e.data); console.log(e.data)} )
+  }
 
   const load = () => {
     if (params != undefined && carregar) {
@@ -36,6 +47,10 @@ function LoansForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
+    if( !student && !literaryWork ){
+      alert('Verifique se tem um estudante ou um livro selecionado')
+      return
+    }
 
     if (params != undefined) {
       alert('Atualizar')
@@ -79,7 +94,14 @@ function LoansForm(props) {
 
   useEffect(() => {
     load()
-  })
+    carregarStudents()
+    carregarLivros()
+    if( params == undefined ){
+      let data = new Date();
+      let dataFormatada = data.getFullYear() + "-" + (data.getMonth() + 1) + "-" + data.getDate(); 
+      setLoanDate(dataFormatada)
+    }
+  }, [])
 
   return (
     <div id="loanFContainer">
@@ -103,11 +125,35 @@ function LoansForm(props) {
               <fieldset>
                 <div>
                   <label for="literaryWork">Livro:</label>
-                  <select type="text" literaryWork="literaryWork" value={literaryWork} onChange={e => setLiteraryWork(e.target.value)} id="loanF_literaryWork" placeholder="Selecione o livro" />
+                  <select type="text" required literaryWork="literaryWork" value={literaryWork} onChange={e => setLiteraryWork(e.target.value)} id="loanF_literaryWork" placeholder="Selecione o livro">
+                  <option>Selecione um livro</option>
+                  { literaryWorkAll && literaryWorkAll.map(livro => {
+                    console.log('lit: ', student)
+                    if( literaryWork == livro.title ){
+                        console.log('adddddddddddd')
+                        setLiteraryWork( livro.id )
+                      }
+                      if( !!livro.borrowed ){
+                        return (
+                          <option key={livro.id} value={livro.id}>{livro.title}</option>
+                        )
+                      }
+                    }) }
+                  </select>
                 </div>
                 <div>
                   <label for="student">Estudante:</label>
-                  <select type="text" name="student" id="loanF_student" value={student} onChange={e => setStudent(e.target.value)} placeholder="Selecione o estudante" />
+                  <select type="text" required name="student" id="loanF_student" value={student} onChange={e => setStudent(e.target.value)} placeholder="Selecione o estudante" >
+                  <option>Selecione um estudante</option>
+                  { studentAll && studentAll.map(students => {
+                      if( student == students.name ){
+                        setStudent( students.id )
+                      }
+                      return (
+                        <option key={students.id} value={students.id}>{students.name} :::::       { cpfMask(students.cpf)}</option>
+                      )
+                    }) }
+                  </select>
                 </div>
                 <div>
                   <label for="employee">Funcionário:</label>
@@ -115,13 +161,13 @@ function LoansForm(props) {
                 </div>
                 <div id="loanF_dates">
                   <label className="loanF_loanDate" for="loanDate">Data de empréstimo:</label>
-                  <input type="date" name="loanDate" value={loanDate} onChange={e => setLoanDate(e.target.value)} id="loanF_loanDate" />
+                  <input type="date" disabled name="loanDate" value={loanDate} onChange={e => setLoanDate(e.target.value)} id="loanF_loanDate" />
                   <label className="loanF_returnDate" for="returnDate">Data de devolução:</label>
-                  <input type="date" name="returnDate" value={returnDate} onChange={e => setReturnDate(e.target.value)} id="loanF_returnDate" />
+                  <input type="date" disabled name="returnDate" value={returnDate} onChange={e => setReturnDate(e.target.value)} id="loanF_returnDate" />
                 </div>
               </fieldset>
               <div id="loanF_input">
-                <input className="loanF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="loanF_confirm" type="submit" value={!params ? "Cadastrar" : "Atualizar"} onClick={e => cadastrar(e)} />
                 <input className="loanF_cancel" type="submit" value="Cancelar" onClick={e => cancelar(e)} />
               </div>
             </form>

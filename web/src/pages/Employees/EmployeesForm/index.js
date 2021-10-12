@@ -154,7 +154,7 @@ function EmployeesForm(props) {
                 </div>
               </fieldset>
               <div id="employeeF_input">
-                <input className="employeeF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="employeeF_confirm" type="submit" value={ !params ? "Cadastrar" : 'Atualizar' } onClick={e => cadastrar(e)} />
                 <input className="employeeF_cancel" type="submit" value="Cancelar" onClick={() => setRedirect(true)} />
               </div>
             </form>

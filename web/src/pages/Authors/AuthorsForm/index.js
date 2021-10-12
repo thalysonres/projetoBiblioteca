@@ -113,7 +113,7 @@ function AuthorsForm(props) {
                 </div>
               </fieldset>
               <div id="authorF_input">
-                <input className="authorF_confirm" type="submit" value="Cadastrar" onClick={e => cadastrar(e)} />
+                <input className="authorF_confirm" type="submit" value={!params ? "Cadastrar": "Atualizar"} onClick={e => cadastrar(e)} />
                 <input className="authorF_cancel" type="submit" value="Cancelar" onClick={e => cancelar(e)} />
               </div>
             </form>

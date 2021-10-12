@@ -22,7 +22,7 @@ function LiteraryWorksList() {
 
     if (result) {
       axios.delete(`${server}/literaryWorks/${id}`)
-      .then(_ => alert('Excluído com sucesso!'))
+      .then(_ => {alert('Excluído com sucesso!'); window.location.reload()})
       .catch(e => alert('Erro ao excluir'))
     }
 
