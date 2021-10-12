@@ -68,6 +68,20 @@ function LiteraryWorksForm(props) {
   const cadastrar = (e) => {
     e.preventDefault()
 
+    if( !author ) return alert('Preencha o campo autor')
+    if( !title ) return alert('Preencha o campo nome')
+    if( !edition ) return alert('Preencha o campo edição')
+    if( !numberPage ) return alert('Preencha o campo n° de pág')
+    if( !editionYear ) return alert('Preencha o campo ano')
+    if( !publishingComp ) return alert('Preencha o campo editora')
+    if( !ISBN ) return alert('Preencha o campo ISBN')
+    if( !CDU ) return alert('Preencha o campo CDU')
+    if( !CDD ) return alert('Preencha o campo CDD')
+    if( !publication ) return alert('Preencha o campo local de pub')
+    if( !locality ) return alert('Preencha o campo localidade')
+    // if( !file ) return alert('O livro precisa de uma foto de capa')
+
+
     if (params != undefined) {
       const formData = new FormData()
       const img = document.querySelector('#literaryWorkF_file')

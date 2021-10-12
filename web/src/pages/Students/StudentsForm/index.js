@@ -35,6 +35,20 @@ function StudentsForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
+
+    
+
+    if( !name ) return alert('Preencha o campo nome')
+    if( !phone ) return alert('Preencha o campo telefone')
+    if( !street ) return alert('Preencha o campo rua')
+    if( !district ) return alert('Preencha o campo bairro')
+    if( !city ) return alert('Preencha o campo cidade')
+    if( !state ) return alert('Preencha o campo estado')
+    if( !cpf ) return alert('Preencha o campo cpf')
+    if( !pass ) return alert('Preencha o campo senha')
+    if( !passConfirm ) return alert('Preencha o campo confirme senha')
+    if( !birthDate ) return alert('Preencha o campo data de nascimento')
+    
     if( mudouSenha ){
       if (params != undefined) {
         setLoading(false)

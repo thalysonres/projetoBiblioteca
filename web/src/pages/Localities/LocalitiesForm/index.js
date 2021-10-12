@@ -31,6 +31,12 @@ function LocalitiesForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
+
+    if( !hall ) return alert('Preencha o campo corredor')
+    if( !bookcase ) return alert('Preencha o campo estante')
+    if( !shelf ) return alert('Preencha o campo prateleira')
+
+
     if (params != undefined) {
       axios.put(`${server}/localities/${params}`, {
         hall, bookcase, shelf

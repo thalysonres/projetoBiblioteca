@@ -45,6 +45,11 @@ function AuthorsForm(props) {
   const cadastrar = (e) => {
     e.preventDefault()
 
+    if( !nome ) return alert('Preencha o campo nome')
+    if( !paisOrigem ) return alert('Preencha o campo país de origem')
+    if( !notacao ) return alert('Preencha o campo notação do autor')
+    if( !genero ) return alert('Preencha o campo gênero')
+ 
     if (params != undefined) {
       axios.put(`${server}/authors/${params}`, {
         name: nome,

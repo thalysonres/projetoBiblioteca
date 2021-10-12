@@ -47,10 +47,10 @@ function LoansForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
-    if( !student && !literaryWork ){
-      alert('Verifique se tem um estudante ou um livro selecionado')
-      return
-    }
+
+    if( !literaryWork ) return alert('Selecione um livro')
+    if( !student ) return alert('Selecione um aluno')
+    
 
     if (params != undefined) {
       alert('Atualizar')
@@ -133,7 +133,7 @@ function LoansForm(props) {
                         console.log('adddddddddddd')
                         setLiteraryWork( livro.id )
                       }
-                      if( !!livro.borrowed ){
+                      if( !livro.borrowed ){
                         return (
                           <option key={livro.id} value={livro.id}>{livro.title}</option>
                         )

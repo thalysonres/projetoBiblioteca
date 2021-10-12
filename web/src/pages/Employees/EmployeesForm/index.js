@@ -49,6 +49,16 @@ function EmployeesForm(props) {
 
   const cadastrar = (e) => {
     e.preventDefault()
+
+    if( !nome ) return alert('Preencha o campo nome')
+    if( !telefone ) return alert('Preencha o campo telefone')
+    if( !estado ) return alert('Preencha o campo estado')
+    if( !rua ) return alert('Preencha o campo rua')
+    if( !bairro ) return alert('Preencha o campo bairro')
+    if( !cidade ) return alert('Preencha o campo cidade')
+    if( !cpf ) return alert('Preencha o campo cpf')
+    if( !niver ) return alert('Preencha o campo niver')
+
     if (senha != senhaConf) {
       alert('Senhas não conferem')
       console.log(senhaConf, senha)

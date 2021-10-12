@@ -29,15 +29,17 @@ function LoansList() {
   }
 
   const apagar = (id) => {
-    alert('Empréstimo excluido', id)
-    axios.delete(`${server}/loans/${id}`)
-      .then(_ => alert('Deletado com sucesso!'))
-      .catch(e => alert('Erro ao deletar'))
+    let result = window.confirm('Devolver livro?')
+    if(result){
+      axios.delete(`${server}/loans/${id}`)
+        .then(_ => { alert('Devolvido com sucesso!'); window.location.reload()})
+        .catch(e => alert('Erro ao deletar'))
+    }
   }
 
   useEffect(() => {
     loadEmprestimo()
-    console.log(emprestim)
+    console.log('asdf: ', emprestim)
   }, [])
 
   return (
