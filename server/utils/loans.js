@@ -22,7 +22,7 @@ module.exports = {
                                 .update({ borrowed: true })
                                 .then(inserido => res.json(inserido))
                         })
-                        .catch(err => res.status(400).json({ message: err, status: "um erro" }))
+                        .catch(err => res.status(400).json({ message: err, status: "Erro" }))
 
                 } else {
                     return res.send('Livro emprestado')

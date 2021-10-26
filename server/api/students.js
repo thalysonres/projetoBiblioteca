@@ -31,7 +31,7 @@ module.exports = app => {
           employees_id: req.user.id, //id automatico
         })
         .then(_ => res.status(204).send())
-        .catch(err => res.status(400).json({ message: err, status: "um erro" }))
+        .catch(err => res.status(400).json({ message: err, status: "Erro" }))
     })
   }
 
@@ -39,7 +39,7 @@ module.exports = app => {
     await app.db('students')
       .select('*')
       .then(students => {
-        if (!students.length) res.send('Vazio :( ')
+        if (!students.length) res.send('Vazio')
         renderAllStudent(app, students, res)
       })
       .catch(err => res.json(err))
@@ -51,7 +51,7 @@ module.exports = app => {
       .where({ id: req.params.id })
       .first()
       .then(student => {
-        if (student.length) res.send(':( ')
+        if (student.length) res.send('Vazio')
         renderStudent(app, student).then(user => res.status(200).json(user))
       })
       .catch(err => res.status(400).json(err))
@@ -83,7 +83,7 @@ module.exports = app => {
     await app.db('students')
       .where({ id: req.params.id })
       .delete()
-      .then(user => res.json({ user, message: "deletado" }))
+      .then(user => res.json({ user, message: "Deletado" }))
       .catch(err => res.status(400).json(err))
   }
 

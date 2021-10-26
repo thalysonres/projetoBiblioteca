@@ -42,7 +42,7 @@ function LocalitiesForm(props) {
         hall, bookcase, shelf
       })
         .then(_ => {
-          alert('Salvo com sucesso!')
+          alert('Salvo com sucesso')
           setRedirect(true)
         })
         .catch(e => alert('Erro ao atualizar cadastro'))
@@ -52,7 +52,7 @@ function LocalitiesForm(props) {
         hall, bookcase, shelf
       })
         .then(_ => {
-          alert('Salvo com sucesso!')
+          alert('Salvo com sucesso')
           setRedirect(true)
         })
         .catch(e => alert('Erro ao cadastrar'))

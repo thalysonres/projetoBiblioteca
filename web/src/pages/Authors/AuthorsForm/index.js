@@ -48,7 +48,7 @@ function AuthorsForm(props) {
     if( !nome ) return alert('Preencha o campo nome')
     if( !paisOrigem ) return alert('Preencha o campo país de origem')
     if( !notacao ) return alert('Preencha o campo notação do autor')
-    if( !genero ) return alert('Preencha o campo gênero')
+    if( !genero ) return alert('Preencha o campo gênero literário')
  
     if (params != undefined) {
       axios.put(`${server}/authors/${params}`, {
@@ -57,21 +57,21 @@ function AuthorsForm(props) {
         authorsNotation: notacao,
         genre: genero,
       }).then(_ => {
-        alert('Salvo com sucesso!')
+        alert('Salvo com sucesso')
         setRedirect(true)
       }).catch(e => {
         alert('Erro ao atualizar cadastro')
       })
     }
     else {
-      alert('Cadastrar')
+      // alert('Cadastrar')
       axios.post(`${server}/authors`, {
         name: nome,
         countryOrigin: paisOrigem,
         authorsNotation: notacao,
         genre: genero,
       }).then(_ => {
-        alert('Salvo com sucesso!')
+        alert('Salvo com sucesso')
         setRedirect(true)
       }).catch(e => {
         alert('Erro ao cadastrar')

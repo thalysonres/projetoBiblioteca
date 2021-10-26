@@ -19,12 +19,14 @@ function LoansList() {
   }
 
   const renovar = (id) => {
-    let confirmar = window.confirm('deseja realmente renovar?')
+    let confirmar = window.confirm('Deseja renovar?')
     if( confirmar ){
       axios.put(`${server}/loans/renovations/${id}`).then(_ => {
-        alert('renovando o emprestimo', id)
+        alert('Empréstimo renovado', id)
+        loadEmprestimo()
+
       })
-      .catch(e => alert('Nao foi possivel fazer a renovacao'))
+      .catch(e => alert('Não foi possivel fazer a renovação'))
     }
   }
 
@@ -32,14 +34,13 @@ function LoansList() {
     let result = window.confirm('Devolver livro?')
     if(result){
       axios.delete(`${server}/loans/${id}`)
-        .then(_ => { alert('Devolvido com sucesso!'); window.location.reload()})
-        .catch(e => alert('Erro ao deletar'))
+        .then(_ => { alert('Devolvido com sucesso'); window.location.reload()})
+        .catch(e => alert('Erro ao devolver'))
     }
   }
 
   useEffect(() => {
     loadEmprestimo()
-    console.log('asdf: ', emprestim)
   }, [])
 
   return (
@@ -65,7 +66,7 @@ function LoansList() {
                   <th>Estudante</th>
                   <th>Livro</th>
                   <th>Devol.</th>
-                  <th>Renov.</th>
+                  {/* <th>Renov.</th> */}
                   <th>Ações</th>
                 </tr>
               </thead>
@@ -75,10 +76,10 @@ function LoansList() {
                     <td>{emp.student_id}</td>
                     <td>{emp.literaryWorks_id}</td>
                     <td>{emp.returnDate}</td>
-                    <td>{emp.loanDate}</td>
+                    {/* <td>{emp.loanDate}</td> */}
                     <td>
                       <img width={45} src={renovarImg} alt="renovar" onClick={() => renovar(emp.id)} />
-                      <Link to={`/loansform/${emp.id}`}><img src={editar} alt="editar" /></Link>
+                      {/* <Link to={`/loansform/${emp.id}`}><img src={editar} alt="editar" /></Link> */}
                       <img src={excluir} alt="excluir" onClick={() => apagar(emp.id)} />
                     </td>
                   </tr>

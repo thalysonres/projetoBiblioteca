@@ -22,7 +22,7 @@ function LocalitiesList() {
   const deletar = (id) => {
     let result = window.confirm('Deseja deletar?')
     if (result) {
-      axios.delete(`${server}/localities/${id}`).then(_ => alert('Deletado com sucesso!'))
+      axios.delete(`${server}/localities/${id}`).then(_ => alert('Deletado com sucesso'))
         .catch(e => alert('Erro ao deletar'))
     }
   }

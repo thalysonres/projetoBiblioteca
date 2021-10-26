@@ -49,17 +49,17 @@ function LoansForm(props) {
     e.preventDefault()
 
     if( !literaryWork ) return alert('Selecione um livro')
-    if( !student ) return alert('Selecione um aluno')
+    if( !student ) return alert('Selecione um estudante')
     
 
     if (params != undefined) {
-      alert('Atualizar')
+      // alert('Atualizar')
       axios.put(`${server}/loans/${params}`, {
         literaryWork, student, employee,
         loanDate, returnDate
       })
         .then(m => {
-          alert('Salvo com sucesso!')
+          alert('Salvo com sucesso')
           setRedirect(true)
         })
         .catch(e => {
@@ -76,7 +76,7 @@ function LoansForm(props) {
         loanDate: loanDate,
         returnDate: returnDate
       }).then(() => {
-        alert('Salva com sucesso!')
+        alert('Salvo com sucesso')
         setRedirect(true)
       }).catch(e => {
         alert(`Erro ao cadastrar: ${e.response.data.message}`)

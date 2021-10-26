@@ -34,7 +34,7 @@ function StudentsList() {
     if (resultado) {
       axios.delete(`${server}/students/${params}`)
         .then(_ => {
-          alert('Usuario excluido com sucesso!')
+          alert('Usuário excluido com sucesso')
           loadStudents(setLoad, setLoading)
         }).catch(e => alert('Erro ao excluir'))
     }

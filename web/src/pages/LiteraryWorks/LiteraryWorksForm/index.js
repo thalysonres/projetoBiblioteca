@@ -71,15 +71,21 @@ function LiteraryWorksForm(props) {
     if( !author ) return alert('Preencha o campo autor')
     if( !title ) return alert('Preencha o campo nome')
     if( !edition ) return alert('Preencha o campo edição')
-    if( !numberPage ) return alert('Preencha o campo n° de pág')
+    if( !numberPage ) return alert('Preencha o campo números de páginas')
     if( !editionYear ) return alert('Preencha o campo ano')
     if( !publishingComp ) return alert('Preencha o campo editora')
     if( !ISBN ) return alert('Preencha o campo ISBN')
     if( !CDU ) return alert('Preencha o campo CDU')
     if( !CDD ) return alert('Preencha o campo CDD')
-    if( !publication ) return alert('Preencha o campo local de pub')
+    if( !publication ) return alert('Preencha o campo local de publicação')
     if( !locality ) return alert('Preencha o campo localidade')
-    // if( !file ) return alert('O livro precisa de uma foto de capa')
+    const img = document.querySelector('#literaryWorkF_file')
+
+    console.log(img.files[0])
+    // return
+    if( !params ){
+      if( !img.files[0] ) return alert('O livro precisa de uma imagem de sua capa')
+    }
 
 
     if (params != undefined) {
@@ -108,19 +114,19 @@ function LiteraryWorksForm(props) {
       })
         .then(_ => {
           setRedirect(true)
-          alert('Salvo com sucesso!')
+          alert('Salvo com sucesso')
         })
         .catch('Erro ao atualizar cadastro')
     }
     else {
-      alert('Novo')
+      // alert('Novo')
 
       const formData = new FormData()
       const img = document.querySelector('#literaryWorkF_file')
       // console.log('=> ', img.files[0])
-      if( img.value != '' ){
+      // if( img.value != '' ){
         formData.append('file', img.files[0])
-      }
+      // }
       formData.append('author', author)
       formData.append('title', title)
       formData.append('edition', edition)
@@ -145,7 +151,7 @@ function LiteraryWorksForm(props) {
       })
         .then(_ => {
           setRedirect(true)
-          alert('Salvo com sucesso!')
+          alert('Salvo com sucesso')
         })
         .catch('Erro ao cadastrar')
 

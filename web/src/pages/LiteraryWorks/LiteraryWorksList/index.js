@@ -22,7 +22,7 @@ function LiteraryWorksList() {
 
     if (result) {
       axios.delete(`${server}/literaryWorks/${id}`)
-      .then(_ => {alert('Excluído com sucesso!'); window.location.reload()})
+      .then(_ => {alert('Excluído com sucesso'); window.location.reload()})
       .catch(e => alert('Erro ao excluir'))
     }
 
@@ -58,7 +58,7 @@ function LiteraryWorksList() {
                   <th>Livro</th>
                   <th>Autor</th>
                   <th>Dispon.</th>
-                  <th>Local</th>
+                  <th>Local.</th>
                   {!!admin &&
                     <th>Ações</th>
                   }

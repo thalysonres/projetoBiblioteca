@@ -18,10 +18,10 @@ function EmployeesList() {
   }
 
   const deletar = (id) => {
-    let resultado = window.confirm('Deseja deletar?')
+    let resultado = window.confirm('Deseja excluir?')
     if (resultado) {
-      axios.delete(`${server}/employees/${id}`).then(_ => alert('Deletado com sucesso!'))
-        .catch(e => alert('Erro ao deletar!'))
+      axios.delete(`${server}/employees/${id}`).then(_ => alert('Excluido com sucesso'))
+        .catch(e => alert('Erro ao excluir'))
     }
   }
 

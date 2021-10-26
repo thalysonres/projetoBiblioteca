@@ -21,7 +21,7 @@ module.exports = app => {
           genre: req.body.genre,
         })
         .then(_ => res.status(204).send())
-        .catch(err => res.status(400).json({ message: err, status: "um erro" }))
+        .catch(err => res.status(400).json({ message: err, status: "Erro" }))
     })
   }
 
@@ -57,7 +57,7 @@ module.exports = app => {
     await app.db('authors')
       .where({ id: req.params.id })
       .delete()
-      .then(user => res.json({ user, message: "deletado" }))
+      .then(user => res.json({ user, message: "Deletado" }))
       .catch(err => res.status(400).json(err))
   }
 

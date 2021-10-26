@@ -49,8 +49,28 @@ module.exports = app => {
   }
 
   const update = async (req, res) => {
-    if( req.file ){
-      const { filename } = req.file
+    // console.log(req.params.id)
+    // if( req.file ){
+    //   const { filename } = req.file
+    //   await app.db('literaryWorks')
+    //     .where({ id: req.params.id })
+    //     .update({
+    //       title: req.body.title,
+    //       edition: req.body.edition,
+    //       editionYear: req.body.editionYear,
+    //       numberPage: req.body.numberPage,
+    //       publishingComp: req.body.publishingComp,
+    //       publication: req.body.publication,
+    //       ISBN: req.body.ISBN,
+    //       CDD: req.body.CDD,
+    //       CDU: req.body.CDU,
+    //       translator: req.body.translator,
+    //       borrowed: req.body.borrowed,
+    //       file: filename
+    //     })
+    //     .then(_ => res.status(204).send())
+    //     .catch(err => res.status(400).json(err))
+    // }else {
       await app.db('literaryWorks')
         .where({ id: req.params.id })
         .update({
@@ -65,29 +85,10 @@ module.exports = app => {
           CDU: req.body.CDU,
           translator: req.body.translator,
           borrowed: req.body.borrowed,
-          file: filename
         })
         .then(_ => res.status(204).send())
         .catch(err => res.status(400).json(err))
-    }else {
-      await app.db('literaryWorks')
-        .where({ id: req.params.id })
-        .update({
-          title: req.body.title,
-          edition: req.body.edition,
-          editionYear: req.body.editionYear,
-          numberPage: req.body.numberPage,
-          publishingComp: req.body.publishingComp,
-          publication: req.body.publication,
-          ISBN: req.body.ISBN,
-          CDD: req.body.CDD,
-          CDU: req.body.CDU,
-          translator: req.body.translator,
-          borrowed: req.body.borrowed,
-        })
-        .then(_ => res.status(204).send())
-        .catch(err => res.status(400).json(err))
-    }
+    // }
   }
 
   const del = async (req, res) => {

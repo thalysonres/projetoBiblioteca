@@ -10,13 +10,13 @@ module.exports = app => {
       .select('*')
       .where({ student_id: req.body.student_id })
       .then(loans => {
-        if (loans.length < 3) {
+        if (loans.length < 5) {
           setLoans(app, req, res)
         }
         else {
-          console.log('cheio')
+          // console.log('cheio')
           return res.status(401).json({
-            message: 'Limite de emprestimo atingido :('
+            message: 'Limite de empréstimo atingido '
           })
         }
       })
@@ -27,7 +27,7 @@ module.exports = app => {
     app.db('loans')
       .select('*')
       .then(loans => {
-        if (!loans.length) res.send('Vazio :( ')
+        if (!loans.length) res.send('Vazio')
         renderAllLoan(app, loans, res)
       })
       .catch(err => res.json(err))
@@ -38,7 +38,7 @@ module.exports = app => {
       .select('*')
       .where({ student_id: req.user.id })
       .then(loans => {
-        if (!loans.length) res.send('Vazio :( ')
+        if (!loans.length) res.send('Vazio')
         renderAllLoan(app, loans, res)
       })
       .catch(err => res.status(401).json(err))
@@ -49,7 +49,7 @@ module.exports = app => {
       .where({ id: req.params.id })
       .first()
       .then(loans => {
-        if (loans.length) res.send('Vazio :( ')
+        if (loans.length) res.send('Vazio')
         renderLoan(app, loans).then(loan => res.json(loan))
       })
       .catch(err => res.status(400).json(err))
@@ -70,12 +70,13 @@ module.exports = app => {
   }
 
   const renovation = async (req, res) => {
+	  // console.log('tentou', req.params.id)
     await app.db('loans')
       .where( { id: req.params.id } )
       .first()
       .then( async loan => {
         if(loan.renovations < 3){
-          console.log('renovando ', loan)
+          // console.log('renovando ', loan)
           await app.db('loans')
           .where( { id: req.params.id } )
           .update({
@@ -83,7 +84,7 @@ module.exports = app => {
             returnDate: devolver()
           }).then( _ => res.status(204).send('ok'))
         }else {
-          res.status(404).json({message : 'Limite de emprestimo atingido'})
+          res.status(404).json({message : 'Limite de empréstimo atingido'})
         }
       })
   }
@@ -97,7 +98,7 @@ module.exports = app => {
         app.db('literaryWorks')
           .where({ id: idLiterary[0].literaryWorks_id })
           .update({ borrowed: false })
-          .then(inserido => res.json({ OK: inserido, message: "deletado" }))
+          .then(inserido => res.json({ OK: inserido, message: "Deletado" }))
       })
       .catch(err => res.status(400).json(err))
   }

@@ -19,7 +19,7 @@ function Auth() {
         cpf: cpf.replaceAll('.', '').replace('-', ''),
         pass: password
       })
-      alert(`Aluno Logado`)
+      alert(`Aluno(a) Logado(a)`)
 
       localStorage.setItem('logadoUser', res.data.token )
       localStorage.setItem('admin', 0 )

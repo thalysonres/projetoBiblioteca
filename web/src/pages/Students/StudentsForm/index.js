@@ -46,8 +46,12 @@ function StudentsForm(props) {
     if( !state ) return alert('Preencha o campo estado')
     if( !cpf ) return alert('Preencha o campo cpf')
     if( !pass ) return alert('Preencha o campo senha')
-    if( !passConfirm ) return alert('Preencha o campo confirme senha')
+    if( !passConfirm ) return alert('Preencha o campo confirmar senha')
     if( !birthDate ) return alert('Preencha o campo data de nascimento')
+
+    if( String(pass).length < 8){
+      return alert('A senha não pode conter menos de 8 caracteres')
+    }
     
     if( mudouSenha ){
       if (params != undefined) {
@@ -73,12 +77,12 @@ function StudentsForm(props) {
       } else {
         setLoading(false)
 
-        alert('Cadastrar')
+        // alert('Cadastrar')
         if (pass != passConfirm) {
           return alert('Senhas não conferem')
         }
 
-        if (String(cpf).length < 11) {
+        if ( String(cpf).length != 11 ) {
           return alert('CPF não tem 11 dígitos')
         }
 
@@ -93,7 +97,7 @@ function StudentsForm(props) {
           pass,
           birthDate
         }).then(_ => {
-          alert('Novo usuário cadastrado!')
+          alert('Novo usuário cadastrado')
           setEditA(false)
           setRedirect(true)
           setLoading(false)

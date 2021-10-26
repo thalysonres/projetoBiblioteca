@@ -19,7 +19,7 @@ function LiteraryWorksInfo(props) {
       setLiterary(res.data)
       console.log(res.data)
     }).catch(e => {
-      alert('Livros não encontrados')
+      alert('Livro não encontrado')
       window.history.back()
     })
 
@@ -86,7 +86,7 @@ function LiteraryWorksInfo(props) {
                 <tr className="literaryWorkI_title">
                   <th>CDU</th>
                   <th>Localidade</th>
-                  <th colspan="2">Local de Publicação</th>
+                  <th colspan="2">Local de publicação</th>
                 </tr>
                 <tr className="literaryWorkI_list">
                   <td>{literary.CDU}</td>

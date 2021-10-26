@@ -14,7 +14,7 @@ import LocalitiesList from './pages/Localities/LocalitiesList';
 import LocalitiesForm from './pages/Localities/LocalitiesForm';
 import LoansList from './pages/Loans/LoansList';
 import LoansForm from './pages/Loans/LoansForm';
-import StudentLoansList from './pages/StudentLoans/StudentLoansList';
+// import StudentLoansList from './pages/StudentLoans/StudentLoansList';
 import LiteraryWorksList from './pages/LiteraryWorks/LiteraryWorksList';
 import LiteraryWorksForm from './pages/LiteraryWorks/LiteraryWorksForm';
 import LiteraryWorksInfo from './pages/LiteraryWorks/LiteraryWorksInfo';
@@ -68,7 +68,7 @@ function Routes() {
       <Rota path="/loansform" exact component={LoansForm} />
       <Rota path="/loansform/:id" exact component={LoansForm} />
       {/* <Rota path="/loans/:id" exact component={LoansForm} /> */}
-      <Rota path="/studentloans" exact component={StudentLoansList} />
+      {/* <Rota path="/studentloans" exact component={StudentLoansList} /> */}
       <Rota path="/literaryworks" exact component={LiteraryWorksList} />
       <Rota path="/literaryworksform" exact component={LiteraryWorksForm} />
       <Rota path="/literaryworksform/:id" exact component={LiteraryWorksForm} />

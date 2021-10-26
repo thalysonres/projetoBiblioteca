@@ -57,7 +57,18 @@ function EmployeesForm(props) {
     if( !bairro ) return alert('Preencha o campo bairro')
     if( !cidade ) return alert('Preencha o campo cidade')
     if( !cpf ) return alert('Preencha o campo cpf')
-    if( !niver ) return alert('Preencha o campo niver')
+
+    if ( String(cpf).length != 11 ) {
+      return alert('CPF não tem 11 dígitos')
+    }
+
+    if( !niver ) return alert('Preencha o campo data de nascimento')
+    if( !senha ) return alert('Preencha o campo senha')
+    if( !senhaConf ) return alert('Preencha o campo confirmar senha')
+    
+    if( String(senha).length < 8){
+      return alert('A senha não pode conter menos de 8 caracteres')
+    }
 
     if (senha != senhaConf) {
       alert('Senhas não conferem')
@@ -65,7 +76,7 @@ function EmployeesForm(props) {
       return
     }
     if (params != undefined) {
-      alert('Atualizar')
+      // alert('Atualizar')
       axios.put(`${server}/employees/${params}`, {
         name: nome,
         phone: telefone,
@@ -77,13 +88,13 @@ function EmployeesForm(props) {
         pass: senha,
         birthDate: niver
       }).then(_ => {
-        alert('Salvo com sucesso!')
+        alert('Salvo com sucesso')
         setRedirect(true)
       })
         .catch(e => alert('Erro ao atualizar cadastro'))
     }
     else {
-      alert('Cadastrar')
+      // alert('Cadastrar')
       axios.post(`${server}/employees`, {
         name: nome,
         phone: telefone,
@@ -95,7 +106,7 @@ function EmployeesForm(props) {
         pass: senha,
         birthDate: niver
       }).then(_ => {
-        alert('Salvo com sucesso!!')
+        alert('Salvo com sucesso')
         setRedirect(true)
       })
         .catch(e => alert('Erro ao cadastrar'))

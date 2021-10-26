@@ -5,7 +5,7 @@ const jwt = require('jwt-simple')
 module.exports = app => {
   const signinStudent = async (req, res) => {
     if( !req.body.pass && !req.body.cpf) {
-      return res.status(400).send("Dados incompletos!")
+      return res.status(400).send("Dados incompletos")
     }
 
     const user = await app.db('students')
@@ -15,7 +15,7 @@ module.exports = app => {
     if(user){
       bcrypt.compare(req.body.pass, user.pass, (erro, isMath) => {
         if(erro || !isMath){
-          return res.status(401).send("Senha incorreta ou erro")
+          return res.status(401).send("Senha incorreta")
         }
 
         const payload = { id: user.id, admin: false }
@@ -26,7 +26,7 @@ module.exports = app => {
 
       })
     }else {
-      return res.status(401).send("Usuario não cadastrado!")
+      return res.status(401).send("Usuário não cadastrado")
     }
   }
 
