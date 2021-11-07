@@ -93,6 +93,7 @@ function LiteraryWorksForm(props) {
       const img = document.querySelector('#literaryWorkF_file')
       //console.log('=> ', img.files[0])
       // (!!img.files[0] ? formData.append('file', img.files[0]) : '')
+      formData.append('file', img.files[0])
       formData.append('author', author)
       formData.append('title', title)
       formData.append('edition', edition)

@@ -8,6 +8,7 @@ import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import { Menu } from '../../../components/Menu';
 import { server } from './../../../common'
 import './styles.css';
+import { tratarData } from '../../../utils';
 
 function LoansList() {
 
@@ -75,7 +76,7 @@ function LoansList() {
                   <tr key={emp.id}>
                     <td>{emp.student_id}</td>
                     <td>{emp.literaryWorks_id}</td>
-                    <td>{emp.returnDate}</td>
+                    <td>{ tratarData (emp.returnDate) }</td>
                     {/* <td>{emp.loanDate}</td> */}
                     <td>
                       <img width={45} src={renovarImg} alt="renovar" onClick={() => renovar(emp.id)} />

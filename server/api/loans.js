@@ -26,6 +26,7 @@ module.exports = app => {
   const list = (req, res) => {
     app.db('loans')
       .select('*')
+      .orderBy('student_id')
       .then(loans => {
         if (!loans.length) res.send('Vazio')
         renderAllLoan(app, loans, res)

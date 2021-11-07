@@ -5,6 +5,7 @@ import emprestimo from '../../../assets/images/icons/emprestimos.svg';
 import { Menu } from '../../../components/Menu';
 import { server } from './../../../common'
 import './styles.css';
+import { tratarData } from '../../../utils';
 
 function LiteraryWorksList() {
 
@@ -57,8 +58,8 @@ function LiteraryWorksList() {
                     <th className="th_LWStitle">
                       <Link to={`/literaryworksinfo/${liv.id_Book}`}> {liv.literaryWorks_id} </Link>
                     </th>
-                    <th>{liv.loanDate}</th>
-                    <th>{liv.returnDate}</th>
+                    <th>{ tratarData( liv.loanDate ) }</th>
+                    <th>{ tratarData( liv.returnDate ) }</th>
                     {/* <th>{`${liv.locality_id.hall}-${liv.locality_id.bookcase}-${liv.locality_id.shelf}`}</th> */}
                     
                   </tr>

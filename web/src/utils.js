@@ -6,3 +6,10 @@ export const cpfMask = (value) => {
       .replace(/(\d{3})(\d{1,2})/, '$1-$2')
       .replace(/(-\d{2})\d+?$/, '$1') // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
 }
+
+export const tratarData = (data) => {
+    data = data.replaceAll('/', '-')
+    let dataArray = data.split('-')
+    data = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`
+    return data
+}
