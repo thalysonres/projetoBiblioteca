@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Menu } from '../../../components/Menu';
 import { server } from '../../../common';
 import { Loading } from '../../../components/Loading';
-import { cadastrarUpdate } from '../../../utils';
+import { cadastrarUpdate, cpfMask } from '../../../utils';
 import estudante from '../../../assets/images/icons/estudantes.svg';
 import retorno from '../../../assets/images/icons/return.svg';
 import './styles.css';
@@ -22,7 +22,7 @@ function StudentsForm(props) {
   const [birthDate, setBirthDate] = useState()
   const [redirect, setRedirect] = useState(false)
   const [editA, setEditA] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [mudouSenha, setMudouSenha] = useState(false)
 
   const params = props.match.params.id
@@ -31,6 +31,12 @@ function StudentsForm(props) {
     // let dat = data.split('-')
     // return `${dat[2]}-${dat[1]}-${dat[0]}`
     return data
+  }
+
+  const tiraPontos = (cpf) => {
+    cpf = cpf.replaceAll('.', '')
+    cpf = cpf.replace('-', '')
+    return cpf
   }
 
   const cadastrar = (e) => {
@@ -55,7 +61,7 @@ function StudentsForm(props) {
     
     if( mudouSenha ){
       if (params != undefined) {
-        setLoading(false)
+        // setLoading(false)
         axios.put(`${server}/students/${params}`, {
           name: name,
           phone: phone,
@@ -63,27 +69,28 @@ function StudentsForm(props) {
           district: district,
           city: city,
           state: state,
-          cpf: cpf,
+          cpf: tiraPontos( cpf ),
           pass: pass,
         }).then(_ => {
           alert('User alterado');
           setEditA(false)
           setRedirect(true)
-          setLoading(true)
+          // setLoading(true)
 
           // window.location = '/students'
         })
           .catch(e => alert('Erro ao atualizar cadastro'))
       } else {
-        setLoading(false)
+        // setLoading(false)
 
         // alert('Cadastrar')
         if (pass != passConfirm) {
           return alert('Senhas não conferem')
         }
 
-        if ( String(cpf).length != 11 ) {
-          return alert('CPF não tem 11 dígitos')
+        let cpfvalida = tiraPontos( cpf )
+        if ( String( cpfvalida ).length != 11 ) {
+          return alert(`CPF não tem 11 dígitos => ${cpfvalida}`)
         }
 
         axios.post(`${server}/students`, {
@@ -93,21 +100,21 @@ function StudentsForm(props) {
           district,
           city,
           state,
-          cpf,
+          cpf: tiraPontos( cpf ),
           pass,
           birthDate
         }).then(_ => {
           alert('Novo usuário cadastrado')
           setEditA(false)
           setRedirect(true)
-          setLoading(false)
+          // setLoading(false)
         })
           .catch(e => alert('Erro ao cadastrar'))
 
       }
     } else {
       if (params != undefined) {
-        setLoading(false)
+        // setLoading(false)
         axios.put(`${server}/students/${params}`, {
           name: name,
           phone: phone,
@@ -115,12 +122,12 @@ function StudentsForm(props) {
           district: district,
           city: city,
           state: state,
-          cpf: cpf,
+          cpf: tiraPontos( cpf ),
         }).then(_ => {
           alert('User alterado');
           setEditA(false)
           setRedirect(true)
-          setLoading(true)
+          // setLoading(true)
 
           // window.location = '/students'
         })
@@ -154,10 +161,10 @@ function StudentsForm(props) {
         setBirthDate(student.birthDate)
       }).then(_ => {
         setEditA(true)
-        setLoading(true)
+        // setLoading(true)
       })
     } else {
-      setLoading(true)
+      // setLoading(true)
     }
   }
 
@@ -194,7 +201,36 @@ function StudentsForm(props) {
                   <label for="phone">Telefone:</label>
                   <input type="tel" name="phone" id="studentF_phone" placeholder="Digite o telefone" value={phone} onChange={e => setPhone(e.target.value)} />
                   <label for="state">Estado:</label>
-                  <input type="text" name="state" id="studentF_state" placeholder="Digite o estado" value={state} onChange={e => setState(e.target.value)} />
+                  {/* <input type="text" name="state" id="studentF_state" placeholder="Digite o estado" value={state} onChange={e => setState(e.target.value)} /> */}
+                    <select name="state" id="studentF_state" value={state} onChange={e => setState(e.target.value)} style={{height: 36}}>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                    </select>
                 </div>
                 <div>
                   <label for="street">Rua:</label>
@@ -210,7 +246,7 @@ function StudentsForm(props) {
                 </div>
                 <div id="studentF_cpfbd">
                   <label for="cpf">CPF:</label>
-                  <input type="text" name="cpf" id="studentF_cpf" placeholder="Digite o CPF" value={cpf} onChange={e => setCpf(e.target.value)} />
+                  <input type="text" maxLength={14} name="cpf" id="studentF_cpf" placeholder="Digite o CPF" value={  cpf ? cpfMask(cpf) : cpf  } onChange={e => setCpf(e.target.value)} />
                   <label className="studentF_birthDate" for="birthDate">Data de nascimento:</label>
                   <input type="date" name="birthDate" id="studentF_birthDate" value={birthDate} onChange={e => setBirthDate(`${e.target.value}`)} />
                   {console.log('niver ====>', birthDate)}

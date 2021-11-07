@@ -49,28 +49,9 @@ module.exports = app => {
   }
 
   const update = async (req, res) => {
-    // console.log(req.params.id)
-    // if( req.file ){
-    //   const { filename } = req.file
-    //   await app.db('literaryWorks')
-    //     .where({ id: req.params.id })
-    //     .update({
-    //       title: req.body.title,
-    //       edition: req.body.edition,
-    //       editionYear: req.body.editionYear,
-    //       numberPage: req.body.numberPage,
-    //       publishingComp: req.body.publishingComp,
-    //       publication: req.body.publication,
-    //       ISBN: req.body.ISBN,
-    //       CDD: req.body.CDD,
-    //       CDU: req.body.CDU,
-    //       translator: req.body.translator,
-    //       borrowed: req.body.borrowed,
-    //       file: filename
-    //     })
-    //     .then(_ => res.status(204).send())
-    //     .catch(err => res.status(400).json(err))
-    // }else {
+    console.log(' Tem foto ', req.file)
+    if( req.file ){
+      const { filename } = req.file
       await app.db('literaryWorks')
         .where({ id: req.params.id })
         .update({
@@ -83,12 +64,35 @@ module.exports = app => {
           ISBN: req.body.ISBN,
           CDD: req.body.CDD,
           CDU: req.body.CDU,
+          author_id: req.body.author_id,
+          locality_id: req.body.locality_id,
+          translator: req.body.translator,
+          borrowed: req.body.borrowed,
+          file: filename
+        })
+        .then(_ => res.status(204).send())
+        .catch(err => res.status(400).json(err))
+    }else {
+      await app.db('literaryWorks')
+        .where({ id: req.params.id })
+        .update({
+          title: req.body.title,
+          edition: req.body.edition,
+          editionYear: req.body.editionYear,
+          numberPage: req.body.numberPage,
+          publishingComp: req.body.publishingComp,
+          publication: req.body.publication,
+          ISBN: req.body.ISBN,
+          CDD: req.body.CDD,
+          CDU: req.body.CDU,
+          author_id: req.body.author_id,
+          locality_id: req.body.locality_id,
           translator: req.body.translator,
           borrowed: req.body.borrowed,
         })
         .then(_ => res.status(204).send())
         .catch(err => res.status(400).json(err))
-    // }
+    }
   }
 
   const del = async (req, res) => {
