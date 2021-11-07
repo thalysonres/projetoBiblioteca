@@ -107,7 +107,7 @@
 
 @media screen and (min-width: 720px) and (max-width: 1200px){
   #createLiteraryS #new span{
-    width: 200px;
+    width: 230px;
   }
 
   #createLiteraryS #new img{
@@ -116,6 +116,9 @@
 
   .literaryWorkS_allliteraryWorks{
     width: 96%;
+  }
+  #literaryWorkS_list .literaryWorkS_table th, #literaryWorkS_list .literaryWorkS_table td {
+    font-size: 23px;
   }
 }
 
@@ -139,6 +142,10 @@
 
   .literaryWorkS_allliteraryWorks{
     width: 94%;
+  }
+
+  #literaryWorkS_list .literaryWorkS_table th, #literaryWorkS_list .literaryWorkS_table td {
+    font-size: 20px;
   }
 
   .literaryWorkS_table .literaryWorkS_title{
