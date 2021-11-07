@@ -100,6 +100,10 @@
   height: 60px;
 }
 
+#loanF_dates label{
+  min-width: 260px !important;
+}
+
 #loanF_input{
   margin-top: 22px;
   gap: 32px;
@@ -150,7 +154,7 @@
   }
 
   #loanF_dates{
-    margin-bottom: 82px;
+    margin-bottom: 22px;
   }
 
   #loanF_input .loanF_confirm{
@@ -201,10 +205,14 @@
       font-size: 32px;
     }
 
+    #loanF_list input, #loanF_list select{
+      padding: 0 ;
+      min-width: 250px ;
+    }
+
     #loanF_input{
       flex-direction: column;
       gap: 10px;
-
     }
 
     #loanF_input .loanF_confirm{

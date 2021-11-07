@@ -160,10 +160,8 @@ function LoansForm(props) {
                   <input type="text" name="employee" disabled value={employee} onChange={e => setEmployee(e.target.value)} id="loanF_employee" placeholder="Selecione o funcionário" />
                 </div>
                 <div id="loanF_dates">
-                  <label className="loanF_loanDate" for="loanDate">Data de empréstimo:</label>
-                  <input type="date" disabled name="loanDate" value={loanDate} onChange={e => setLoanDate(e.target.value)} id="loanF_loanDate" />
-                  <label className="loanF_returnDate" for="returnDate">Data de devolução:</label>
-                  <input type="date" disabled name="returnDate" value={returnDate} onChange={e => setReturnDate(e.target.value)} id="loanF_returnDate" />
+                  <label for="loanDate">Data de empréstimo:</label>
+                  <input type="date"  name="loanDate" value={loanDate} onChange={e => setLoanDate(e.target.value)} id="loanF_loanDate" />
                 </div>
               </fieldset>
               <div id="loanF_input">
