@@ -27,7 +27,7 @@ module.exports = app => {
           cpf: removeDots(req.body.cpf),
           pass: password,
           birthDate: req.body.birthDate,
-          regDate: getDateNow(),
+          regDate: getDateNow('i'),
           employees_id: req.user.id, //id automatico
         })
         .then(_ => res.status(204).send())

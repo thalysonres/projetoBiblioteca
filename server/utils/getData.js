@@ -73,7 +73,7 @@ module.exports = {
             diaEntregar = diaEntregar * -1
         }
         
-        return `${ano}/${mesEntregar}/${diaEntregar}`
+        return `${ano}-${mesEntregar}-${diaEntregar}`
     }
 
     // return { getDateNow, devolver }
