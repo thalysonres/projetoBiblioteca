@@ -155,14 +155,14 @@ function LoansForm(props) {
                     }) }
                   </select>
                 </div>
-                <div>
+                {/* <div>
                   <label for="employee">Funcionário:</label>
                   <input type="text" name="employee" disabled value={employee} onChange={e => setEmployee(e.target.value)} id="loanF_employee" placeholder="Selecione o funcionário" />
-                </div>
-                <div id="loanF_dates">
+                </div> */}
+                {/* <div id="loanF_dates">
                   <label for="loanDate">Data de empréstimo:</label>
                   <input type="date"  name="loanDate" value={loanDate} onChange={e => setLoanDate(e.target.value)} id="loanF_loanDate" />
-                </div>
+                </div> */}
               </fieldset>
               <div id="loanF_input">
                 <input className="loanF_confirm" type="submit" value={!params ? "Cadastrar" : "Atualizar"} onClick={e => cadastrar(e)} />
