@@ -1,7 +1,7 @@
 #createLiteraryI{
-  width: 947px;
+  width: auto;
   height: 114px;
-  margin: 31px auto;
+  margin: 31px 50px;
   background-color: rgba(0, 212, 212, 0.95);
   display: flex;
   align-items: center;  
@@ -39,22 +39,19 @@
 
 #createLiteraryI #new_button button{
   width: 70px;
-  height: 70px ;
+  height: 70px;
   border-radius:35px;
-  text-decoration: none;
   border: none;
-  box-shadow: 2px 3px 10px #000000;
-  background: #00D4AE;
   color: #000000;
+  background: #00D4AE;
+  box-shadow: 2px 3px 10px #000000;
   display: flex;  
   align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 #literaryWorkI_list{
-  width: 947px;
-  margin: 31px auto 51px auto;
+  margin: 51px 50px;
   padding-bottom: 15px;
   background-color: rgba(0, 212, 212, 0.75);
   display: flex;  
@@ -63,28 +60,23 @@
 }
 
 #literaryWorkI_list h2{
+  padding: 0 10px;
   font-size: 39px;
   line-height: 46px;
-  display: flex;  
-  align-items: center;
-  justify-content: center;
-   padding-left: 50px; /*tirar depois*/
+  text-align: center;
 }
 
 #literaryWorkI_list table{
-  width: 878px;
+  width: stretch;
   height: 47px;
   font-size: 26px;
   line-height: 30px;
-  margin: 24px;
+  margin: 51px 50px;
+  border-collapse: collapse;
 }
 
 #literaryWorkI_list .literaryWorkI_title{
   background: #D2D2D2;
-}
-
-#literaryWorkI_list .literaryWorkI_title .capa{
-  width: 200px;
 }
 
 #literaryWorkI_list .literaryWorkI_list{
@@ -92,6 +84,107 @@
   text-align: center;
 }
 
+#literaryWorkI_list .literaryWorkI_title .capa{
+  width: 200px;
+}
+
 .img-livro-info{
   width: 200px;
+}
+
+@media screen and (max-width: 1140px){
+  #createLiteraryI #new span{
+    width: 200px;
+  }
+
+  #createLiteraryI #new img{
+    width: 110px;
+  }
+
+  #literaryWorkI_list .literaryWorkI_title .capa{
+    width: 180px;
+  }
+  
+  .img-livro-info{
+    width: 180px;
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 1000px){ 
+    #literaryWorkI_list h2{
+      font-size: 34px;
+    }
+
+    #literaryWorkI_list table{
+    font-size: 23px;
+    }
+
+    #literaryWorkI_list .literaryWorkI_title .capa{
+      width: 170px;
+    }
+    
+    .img-livro-info{
+      width: 170px;
+    }
+  }
+
+  @media screen and (max-width: 720px){
+    #literaryWorkIContainer{
+      min-width: 480px;
+      max-width: stretch;
+    }
+
+    #createLiteraryI #new{
+      width: auto;
+    }
+
+    #createLiteraryI #new span{
+      display: none;
+    }
+  
+    #createLiteraryI #new img{
+      width: 90px;
+    }
+
+    #literaryWorkI_list h2{
+      font-size: 30px;
+      margin: 24px auto;
+    }
+    
+    #literaryWorkI_list table{
+      font-size: 20px;
+      margin: 51px auto !important;
+      }
+  
+    #literaryWorkI_list .literaryWorkI_title .capa{
+      width: 100px;
+    }
+    
+    .img-livro-info{
+      width: 100px;
+    }
+
+    @media screen and (max-width: 600px){
+      #literaryWorkI_list .literaryWorkI_title .capa{
+        display: none;
+      }
+      
+      .img-livro-info{
+        display: none;
+      }
+
+      #literaryWorkI_list .literaryWorkI_title th{
+        width: 100% !important;
+      }
+
+      #literaryWorkI_list h2{
+        font-size: 25px;
+        margin: 24px auto !important;
+      }
+      
+      #literaryWorkI_list table{
+        font-size: 16px;
+        margin: 51px auto !important;
+      }
+    }
+  }
 }
